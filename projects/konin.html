@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ShiosaiLearn — 高認パス</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Noto+Sans+JP:wght@200;300;400;500;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F2EDE4;
+    --navy: #2D516E;
+    --mizu: #7AA5B8;
+    --ink: #1A1A1A;
+    --mustard: #D4A535;
+    --burnt: #C9532E;
+    --olive: #6B7F4A;
+    --coral: #E08775;
+    --grey: #666;
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; padding:0; background:var(--cream); font-family:Inter,'Noto Sans JP',sans-serif; color:var(--ink); }
+  a { text-decoration:none; color:inherit; }
+
+  /* ============= HEADER ============= */
+  .header {
+    padding:24px 50px;
+    display:flex; align-items:center; justify-content:space-between;
+    background:var(--cream);
+    position:relative; z-index:5;
+  }
+  .logo-lockup { display:flex; align-items:center; gap:14px; }
+  .logo-lockup .wordmark { color:var(--navy); font-family:Inter; font-weight:400; letter-spacing:0.18em; font-size:18px; }
+  .header-meta { display:flex; align-items:center; gap:24px; }
+  .header-coords { font-family:'JetBrains Mono', monospace; font-size:10px; color:var(--grey); letter-spacing:0.05em; }
+  .nav { display:flex; gap:8px; }
+  .nav a { color:var(--navy); font-size:11px; letter-spacing:0.15em; text-transform:uppercase; font-weight:600; padding:8px 18px; border:1.5px solid transparent; border-radius:999px; }
+  .nav a.current { border-color:var(--navy); }
+  .nav a:hover { border-color:var(--navy); }
+
+  /* ============= BREADCRUMB ============= */
+  .breadcrumb {
+    padding:20px 50px 0;
+    background:var(--cream);
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px; letter-spacing:0.1em;
+    color:var(--grey); text-transform:uppercase;
+  }
+  .breadcrumb a { color:var(--grey); }
+  .breadcrumb .sep { margin:0 8px; opacity:0.5; }
+  .breadcrumb .current { color:var(--navy); }
+
+  /* ============= HERO ============= */
+  .hero {
+    padding:60px 50px 100px;
+    background:var(--cream);
+    position:relative;
+    overflow:hidden;
+  }
+  .h-tag {
+    display:inline-flex; align-items:center; gap:10px;
+    padding:8px 16px;
+    background:var(--mustard);
+    color:var(--ink);
+    font-size:11px; letter-spacing:0.2em; text-transform:uppercase; font-weight:700;
+    border-radius:999px;
+  }
+  .h-tag::before { content:''; width:8px; height:8px; border-radius:50%; background:var(--burnt); }
+
+  .h-headline {
+    font-family:Inter,'Noto Sans JP'; font-weight:500;
+    font-size:120px; line-height:1.0;
+    margin:30px 0 30px 0;
+    letter-spacing:-0.04em;
+    max-width:1100px;
+    color:var(--navy);
+  }
+  .h-headline em { font-style:normal; color:var(--burnt); }
+
+  .h-body {
+    font-size:16px; line-height:1.85; color:var(--ink); max-width:560px;
+    word-break:auto-phrase; line-break:strict; overflow-wrap:break-word;
+    margin-top:30px;
+  }
+
+  .h-cta-row {
+    margin:50px 0 0 0;
+    display:flex; gap:14px; flex-wrap:wrap; align-items:center;
+  }
+  .h-cta-primary {
+    display:inline-flex; align-items:center; gap:10px;
+    padding:18px 32px;
+    background:var(--burnt);
+    color:var(--cream);
+    font-size:12px; letter-spacing:0.2em; text-transform:uppercase; font-weight:700;
+    border-radius:999px;
+  }
+  .h-cta-secondary {
+    display:inline-flex; align-items:center; gap:10px;
+    padding:18px 28px;
+    background:transparent;
+    color:var(--navy);
+    border:1.5px solid var(--navy);
+    font-size:11px; letter-spacing:0.2em; text-transform:uppercase; font-weight:600;
+    border-radius:999px;
+  }
+  .h-cta-info {
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px; letter-spacing:0.1em; color:var(--grey);
+    text-transform:uppercase;
+  }
+
+  .h-deco-1 { position:absolute; top:120px; right:120px; width:60px; height:60px; border-radius:50%; background:var(--mustard); }
+  .h-deco-2 { position:absolute; top:200px; right:60px; width:24px; height:24px; background:var(--olive); transform:rotate(45deg); }
+  .h-deco-3 { position:absolute; bottom:80px; right:200px; width:90px; height:90px; border-radius:50%; border:3px solid var(--mizu); }
+  .h-star { position:absolute; top:380px; right:140px; }
+
+  /* ============= 3 PROBLEMS ============= */
+  .problems-section {
+    padding:80px 50px 120px;
+    background:var(--cream);
+    position:relative;
+  }
+  .section-tag-row {
+    display:flex; align-items:center; justify-content:space-between;
+    margin-bottom:60px;
+    position:relative;
+  }
+  .section-tag-row::after {
+    content:''; position:absolute; bottom:-30px; left:0; right:0; height:1px;
+    background:repeating-linear-gradient(to right, var(--navy) 0 6px, transparent 6px 14px);
+    opacity:0.3;
+  }
+  .section-tag { font-size:13px; letter-spacing:0.2em; text-transform:uppercase; color:var(--navy); font-weight:700; display:flex; align-items:center; gap:12px; }
+  .section-tag .dot { display:inline-block; width:14px; height:14px; border-radius:50%; }
+  .section-count { font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:0.1em; color:var(--grey); }
+
+  .section-intro {
+    font-size:18px; line-height:1.85; max-width:680px; margin:60px 0;
+    color:var(--ink);
+    word-break:auto-phrase; line-break:strict; overflow-wrap:break-word;
+  }
+  .section-intro em { font-style:normal; color:var(--burnt); font-weight:500; }
+
+  .problems-grid {
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:0;
+    margin-top:60px;
+    border-top:2px solid var(--navy);
+  }
+  .problem-card {
+    padding:50px 36px;
+    border-right:1px solid rgba(45,81,110,0.2);
+    border-bottom:2px solid var(--navy);
+    background:var(--cream);
+    position:relative;
+    min-height:280px;
+    display:flex; flex-direction:column;
+  }
+  .problem-card:last-child { border-right:none; }
+  .problem-card .num-badge {
+    display:inline-flex; align-items:center; justify-content:center;
+    width:54px; height:54px; border-radius:50%;
+    color:var(--cream);
+    font-family:Inter; font-weight:700; font-size:18px;
+    margin-bottom:24px;
+  }
+  .problem-1 .num-badge { background:var(--burnt); }
+  .problem-2 .num-badge { background:var(--coral); color:var(--ink); }
+  .problem-3 .num-badge { background:var(--mustard); color:var(--ink); }
+
+  .problem-card .title {
+    font-family:Inter,'Noto Sans JP'; font-weight:500;
+    font-size:24px; color:var(--navy);
+    line-height:1.4; margin-bottom:16px;
+    letter-spacing:-0.005em;
+  }
+  .problem-card .desc {
+    font-size:14px; line-height:1.8;
+    color:var(--ink); margin-bottom:auto;
+    word-break:auto-phrase; line-break:strict; overflow-wrap:break-word;
+  }
+  .problem-card .marker {
+    margin-top:24px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px; letter-spacing:0.15em;
+    color:var(--grey); text-transform:uppercase;
+  }
+
+  /* ============= LANGUAGE TABLE ============= */
+  .language-section {
+    padding:120px 50px;
+    background:var(--navy); color:var(--cream);
+    position:relative; overflow:hidden;
+  }
+  .language-tag {
+    display:inline-flex; align-items:center; gap:8px;
+    padding:8px 16px;
+    background:var(--mustard);
+    color:var(--ink);
+    font-size:11px; letter-spacing:0.2em; text-transform:uppercase; font-weight:700;
+    border-radius:999px;
+  }
+  .language-tag::before { content:''; width:8px; height:8px; border-radius:50%; background:var(--burnt); }
+  .language-heading {
+    font-family:Inter,'Noto Sans JP'; font-weight:400;
+    font-size:60px; line-height:1.2;
+    margin:30px 0 80px 0;
+    letter-spacing:-0.02em;
+    max-width:900px;
+  }
+  .language-heading em { font-style:normal; color:var(--mustard); font-weight:500; }
+  .lang-table {
+    display:grid; grid-template-columns: 1fr 1fr; gap:0;
+    border-top:1px solid rgba(242,237,228,0.2);
+  }
+  .lang-col {
+    padding:50px 40px;
+    border-right:1px solid rgba(242,237,228,0.2);
+    border-bottom:1px solid rgba(242,237,228,0.2);
+  }
+  .lang-col:last-child { border-right:none; }
+  .lang-col-head {
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px; letter-spacing:0.18em;
+    margin-bottom:30px;
+  }
+  .lang-col-head.no { color:var(--coral); }
+  .lang-col-head.yes { color:var(--mustard); }
+  .lang-list { display:flex; flex-direction:column; gap:18px; }
+  .lang-word {
+    font-family:'Noto Sans JP', Inter; font-weight:300;
+    font-size:24px; letter-spacing:-0.01em;
+    line-height:1.4;
+  }
+  .lang-word.no { color:var(--coral); text-decoration:line-through; text-decoration-thickness:2px; opacity:0.85; }
+  .lang-word.yes { color:var(--cream); }
+  .language-orbit { position:absolute; top:60px; right:50px; opacity:0.4; }
+
+  /* ============= TWO LAYERS ============= */
+  .layers-section { padding:120px 50px; background:var(--cream); position:relative; }
+  .layers-grid {
+    display:grid; grid-template-columns: 1.2fr 1fr; gap:0; margin-top:60px;
+    border:2px solid var(--navy);
+  }
+  .layer {
+    padding:60px 50px;
+    border-right:2px solid var(--navy);
+    display:flex; flex-direction:column;
+    min-height:380px;
+  }
+  .layer:last-child { border-right:none; }
+  .layer-1 { background:var(--mizu); color:var(--ink); }
+  .layer-2 { background:var(--mustard); color:var(--ink); }
+  .layer .price {
+    font-family:Inter; font-weight:200; font-size:64px; line-height:1;
+    letter-spacing:-0.04em; margin-bottom:8px;
+  }
+  .layer .label {
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px; letter-spacing:0.2em; text-transform:uppercase;
+    margin-bottom:20px; opacity:0.85;
+  }
+  .layer .name {
+    font-family:Inter,'Noto Sans JP'; font-weight:500;
+    font-size:32px; letter-spacing:-0.01em; margin-bottom:14px;
+  }
+  .layer .desc { font-size:14px; line-height:1.85; margin-bottom:24px; max-width:380px; word-break:auto-phrase; line-break:strict; }
+  .layer .points { display:flex; flex-direction:column; gap:8px; margin-top:auto; }
+  .layer .point { display:flex; align-items:flex-start; gap:10px; font-size:13px; line-height:1.7; }
+  .layer .point::before { content:''; flex-shrink:0; width:8px; height:8px; border-radius:50%; background:currentColor; margin-top:8px; opacity:0.7; }
+
+  /* ============= SCORE FORMULA ============= */
+  .formula-section { padding:120px 50px; background:var(--cream); position:relative; }
+  .formula-grid { display:grid; grid-template-columns: 1.2fr 1fr; gap:80px; margin-top:60px; align-items:center; }
+  .formula-text h3 {
+    font-family:Inter,'Noto Sans JP'; font-weight:500;
+    font-size:42px; line-height:1.25; color:var(--navy);
+    margin:0 0 24px 0; letter-spacing:-0.01em;
+  }
+  .formula-text p { font-size:14px; line-height:1.85; color:var(--ink); max-width:480px; word-break:auto-phrase; line-break:strict; margin:0 0 14px 0; }
+  .formula-block {
+    background:var(--navy); color:var(--cream);
+    padding:50px 40px;
+    font-family:'JetBrains Mono', monospace;
+    line-height:1.8;
+    border-radius:8px;
+    position:relative;
+  }
+  .formula-block .label { font-size:10px; letter-spacing:0.2em; opacity:0.7; margin-bottom:20px; }
+  .formula-block .eq { font-size:18px; color:var(--mustard); margin-bottom:20px; }
+  .formula-block .weights { display:flex; flex-direction:column; gap:6px; font-size:13px; }
+  .formula-block .weight-row { display:flex; justify-content:space-between; opacity:0.95; }
+  .formula-block .weight-row .when { opacity:0.7; }
+  .formula-block .weight-row .val { color:var(--mustard); }
+
+  /* ============= SUBJECTS GRID ============= */
+  .subjects-section { padding:120px 50px; background:var(--cream); position:relative; }
+  .subjects-grid {
+    display:grid; grid-template-columns: repeat(4, 1fr); gap:0;
+    margin-top:60px; border-top:2px solid var(--navy);
+  }
+  .subject {
+    padding:30px 24px;
+    border-right:1px solid rgba(45,81,110,0.2);
+    border-bottom:1px solid rgba(45,81,110,0.2);
+    display:flex; flex-direction:column; gap:8px;
+  }
+  .subject:nth-child(4n) { border-right:none; }
+  .subject .num { font-family:'JetBrains Mono', monospace; font-size:10px; color:var(--grey); letter-spacing:0.1em; }
+  .subject .name { font-family:Inter,'Noto Sans JP'; font-weight:500; font-size:20px; color:var(--navy); letter-spacing:-0.005em; }
+  .subject .status { font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:0.15em; }
+  .subject .status.ready { color:var(--olive); }
+  .subject .status.partial { color:var(--mustard); }
+  .subject .status.soon { color:var(--coral); }
+
+  /* ============= ROADMAP ============= */
+  .roadmap-section { padding:120px 50px; background:var(--navy); color:var(--cream); position:relative; overflow:hidden; }
+  .roadmap-tag {
+    display:inline-flex; align-items:center; gap:8px;
+    padding:8px 16px;
+    background:var(--mustard);
+    color:var(--ink);
+    font-size:11px; letter-spacing:0.2em; text-transform:uppercase; font-weight:700;
+    border-radius:999px;
+  }
+  .roadmap-tag::before { content:''; width:8px; height:8px; border-radius:50%; background:var(--burnt); }
+  .roadmap-heading { font-family:Inter,'Noto Sans JP'; font-weight:400; font-size:54px; line-height:1.2; margin:30px 0 60px 0; letter-spacing:-0.02em; }
+  .roadmap-heading em { font-style:normal; color:var(--mustard); font-weight:500; }
+  .phase-list {
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:0;
+    border-top:1px solid rgba(242,237,228,0.2);
+  }
+  .phase {
+    padding:50px 36px;
+    border-right:1px solid rgba(242,237,228,0.2);
+    border-bottom:1px solid rgba(242,237,228,0.2);
+    display:flex; flex-direction:column;
+    min-height:280px;
+  }
+  .phase:last-child { border-right:none; }
+  .phase .pnum {
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px; letter-spacing:0.18em; color:var(--mustard);
+    margin-bottom:14px;
+  }
+  .phase .pname { font-family:Inter,'Noto Sans JP'; font-weight:500; font-size:28px; color:var(--cream); margin-bottom:18px; letter-spacing:-0.01em; }
+  .phase .pdesc { font-size:13px; line-height:1.85; opacity:0.85; max-width:280px; word-break:auto-phrase; line-break:strict; margin-bottom:24px; }
+  .phase .pstatus {
+    margin-top:auto;
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px; letter-spacing:0.15em;
+  }
+  .phase .pstatus.now { color:var(--mustard); }
+  .phase .pstatus.next { color:var(--mizu); }
+  .phase .pstatus.future { color:rgba(242,237,228,0.5); }
+
+  /* ============= DESIGN DOC + CTA ============= */
+  .doc-section { padding:120px 60px; background:var(--burnt); color:var(--cream); position:relative; overflow:hidden; }
+  .doc-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; margin-top:50px; }
+  .doc-left .heading {
+    font-family:Inter,'Noto Sans JP'; font-weight:400;
+    font-size:54px; line-height:1.2;
+    color:var(--cream); letter-spacing:-0.02em; margin:0 0 24px 0;
+  }
+  .doc-left .heading em { font-style:normal; color:var(--mustard); font-weight:500; }
+  .doc-left p { font-size:15px; line-height:1.85; max-width:440px; word-break:auto-phrase; line-break:strict; margin:0 0 14px 0; }
+  .doc-card {
+    background:rgba(242,237,228,0.1);
+    border:1px solid rgba(242,237,228,0.25);
+    padding:40px 36px;
+  }
+  .doc-card .doc-tag { font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:0.15em; color:var(--mustard); text-transform:uppercase; margin-bottom:14px; }
+  .doc-card .doc-title { font-family:Inter,'Noto Sans JP'; font-weight:500; font-size:24px; color:var(--cream); margin-bottom:14px; letter-spacing:-0.005em; }
+  .doc-card .doc-desc { font-size:13px; line-height:1.75; color:var(--cream); opacity:0.85; margin-bottom:28px; }
+  .doc-card .doc-button {
+    display:inline-flex; align-items:center; gap:10px;
+    padding:14px 24px;
+    background:var(--mustard); color:var(--ink);
+    font-size:11px; letter-spacing:0.2em; text-transform:uppercase; font-weight:700;
+    border-radius:999px;
+  }
+  .doc-card .doc-meta { margin-top:18px; font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:0.1em; color:rgba(242,237,228,0.5); }
+
+  /* ============= FINAL CTA ============= */
+  .cta-section { padding:140px 60px; background:var(--mustard); color:var(--ink); position:relative; overflow:hidden; }
+  .cta-tag {
+    display:inline-flex; align-items:center; gap:8px;
+    padding:8px 16px;
+    background:var(--navy);
+    color:var(--cream);
+    font-size:11px; letter-spacing:0.2em; text-transform:uppercase; font-weight:700;
+    border-radius:999px;
+  }
+  .cta-tag::before { content:''; width:8px; height:8px; border-radius:50%; background:var(--mustard); }
+  .cta-heading { font-family:Inter,'Noto Sans JP'; font-weight:500; font-size:96px; line-height:1.0; margin:30px 0 40px 0; letter-spacing:-0.04em; max-width:900px; color:var(--ink); }
+  .cta-heading em { font-style:normal; color:var(--burnt); }
+  .cta-body { font-size:16px; line-height:1.85; max-width:560px; margin-bottom:40px; word-break:auto-phrase; line-break:strict; }
+  .cta-row { display:flex; gap:14px; flex-wrap:wrap; align-items:center; }
+  .cta-primary {
+    display:inline-flex; align-items:center; gap:10px;
+    padding:20px 36px;
+    background:var(--burnt); color:var(--cream);
+    font-size:13px; letter-spacing:0.2em; text-transform:uppercase; font-weight:700;
+    border-radius:999px;
+  }
+  .cta-secondary {
+    display:inline-flex; align-items:center; gap:10px;
+    padding:20px 32px;
+    background:transparent; color:var(--ink);
+    border:1.5px solid var(--ink);
+    font-size:11px; letter-spacing:0.2em; text-transform:uppercase; font-weight:600;
+    border-radius:999px;
+  }
+  .cta-info { margin-top:30px; font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:0.1em; opacity:0.7; }
+  .cta-orbit { position:absolute; top:60px; right:60px; opacity:0.4; }
+  .cta-star { position:absolute; bottom:80px; right:160px; }
+
+  /* ============= FOOTER ============= */
+  .footer { padding:80px 60px 40px; background:var(--navy); color:var(--cream); position:relative; border-top:1px solid rgba(242,237,228,0.15); }
+  .footer .f-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:60px; padding-bottom:60px; }
+  .footer .f-logo svg { display:block; margin-bottom:20px; }
+  .footer .f-logo .wm { font-family:Inter; font-weight:500; font-size:18px; letter-spacing:0.18em; color:var(--cream); }
+  .footer .f-tagline { font-size:12px; line-height:1.7; max-width:280px; opacity:0.7; margin-top:20px; }
+  .footer .f-col h4 { font-size:10px; letter-spacing:0.25em; text-transform:uppercase; font-weight:700; margin:0 0 18px 0; color:var(--mustard); }
+  .footer .f-col a { font-size:12px; line-height:2; opacity:0.85; display:block; }
+  .footer .f-divider { height:1px; background:var(--cream); opacity:0.15; margin:30px 0 24px 0; }
+  .footer .f-bottom { display:flex; justify-content:space-between; align-items:flex-end; font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:0.05em; opacity:0.6; }
+</style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="header">
+    <a class="logo-lockup" href="../index.html">
+      <svg viewBox="0 0 100 80" width="36" height="29">
+        <g fill="none" stroke="#2D516E" stroke-width="4" stroke-linecap="round">
+          <path d="M 25 25 Q 40 17, 55 25 T 75 25"/>
+          <path d="M 18 40 Q 36 32, 53 40 T 82 40"/>
+          <path d="M 10 55 Q 30 47, 50 55 T 80 55 T 90 55"/>
+        </g>
+      </svg>
+      <div class="wordmark">SHIOSAILEARN</div>
+    </a>
+    <div class="header-meta">
+      <div class="header-coords">N 35°41' · E 139°41'</div>
+      <nav class="nav">
+        <a class="current" href="../index.html#projects">Projects</a>
+        <a href="../about.html">About</a>
+        <a href="../support.html">Support</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a href="../index.html">HOME</a><span class="sep">/</span><a href="../index.html#projects">PROJECTS</a><span class="sep">/</span><span class="current">高認パス</span>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="h-tag">PROJECT 01 — 高認パス</div>
+
+    <div class="h-deco-1"></div>
+    <div class="h-deco-2"></div>
+    <div class="h-deco-3"></div>
+    <svg class="h-star" width="32" height="32" viewBox="0 0 32 32">
+      <path d="M16 0 L18 14 L32 16 L18 18 L16 32 L14 18 L0 16 L14 14 Z" fill="#D4A535"/>
+    </svg>
+
+    <h1 class="h-headline">高認取るなら、<br><em>楽したい。</em></h1>
+
+    <div class="h-body">
+      高卒認定試験の過去問を、競争なく、評価なく、淡々と整理して提示するWebツール。励ましません。判定しません。情報を渡すだけです。
+    </div>
+
+    <div class="h-cta-row">
+      <a class="h-cta-primary"><span>OPEN TOOL</span><span>→</span></a>
+      <a class="h-cta-secondary"><span>GitHubで見る</span></a>
+      <span class="h-cta-info">FREE · WEB · BETA</span>
+    </div>
+  </section>
+
+  <!-- 3 PROBLEMS -->
+  <section class="problems-section">
+    <div class="section-tag-row">
+      <div class="section-tag"><span class="dot" style="background:var(--burnt);"></span>The Problems</div>
+      <div class="section-count">[ 03 ISSUES ADDRESSED ]</div>
+    </div>
+
+    <p class="section-intro">既存の高認関連サービスには、<em>3つの問題</em>がありました。</p>
+
+    <div class="problems-grid">
+      <div class="problem-card problem-1">
+        <div class="num-badge">01</div>
+        <div class="title">情報が、<br>散らばっている</div>
+        <div class="desc">文科省のページ、塾のサイト、参考書。何の科目をどう勉強すればいいか把握するだけで時間がかかる。</div>
+        <div class="marker">— SCATTERED</div>
+      </div>
+      <div class="problem-card problem-2">
+        <div class="num-badge">02</div>
+        <div class="title">頻出分析が、<br>有料の壁の向こう</div>
+        <div class="desc">どの単元が出やすいかという情報は、ペイウォールの向こうにあるか、そもそも公開されていない。</div>
+        <div class="marker">— PAYWALLED</div>
+      </div>
+      <div class="problem-card problem-3">
+        <div class="num-badge">03</div>
+        <div class="title">演習が、<br>塾を前提にしている</div>
+        <div class="desc">演習問題の選択肢はほぼ塾や家庭教師ありき。自宅で自律的に取り組めるサービスがない。</div>
+        <div class="marker">— TUTOR-DEPENDENT</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LANGUAGE TABLE -->
+  <section class="language-section">
+    <svg class="language-orbit" width="240" height="100" viewBox="0 0 240 100">
+      <ellipse cx="120" cy="50" rx="116" ry="30" fill="none" stroke="#D4A535" stroke-width="1.5" stroke-dasharray="3 4"/>
+      <circle cx="6" cy="50" r="6" fill="#D4A535"/>
+      <circle cx="234" cy="50" r="4" fill="#7AA5B8"/>
+    </svg>
+
+    <div class="language-tag">VOCABULARY</div>
+    <h2 class="language-heading">使う言葉、<em>使わない言葉。</em></h2>
+
+    <div class="lang-table">
+      <div class="lang-col">
+        <div class="lang-col-head no">— DON'T USE</div>
+        <div class="lang-list">
+          <div class="lang-word no">合格を勝ち取ろう</div>
+          <div class="lang-word no">差をつけよう</div>
+          <div class="lang-word no">最短で逆転</div>
+          <div class="lang-word no">今すぐ始めないと危険</div>
+          <div class="lang-word no">遅れている</div>
+          <div class="lang-word no">あなたはまだ</div>
+        </div>
+      </div>
+      <div class="lang-col">
+        <div class="lang-col-head yes">— USE</div>
+        <div class="lang-list">
+          <div class="lang-word yes">よく出る単元</div>
+          <div class="lang-word yes">集計対象</div>
+          <div class="lang-word yes">出現回数 / 出現率</div>
+          <div class="lang-word yes">表示条件を変える</div>
+          <div class="lang-word yes">公開済みデータを集計している</div>
+          <div class="lang-word yes">直近の出現</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TWO LAYERS -->
+  <section class="layers-section">
+    <div class="section-tag-row">
+      <div class="section-tag"><span class="dot" style="background:var(--mizu);"></span>Two Layers</div>
+      <div class="section-count">[ FREE + PAID ]</div>
+    </div>
+
+    <p class="section-intro"><em>無料層</em>と、<em>有料層。</em>導線は自然に。</p>
+
+    <div class="layers-grid">
+      <div class="layer layer-1">
+        <div class="label">FREE LAYER</div>
+        <div class="price">¥0</div>
+        <div class="name">頻出分析 + 情報整理</div>
+        <div class="desc">公開済み過去問のメタデータを集計。科目別・単元別・出題形式別の頻出傾向を可視化します。集計式とタグ定義は公開しています。</div>
+        <div class="points">
+          <div class="point">PDFアップロード（ブラウザ内処理）</div>
+          <div class="point">よく出る単元ランキング</div>
+          <div class="point">出題形式・年度推移の可視化</div>
+          <div class="point">出願Todoリスト・ルート比較・免除確認</div>
+        </div>
+      </div>
+      <div class="layer layer-2">
+        <div class="label">PAID LAYER · COMING</div>
+        <div class="price">¥500-980<span style="font-size:14px;letter-spacing:0.05em;"> / mo</span></div>
+        <div class="name">オリジナル問題演習</div>
+        <div class="desc">頻出単元に対応した独自制作の演習問題。問題本文の再配布はせず、完全オリジナル。数学・歴史地理・英語から順次。</div>
+        <div class="points">
+          <div class="point">頻出単元と直接対応した問題セット</div>
+          <div class="point">苦手分野チェック</div>
+          <div class="point">月額500-980円（個人）</div>
+          <div class="point">法人・通信制高校向けライセンスあり</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCORE FORMULA -->
+  <section class="formula-section">
+    <div class="section-tag-row">
+      <div class="section-tag"><span class="dot" style="background:var(--olive);"></span>How It Works</div>
+      <div class="section-count">[ TRANSPARENT FORMULA ]</div>
+    </div>
+
+    <div class="formula-grid">
+      <div class="formula-text">
+        <h3>頻出度の計算式は、<br>公開しています。</h3>
+        <p>近年の出題ほど重みを大きくした、重み付き合計で算出します。重みは固定値です。最新回が1.0、それ以前は段階的に減衰します。</p>
+        <p>集計対象とタグ定義もすべて公開。検証可能であることが、透明性です。</p>
+      </div>
+      <div class="formula-block">
+        <div class="label">— RECENT WEIGHTED SCORE</div>
+        <div class="eq">∑(出現回数 × session_weight)</div>
+        <div class="weights">
+          <div class="weight-row"><span class="when">最新回</span><span class="val">× 1.0</span></div>
+          <div class="weight-row"><span class="when">1回前</span><span class="val">× 0.8</span></div>
+          <div class="weight-row"><span class="when">2回前</span><span class="val">× 0.6</span></div>
+          <div class="weight-row"><span class="when">3回前</span><span class="val">× 0.4</span></div>
+          <div class="weight-row"><span class="when">それ以前</span><span class="val">× 0.2</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUBJECTS GRID -->
+  <section class="subjects-section">
+    <div class="section-tag-row">
+      <div class="section-tag"><span class="dot" style="background:var(--coral);"></span>Subjects</div>
+      <div class="section-count">[ 12 SUBJECTS · 11 LIVE + 1 SOON ]</div>
+    </div>
+
+    <p class="section-intro">対象科目は<em>12科目。</em>制度区分（新課程/旧課程）も明示します。</p>
+
+    <div class="subjects-grid">
+      <div class="subject"><div class="num">01</div><div class="name">国語</div><div class="status partial">— STRUCTURE READY</div></div>
+      <div class="subject"><div class="num">02</div><div class="name">数学</div><div class="status ready">— ANALYSIS LIVE</div></div>
+      <div class="subject"><div class="num">03</div><div class="name">英語</div><div class="status ready">— ANALYSIS LIVE</div></div>
+      <div class="subject"><div class="num">04</div><div class="name">歴史</div><div class="status partial">— STRUCTURE READY</div></div>
+      <div class="subject"><div class="num">05</div><div class="name">地理</div><div class="status partial">— STRUCTURE READY</div></div>
+      <div class="subject"><div class="num">06</div><div class="name">公民</div><div class="status partial">— STRUCTURE READY</div></div>
+      <div class="subject"><div class="num">07</div><div class="name">科学と人間生活</div><div class="status partial">— STRUCTURE READY</div></div>
+      <div class="subject"><div class="num">08</div><div class="name">物理基礎</div><div class="status partial">— STRUCTURE READY</div></div>
+      <div class="subject"><div class="num">09</div><div class="name">化学基礎</div><div class="status partial">— STRUCTURE READY</div></div>
+      <div class="subject"><div class="num">10</div><div class="name">生物基礎</div><div class="status partial">— STRUCTURE READY</div></div>
+      <div class="subject"><div class="num">11</div><div class="name">地学基礎</div><div class="status partial">— STRUCTURE READY</div></div>
+      <div class="subject"><div class="num">12</div><div class="name">情報</div><div class="status soon">— FROM 2026 R8</div></div>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section class="roadmap-section">
+    <div class="roadmap-tag">ROADMAP</div>
+    <h2 class="roadmap-heading">3つの<em>Phase。</em></h2>
+
+    <div class="phase-list">
+      <div class="phase">
+        <div class="pnum">— PHASE 01</div>
+        <div class="pname">無料層を公開</div>
+        <div class="pdesc">情報整理ページ、科目別頻出分析、年度推移、タグ定義、更新履歴。</div>
+        <div class="pstatus now">[ NOW ]</div>
+      </div>
+      <div class="phase">
+        <div class="pnum">— PHASE 02</div>
+        <div class="pname">数学の演習を先行</div>
+        <div class="pdesc">フィルタ保存、表示密度切替、印刷向けレイアウト。数学のオリジナル問題演習を先行リリース。</div>
+        <div class="pstatus next">[ NEXT ]</div>
+      </div>
+      <div class="phase">
+        <div class="pnum">— PHASE 03</div>
+        <div class="pname">残り科目と法人向け</div>
+        <div class="pdesc">歴史地理・英語の演習を追加。法人ビュー、科目横断比較、データライセンス。</div>
+        <div class="pstatus future">[ FUTURE ]</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESIGN DOC -->
+  <section class="doc-section">
+    <div class="language-tag" style="background:var(--mustard);">DESIGN DOC</div>
+    <div class="doc-grid">
+      <div class="doc-left">
+        <h2 class="heading">設計の根拠を、<br><em>言語化しました。</em></h2>
+        <p>判断のときに迷ったら、ここに戻ります。仕様が変わっても、この文書の内容は変わりません。</p>
+        <p>設計思想書 v1.0 は11セクション、約3,700字。</p>
+      </div>
+      <div class="doc-card">
+        <div class="doc-tag">— DESIGN DOC v1.0</div>
+        <div class="doc-title">高認パス 設計思想書</div>
+        <div class="doc-desc">なぜ作るのか、誰のために作るのか、何を提供しないか。プロダクトの判断基準を記録しています。</div>
+        <a class="doc-button">DOWNLOAD PDF ↓</a>
+        <div class="doc-meta">v1.0 · 2026.05.06 · 11 sections</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="cta-section">
+    <svg class="cta-orbit" width="240" height="100" viewBox="0 0 240 100">
+      <ellipse cx="120" cy="50" rx="116" ry="30" fill="none" stroke="#2D516E" stroke-width="1.5" stroke-dasharray="3 4"/>
+      <circle cx="6" cy="50" r="6" fill="#2D516E"/>
+      <circle cx="234" cy="50" r="4" fill="#C9532E"/>
+    </svg>
+    <svg class="cta-star" width="28" height="28" viewBox="0 0 32 32">
+      <path d="M16 0 L18 14 L32 16 L18 18 L16 32 L14 18 L0 16 L14 14 Z" fill="#2D516E"/>
+    </svg>
+
+    <div class="cta-tag">START</div>
+    <h2 class="cta-heading">さあ、<br><em>楽しよう。</em></h2>
+    <div class="cta-body">登録不要。アカウントなし。広告なし。あなたのPDFをアップロードすれば、その場で分析します。サーバーには送りません。</div>
+    <div class="cta-row">
+      <a class="cta-primary"><span>OPEN TOOL</span><span>→</span></a>
+      <a class="cta-secondary"><span>GitHubで見る</span></a>
+    </div>
+    <div class="cta-info">
+      [ ALL PROCESSING IS LOCAL · WORKS OFFLINE AFTER LOAD ]
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="f-grid">
+      <div class="f-logo">
+        <svg viewBox="0 0 100 80" width="40" height="32">
+          <g fill="none" stroke="#D4A535" stroke-width="4" stroke-linecap="round">
+            <path d="M 25 25 Q 40 17, 55 25 T 75 25"/>
+            <path d="M 18 40 Q 36 32, 53 40 T 82 40"/>
+            <path d="M 10 55 Q 30 47, 50 55 T 80 55 T 90 55"/>
+          </g>
+        </svg>
+        <div class="wm">SHIOSAILEARN</div>
+        <p class="f-tagline">自律した個人のための、静かな道具群。</p>
+      </div>
+      <div class="f-col">
+        <h4>Projects</h4>
+        <a href="../projects/konin.html">高認パス</a>
+        <a href="../projects/stellar.html">Stellar</a>
+      </div>
+      <div class="f-col">
+        <h4>About</h4>
+        <a href="../about.html">Manifesto</a>
+        <a href="../about.html">Author</a>
+        <a href="../about.html">Press</a>
+      </div>
+      <div class="f-col">
+        <h4>Connect</h4>
+        <a href="https://github.com/shiosailearn">GitHub</a>
+        <a href="mailto:hello@shiosailearn.com">Email</a>
+        <a href="../support.html">Support</a>
+      </div>
+    </div>
+    <div class="f-divider"></div>
+    <div class="f-bottom">
+      <div>© 2026 SHIOSAILEARN — BY TAMI_TOU</div>
+      <div>END_OF_TRANSMISSION_2026.05.08</div>
+    </div>
+  </footer>
+
+</body>
+</html>

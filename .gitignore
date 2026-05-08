@@ -1,0 +1,21 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*~
+
+# Build output (future)
+dist/
+build/
+.cache/
+
+# Dependencies (future)
+node_modules/
+
+# Env
+.env
+.env.local

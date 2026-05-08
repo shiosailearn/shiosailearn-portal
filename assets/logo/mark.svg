@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 240" width="280" height="240">
+  <!-- ShiosaiLearn Symbol Mark — FINAL
+       Three stacked sine-wave lines, varying length (short→long)
+       Color: #2D516E (deep navy ocean)
+       Background: #F2EDE4 (cream / off-white)
+  -->
+  <rect width="280" height="240" fill="#F2EDE4"/>
+  <g fill="none" stroke="#2D516E" stroke-width="6" stroke-linecap="round">
+    <path d="M 70 90 Q 110 70, 150 90 T 210 90"/>
+    <path d="M 50 130 Q 95 110, 140 130 T 230 130"/>
+    <path d="M 30 170 Q 80 150, 130 170 T 230 170 T 250 170"/>
+  </g>
+</svg>

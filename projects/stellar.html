@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ShiosaiLearn — Stellar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Noto+Sans+JP:wght@200;300;400;500;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F2EDE4;
+    --navy: #2D516E;
+    --mizu: #7AA5B8;
+    --ink: #1A1A1A;
+    --mustard: #D4A535;
+    --burnt: #C9532E;
+    --olive: #6B7F4A;
+    --coral: #E08775;
+    --grey: #666;
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; padding:0; background:var(--cream); font-family:Inter,'Noto Sans JP',sans-serif; color:var(--ink); }
+  a { text-decoration:none; color:inherit; }
+
+  /* ============= HEADER ============= */
+  .header {
+    padding:24px 50px;
+    display:flex; align-items:center; justify-content:space-between;
+    background:var(--cream);
+    position:relative; z-index:5;
+  }
+  .logo-lockup { display:flex; align-items:center; gap:14px; }
+  .logo-lockup .wordmark { color:var(--navy); font-family:Inter; font-weight:400; letter-spacing:0.18em; font-size:18px; }
+  .header-meta { display:flex; align-items:center; gap:24px; }
+  .header-coords { font-family:'JetBrains Mono', monospace; font-size:10px; color:var(--grey); letter-spacing:0.05em; }
+  .nav { display:flex; gap:8px; }
+  .nav a { color:var(--navy); font-size:11px; letter-spacing:0.15em; text-transform:uppercase; font-weight:600; padding:8px 18px; border:1.5px solid transparent; border-radius:999px; }
+  .nav a.current { border-color:var(--navy); }
+  .nav a:hover { border-color:var(--navy); }
+
+  /* ============= BREADCRUMB ============= */
+  .breadcrumb {
+    padding:0 50px;
+    background:var(--cream);
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px; letter-spacing:0.1em;
+    color:var(--grey); text-transform:uppercase;
+    padding-top:20px;
+  }
+  .breadcrumb a { color:var(--grey); }
+  .breadcrumb .sep { margin:0 8px; opacity:0.5; }
+  .breadcrumb .current { color:var(--navy); }
+
+  /* ============= HERO ============= */
+  .hero {
+    padding:60px 50px 100px;
+    background:var(--cream);
+    position:relative;
+    overflow:hidden;
+  }
+  .h-tag {
+    display:inline-flex; align-items:center; gap:10px;
+    padding:8px 16px;
+    background:var(--mustard);
+    color:var(--ink);
+    font-size:11px; letter-spacing:0.2em; text-transform:uppercase; font-weight:700;
+    border-radius:999px;
+  }
+  .h-tag::before { content:''; width:8px; height:8px; border-radius:50%; background:var(--burnt); }
+
+  .h-headline {
+    font-family:Inter,'Noto Sans JP'; font-weight:400;
+    font-size:96px; line-height:1.05;
+    margin:30px 0 30px 0;
+    letter-spacing:-0.03em;
+    max-width:1100px;
+    color:var(--navy);
+  }
+  .h-headline .a { color:var(--mizu); }
+  .h-headline .b { color:var(--olive); }
+  .h-headline .c { color:var(--burnt); }
+  .h-headline .d { color:var(--mustard); }
+
+  .h-body {
+    font-size:16px; line-height:1.85; color:var(--ink); max-width:560px;
+    word-break:auto-phrase; line-break:strict; overflow-wrap:break-word;
+    margin-top:30px;
+  }
+
+  .h-deco-1 { position:absolute; top:120px; right:120px; width:60px; height:60px; border-radius:50%; background:var(--mustard); }
+  .h-deco-2 { position:absolute; top:200px; right:60px; width:24px; height:24px; background:var(--olive); transform:rotate(45deg); }
+  .h-deco-3 { position:absolute; bottom:80px; right:200px; width:90px; height:90px; border-radius:50%; border:3px solid var(--mizu); }
+  .h-star { position:absolute; top:380px; right:140px; }
+
+  /* ============= DOWNLOAD BAR (top) ============= */
+  .download-bar {
+    margin:60px 0 0 0;
+    display:flex; gap:14px; flex-wrap:wrap;
+    align-items:center;
+  }
+  .dl-btn {
+    display:inline-flex; align-items:center; gap:10px;
+    padding:16px 24px;
+    background:var(--cream);
+    color:var(--grey);
+    border:2px solid var(--grey);
+    font-size:11px; letter-spacing:0.2em; text-transform:uppercase; font-weight:700;
+    border-radius:999px;
+    opacity:0.5;
+    cursor:not-allowed;
+    pointer-events:none;
+  }
+  .dl-btn .os { font-size:13px; }
+  .dl-btn .status { font-family:'JetBrains Mono', monospace; font-size:10px; opacity:0.8; }
+  .dl-info {
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px; letter-spacing:0.1em; color:var(--grey);
+    text-transform:uppercase;
+  }
+
+  /* ============= 5 DESIGN CHOICES ============= */
+  .choices-section {
+    padding:80px 50px 120px;
+    background:var(--cream);
+    position:relative;
+  }
+  .choices-tag-row {
+    display:flex; align-items:center; justify-content:space-between;
+    margin-bottom:60px;
+    position:relative;
+  }
+  .choices-tag-row::after {
+    content:''; position:absolute; bottom:-30px; left:0; right:0; height:1px;
+    background:repeating-linear-gradient(to right, var(--navy) 0 6px, transparent 6px 14px);
+    opacity:0.3;
+  }
+  .choices-tag { font-size:13px; letter-spacing:0.2em; text-transform:uppercase; color:var(--navy); font-weight:700; display:flex; align-items:center; gap:12px; }
+  .choices-tag .dot { display:inline-block; width:14px; height:14px; border-radius:50%; background:var(--burnt); }
+  .choices-count { font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:0.1em; color:var(--grey); }
+
+  .choices-intro {
+    font-size:17px; line-height:1.85; max-width:620px; margin:60px 0 60px 0;
+    color:var(--ink);
+    word-break:auto-phrase; line-break:strict; overflow-wrap:break-word;
+  }
+  .choices-intro em { font-style:normal; color:var(--burnt); font-weight:500; }
+
+  .choices-grid {
+    display:grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap:0;
+    margin-top:60px;
+    border-top:2px solid var(--navy);
+  }
+  .choice-card {
+    padding:50px 28px;
+    border-right:1px solid rgba(45,81,110,0.2);
+    border-bottom:2px solid var(--navy);
+    background:var(--cream);
+    position:relative;
+    min-height:300px;
+    display:flex; flex-direction:column;
+  }
+  .choice-card:last-child { border-right:none; }
+
+  .choice-card .num-badge {
+    display:inline-flex; align-items:center; justify-content:center;
+    width:54px; height:54px; border-radius:50%;
+    color:var(--cream);
+    font-family:Inter; font-weight:700; font-size:18px;
+    margin-bottom:24px;
+  }
+  .choice-1 .num-badge { background:var(--mizu); }
+  .choice-2 .num-badge { background:var(--olive); }
+  .choice-3 .num-badge { background:var(--mustard); color:var(--ink); }
+  .choice-4 .num-badge { background:var(--coral); color:var(--ink); }
+  .choice-5 .num-badge { background:var(--burnt); }
+
+  .choice-card .title {
+    font-family:Inter,'Noto Sans JP'; font-weight:500;
+    font-size:21px; color:var(--navy);
+    line-height:1.4; margin-bottom:16px;
+    letter-spacing:-0.005em;
+  }
+  .choice-card .desc {
+    font-size:13px; line-height:1.75;
+    color:var(--ink); margin-bottom:auto;
+    word-break:auto-phrase; line-break:strict; overflow-wrap:break-word;
+  }
+  .choice-card .marker {
+    margin-top:24px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px; letter-spacing:0.15em;
+    color:var(--grey); text-transform:uppercase;
+  }
+
+  /* ============= 3 MAIN FEATURES ============= */
+  .features-section {
+    padding:120px 50px;
+    background:var(--navy); color:var(--cream);
+    position:relative; overflow:hidden;
+  }
+  .features-tag {
+    display:inline-flex; align-items:center; gap:8px;
+    padding:8px 16px;
+    background:var(--mustard);
+    color:var(--ink);
+    font-size:11px; letter-spacing:0.2em; text-transform:uppercase; font-weight:700;
+    border-radius:999px;
+  }
+  .features-tag::before { content:''; width:8px; height:8px; border-radius:50%; background:var(--burnt); }
+  .features-heading {
+    font-family:Inter,'Noto Sans JP'; font-weight:400;
+    font-size:60px; line-height:1.2;
+    margin:30px 0 80px 0;
+    letter-spacing:-0.02em;
+    max-width:900px;
+  }
+  .features-heading em { font-style:normal; color:var(--mustard); font-weight:500; }
+  .feature {
+    display:grid; grid-template-columns: 100px 1fr 380px;
+    gap:50px; align-items:start;
+    padding:60px 0;
+    border-top:1px solid rgba(242,237,228,0.2);
+  }
+  .feature:last-child { border-bottom:1px solid rgba(242,237,228,0.2); }
+  .feature .num {
+    font-family:Inter; font-weight:200; font-size:80px; line-height:1;
+    letter-spacing:-0.04em; color:var(--mustard); opacity:0.85;
+  }
+  .feature .body .name { font-family:Inter,'Noto Sans JP'; font-weight:500; font-size:36px; color:var(--cream); margin-bottom:12px; letter-spacing:-0.01em; }
+  .feature .body .lead { font-size:16px; line-height:1.85; color:var(--cream); margin-bottom:18px; max-width:560px; word-break:auto-phrase; line-break:strict; overflow-wrap:break-word; }
+  .feature .body .points { display:flex; flex-direction:column; gap:8px; margin-top:18px; max-width:560px; }
+  .feature .body .point {
+    display:flex; align-items:flex-start; gap:10px;
+    font-size:13px; line-height:1.7; color:var(--cream); opacity:0.85;
+  }
+  .feature .body .point::before { content:''; flex-shrink:0; width:8px; height:8px; border-radius:50%; background:var(--mustard); margin-top:8px; }
+  .feature .visual {
+    border:1px solid rgba(242,237,228,0.3);
+    background:rgba(242,237,228,0.04);
+    height:240px;
+    display:flex; align-items:center; justify-content:center;
+    position:relative;
+  }
+  .feature .visual .placeholder {
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px; letter-spacing:0.18em;
+    color:rgba(242,237,228,0.4);
+  }
+
+  .feature-orbit { position:absolute; top:60px; right:50px; opacity:0.4; }
+  .feature-star { position:absolute; bottom:80px; left:200px; }
+
+  /* ============= MORE FEATURES (LIST) ============= */
+  .more-section {
+    padding:120px 50px;
+    background:var(--cream);
+    position:relative;
+  }
+  .more-tag-row { display:flex; align-items:center; justify-content:space-between; margin-bottom:60px; position:relative; }
+  .more-tag-row::after { content:''; position:absolute; bottom:-30px; left:0; right:0; height:1px; background:repeating-linear-gradient(to right, var(--navy) 0 6px, transparent 6px 14px); opacity:0.3; }
+  .more-tag { font-size:13px; letter-spacing:0.2em; text-transform:uppercase; color:var(--navy); font-weight:700; display:flex; align-items:center; gap:12px; }
+  .more-tag .dot { display:inline-block; width:14px; height:14px; border-radius:50%; background:var(--olive); }
+  .more-count { font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:0.1em; color:var(--grey); }
+  .more-list {
+    display:grid; grid-template-columns:1fr 1fr; gap:0 60px;
+    margin-top:60px;
+  }
+  .more-item {
+    padding:30px 0;
+    border-bottom:1px solid rgba(45,81,110,0.2);
+    display:grid; grid-template-columns:60px 1fr; gap:24px; align-items:start;
+  }
+  .more-item .mnum { font-family:'JetBrains Mono', monospace; font-size:13px; color:var(--burnt); letter-spacing:0.1em; padding-top:4px; }
+  .more-item .mname { font-family:Inter,'Noto Sans JP'; font-weight:500; font-size:18px; color:var(--navy); margin-bottom:6px; }
+  .more-item .mdesc { font-size:13px; line-height:1.7; color:var(--ink); word-break:auto-phrase; line-break:strict; }
+
+  /* ============= DOWNLOAD CTA SECTION ============= */
+  .cta-section {
+    padding:120px 60px;
+    background:var(--burnt); color:var(--cream);
+    position:relative; overflow:hidden;
+  }
+  .cta-tag {
+    display:inline-flex; align-items:center; gap:8px;
+    padding:8px 16px;
+    background:var(--mustard);
+    color:var(--ink);
+    font-size:11px; letter-spacing:0.2em; text-transform:uppercase; font-weight:700;
+    border-radius:999px;
+  }
+  .cta-tag::before { content:''; width:8px; height:8px; border-radius:50%; background:var(--burnt); }
+  .cta-heading {
+    font-family:Inter,'Noto Sans JP'; font-weight:400;
+    font-size:64px; line-height:1.2;
+    margin:30px 0 40px 0;
+    letter-spacing:-0.02em;
+    max-width:900px;
+    color:var(--cream);
+  }
+  .cta-heading em { font-style:normal; color:var(--mustard); font-weight:500; }
+  .cta-body { font-size:15px; line-height:1.85; color:var(--cream); opacity:0.95; max-width:560px; margin-bottom:50px; word-break:auto-phrase; line-break:strict; }
+
+  .cta-os-row { display:flex; gap:16px; flex-wrap:wrap; }
+  .cta-os-btn {
+    display:inline-flex; flex-direction:column; gap:6px;
+    padding:24px 32px;
+    background:rgba(242,237,228,0.1);
+    color:var(--cream);
+    border:2px solid rgba(242,237,228,0.4);
+    border-radius:18px;
+    font-family:Inter; font-weight:500;
+    min-width:180px;
+    opacity:0.55;
+    cursor:not-allowed;
+  }
+  .cta-os-btn .os-name { font-size:18px; letter-spacing:0.05em; }
+  .cta-os-btn .os-status { font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:0.15em; opacity:0.8; }
+  .cta-system {
+    margin-top:40px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px; letter-spacing:0.1em; opacity:0.75;
+    line-height:1.8;
+  }
+  .cta-orbit { position:absolute; top:60px; right:60px; opacity:0.4; }
+  .cta-star { position:absolute; bottom:120px; right:200px; }
+
+  /* ============= FOOTER ============= */
+  .footer {
+    padding:80px 60px 40px;
+    background:var(--navy); color:var(--cream);
+    position:relative;
+    border-top:1px solid rgba(242,237,228,0.15);
+  }
+  .footer .f-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:60px; padding-bottom:60px; }
+  .footer .f-logo svg { display:block; margin-bottom:20px; }
+  .footer .f-logo .wm { font-family:Inter; font-weight:500; font-size:18px; letter-spacing:0.18em; color:var(--cream); }
+  .footer .f-tagline { font-size:12px; line-height:1.7; max-width:280px; opacity:0.7; margin-top:20px; }
+  .footer .f-col h4 { font-size:10px; letter-spacing:0.25em; text-transform:uppercase; font-weight:700; margin:0 0 18px 0; color:var(--mustard); }
+  .footer .f-col a { font-size:12px; line-height:2; opacity:0.85; display:block; }
+  .footer .f-divider { height:1px; background:var(--cream); opacity:0.15; margin:30px 0 24px 0; }
+  .footer .f-bottom { display:flex; justify-content:space-between; align-items:flex-end; font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:0.05em; opacity:0.6; }
+</style>
+</head>
+<body>
+
+  <!-- ============= HEADER ============= -->
+  <div class="header">
+    <a class="logo-lockup" href="../index.html">
+      <svg viewBox="0 0 100 80" width="36" height="29">
+        <g fill="none" stroke="#2D516E" stroke-width="4" stroke-linecap="round">
+          <path d="M 25 25 Q 40 17, 55 25 T 75 25"/>
+          <path d="M 18 40 Q 36 32, 53 40 T 82 40"/>
+          <path d="M 10 55 Q 30 47, 50 55 T 80 55 T 90 55"/>
+        </g>
+      </svg>
+      <div class="wordmark">SHIOSAILEARN</div>
+    </a>
+    <div class="header-meta">
+      <div class="header-coords">N 35°41' · E 139°41'</div>
+      <nav class="nav">
+        <a class="current" href="../index.html#projects">Projects</a>
+        <a href="../about.html">About</a>
+        <a href="../support.html">Support</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ============= BREADCRUMB ============= -->
+  <div class="breadcrumb">
+    <a href="../index.html">HOME</a>
+    <span class="sep">/</span>
+    <a href="../index.html#projects">PROJECTS</a>
+    <span class="sep">/</span>
+    <span class="current">STELLAR</span>
+  </div>
+
+  <!-- ============= HERO ============= -->
+  <section class="hero">
+    <div class="h-tag">PROJECT 02 — STELLAR</div>
+
+    <div class="h-deco-1"></div>
+    <div class="h-deco-2"></div>
+    <div class="h-deco-3"></div>
+    <svg class="h-star" width="32" height="32" viewBox="0 0 32 32">
+      <path d="M16 0 L18 14 L32 16 L18 18 L16 32 L14 18 L0 16 L14 14 Z" fill="#D4A535"/>
+    </svg>
+
+    <h1 class="h-headline">
+      <span class="a">読む</span>。<span class="b">考える</span>。<br>
+      <span class="c">書く</span>。<span class="d">つなげる</span>。
+    </h1>
+
+    <div class="h-body">
+      文系研究のためのデスクトップアプリ。論文・ノート・グラフ・分析を一つにまとめます。完全ローカル、AI機能なし。あなたの思考は、あなたのものです。
+    </div>
+
+    <div class="download-bar">
+      <a class="dl-btn"><span class="os">macOS</span><span class="status">— SOON</span></a>
+      <a class="dl-btn"><span class="os">Windows</span><span class="status">— SOON</span></a>
+      <a class="dl-btn"><span class="os">Linux</span><span class="status">— SOON</span></a>
+      <span class="dl-info">v1.0 · COMING SOON</span>
+    </div>
+  </section>
+
+  <!-- ============= 5 DESIGN CHOICES ============= -->
+  <section class="choices-section">
+    <div class="choices-tag-row">
+      <div class="choices-tag"><span class="dot"></span>Design Choices</div>
+      <div class="choices-count">[ 05 / 05 ]</div>
+    </div>
+
+    <p class="choices-intro">機能の話の前に、<em>選んだこと。</em></p>
+
+    <div class="choices-grid">
+
+      <div class="choice-card choice-1">
+        <div class="num-badge">01</div>
+        <div class="title">ローカル<br>ファースト</div>
+        <div class="desc">SQLite はあなたのPC内に。<br>クラウドに送りません。</div>
+        <div class="marker">— LOCAL</div>
+      </div>
+
+      <div class="choice-card choice-2">
+        <div class="num-badge">02</div>
+        <div class="title">完全無料<br>MIT</div>
+        <div class="desc">ソースコードは全公開。<br>サブスクなし。</div>
+        <div class="marker">— OPEN SOURCE</div>
+      </div>
+
+      <div class="choice-card choice-3">
+        <div class="num-badge">03</div>
+        <div class="title">AI機能<br>なし</div>
+        <div class="desc">研究者自身の思考を、<br>代替しません。</div>
+        <div class="marker">— NO AI</div>
+      </div>
+
+      <div class="choice-card choice-4">
+        <div class="num-badge">04</div>
+        <div class="title">4言語<br>対応</div>
+        <div class="desc">日本語 / English /<br>Français / Afrikaans</div>
+        <div class="marker">— MULTILINGUAL</div>
+      </div>
+
+      <div class="choice-card choice-5">
+        <div class="num-badge">05</div>
+        <div class="title">3つのOS</div>
+        <div class="desc">macOS / Windows /<br>Linux で動きます。</div>
+        <div class="marker">— CROSS-PLATFORM</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============= 3 MAIN FEATURES ============= -->
+  <section class="features-section">
+    <svg class="feature-orbit" width="240" height="100" viewBox="0 0 240 100">
+      <ellipse cx="120" cy="50" rx="116" ry="30" fill="none" stroke="#D4A535" stroke-width="1.5" stroke-dasharray="3 4"/>
+      <circle cx="6" cy="50" r="6" fill="#D4A535"/>
+      <circle cx="234" cy="50" r="4" fill="#7AA5B8"/>
+    </svg>
+    <svg class="feature-star" width="28" height="28" viewBox="0 0 32 32">
+      <path d="M16 0 L18 14 L32 16 L18 18 L16 32 L14 18 L0 16 L14 14 Z" fill="#D4A535"/>
+    </svg>
+
+    <div class="features-tag">CORE FEATURES</div>
+    <h2 class="features-heading"><em>一つの場所で。</em></h2>
+
+    <div class="feature">
+      <div class="num">01</div>
+      <div class="body">
+        <div class="name">文献ライブラリ + PDFリーダー</div>
+        <div class="lead">論文を集めて、読んで、ハイライトする。本棚と読書ノートを、一体で。</div>
+        <div class="points">
+          <div class="point">DOI、URL、PDFから書誌情報を自動取得</div>
+          <div class="point">4色のハイライトでマーカーを引ける</div>
+          <div class="point">ハイライトをそのままノートに変換</div>
+        </div>
+      </div>
+      <div class="visual">
+        <div class="placeholder">[ SCREENSHOT ]</div>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="num">02</div>
+      <div class="body">
+        <div class="name">ノート + WikiLink</div>
+        <div class="lead">Markdownで書く。<code style="font-family:'JetBrains Mono',monospace;color:#D4A535;">[[ノート名]]</code> で別のノートに繋ぐ。<code style="font-family:'JetBrains Mono',monospace;color:#D4A535;">@cite{論文ID}</code> で引用を挿入。</div>
+        <div class="points">
+          <div class="point">Markdown、双方向リンク、自動保存</div>
+          <div class="point">フォーカスモードで集中できる</div>
+          <div class="point">PDF / DOCX / 静的HTML として出力</div>
+        </div>
+      </div>
+      <div class="visual">
+        <div class="placeholder">[ SCREENSHOT ]</div>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="num">03</div>
+      <div class="body">
+        <div class="name">ナレッジグラフ</div>
+        <div class="lead">論文とノートのつながりを、ネットワーク図として可視化。300ノードを超えても動きます。</div>
+        <div class="points">
+          <div class="point">フォース指向の動的グラフ</div>
+          <div class="point">タグ・種類でフィルタ可能</div>
+          <div class="point">ミニマップで全体を俯瞰</div>
+        </div>
+      </div>
+      <div class="visual">
+        <div class="placeholder">[ SCREENSHOT ]</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= MORE FEATURES (LIST) ============= -->
+  <section class="more-section">
+    <div class="more-tag-row">
+      <div class="more-tag"><span class="dot"></span>And More</div>
+      <div class="more-count">[ 06 ADDITIONAL FEATURES ]</div>
+    </div>
+
+    <div class="more-list">
+
+      <div class="more-item">
+        <div class="mnum">04</div>
+        <div>
+          <div class="mname">草稿モード</div>
+          <div class="mdesc">3カラムレイアウト。アウトライン、エディタ、引用パネル。レポートや論文を書くときに。</div>
+        </div>
+      </div>
+
+      <div class="more-item">
+        <div class="mnum">05</div>
+        <div>
+          <div class="mname">引用スタイル</div>
+          <div class="mdesc">APA 7 / MLA 9 / Chicago 17 / 一橋方式。Word出力にも対応。</div>
+        </div>
+      </div>
+
+      <div class="more-item">
+        <div class="mnum">06</div>
+        <div>
+          <div class="mname">グローバル検索</div>
+          <div class="mdesc">SQLite FTS5 で、論文・ノート・ハイライトを横断検索。<code style="font-family:'JetBrains Mono',monospace;color:#C9532E;">Ctrl+K</code> で開く。</div>
+        </div>
+      </div>
+
+      <div class="more-item">
+        <div class="mnum">07</div>
+        <div>
+          <div class="mname">質的分析(QDA)</div>
+          <div class="mdesc">コードブック、マトリクス、ICR、タイムライン、アクターマップ、フレーミング分析など11ツール。</div>
+        </div>
+      </div>
+
+      <div class="more-item">
+        <div class="mnum">08</div>
+        <div>
+          <div class="mname">量的分析(Data Studio)</div>
+          <div class="mdesc">CSV取込、記述統計、相関、t検定、回帰、テキスト共起ネットワーク、グラフ書出し。</div>
+        </div>
+      </div>
+
+      <div class="more-item">
+        <div class="mnum">09</div>
+        <div>
+          <div class="mname">研究パッケージ</div>
+          <div class="mdesc"><code style="font-family:'JetBrains Mono',monospace;color:#C9532E;">.stellar</code> ファイルとして書出し・読込。研究グループでの共有に。</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============= DOWNLOAD CTA ============= -->
+  <section class="cta-section">
+    <svg class="cta-orbit" width="240" height="100" viewBox="0 0 240 100">
+      <ellipse cx="120" cy="50" rx="116" ry="30" fill="none" stroke="#D4A535" stroke-width="1.5" stroke-dasharray="3 4"/>
+      <circle cx="6" cy="50" r="6" fill="#D4A535"/>
+      <circle cx="234" cy="50" r="4" fill="#7AA5B8"/>
+    </svg>
+    <svg class="cta-star" width="28" height="28" viewBox="0 0 32 32">
+      <path d="M16 0 L18 14 L32 16 L18 18 L16 32 L14 18 L0 16 L14 14 Z" fill="#D4A535"/>
+    </svg>
+
+    <div class="cta-tag">DOWNLOAD</div>
+    <h2 class="cta-heading">v1.0 は、<em>もうすぐ。</em></h2>
+    <div class="cta-body">準備が整い次第、3つのOS向けにビルドを公開します。<br>使い方の詳細は、ユーザーガイドへ。</div>
+
+    <div class="cta-os-row">
+      <a class="cta-os-btn">
+        <span class="os-name">macOS</span>
+        <span class="os-status">— UNIVERSAL · COMING SOON</span>
+      </a>
+      <a class="cta-os-btn">
+        <span class="os-name">Windows</span>
+        <span class="os-status">— x64 · COMING SOON</span>
+      </a>
+      <a class="cta-os-btn">
+        <span class="os-name">Linux</span>
+        <span class="os-status">— x64 / ARM · COMING SOON</span>
+      </a>
+    </div>
+
+    <div class="cta-system">
+      [ SYSTEM REQUIREMENTS ]<br>
+      MACOS 11+ · WINDOWS 10+ · UBUNTU 20.04+ · 4GB RAM · 200MB DISK
+    </div>
+  </section>
+
+  <!-- ============= FOOTER ============= -->
+  <footer class="footer">
+    <div class="f-grid">
+      <div class="f-logo">
+        <svg viewBox="0 0 100 80" width="40" height="32">
+          <g fill="none" stroke="#D4A535" stroke-width="4" stroke-linecap="round">
+            <path d="M 25 25 Q 40 17, 55 25 T 75 25"/>
+            <path d="M 18 40 Q 36 32, 53 40 T 82 40"/>
+            <path d="M 10 55 Q 30 47, 50 55 T 80 55 T 90 55"/>
+          </g>
+        </svg>
+        <div class="wm">SHIOSAILEARN</div>
+        <p class="f-tagline">自律した個人のための、静かな道具群。</p>
+      </div>
+      <div class="f-col">
+        <h4>Projects</h4>
+        <a href="../projects/konin.html">高認パス</a>
+        <a href="../projects/stellar.html">Stellar</a>
+      </div>
+      <div class="f-col">
+        <h4>About</h4>
+        <a href="../about.html">Manifesto</a>
+        <a href="../about.html">Author</a>
+        <a href="../about.html">Press</a>
+      </div>
+      <div class="f-col">
+        <h4>Connect</h4>
+        <a href="https://github.com/shiosailearn">GitHub</a>
+        <a href="mailto:hello@shiosailearn.com">Email</a>
+        <a href="../support.html">Support</a>
+      </div>
+    </div>
+    <div class="f-divider"></div>
+    <div class="f-bottom">
+      <div>© 2026 SHIOSAILEARN — BY TAMI_TOU</div>
+      <div>END_OF_TRANSMISSION_2026.05.08</div>
+    </div>
+  </footer>
+
+</body>
+</html>
