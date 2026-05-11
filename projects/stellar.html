@@ -102,14 +102,12 @@
   .dl-btn {
     display:inline-flex; align-items:center; gap:10px;
     padding:16px 24px;
-    background:var(--cream);
-    color:var(--grey);
-    border:2px solid var(--grey);
+    background:var(--navy);
+    color:var(--cream);
+    border:2px solid var(--navy);
     font-size:11px; letter-spacing:0.2em; text-transform:uppercase; font-weight:700;
     border-radius:999px;
-    opacity:0.5;
-    cursor:not-allowed;
-    pointer-events:none;
+    cursor:pointer;
   }
   .dl-btn .os { font-size:13px; }
   .dl-btn .status { font-family:'JetBrains Mono', monospace; font-size:10px; opacity:0.8; }
@@ -313,8 +311,8 @@
     border-radius:18px;
     font-family:Inter; font-weight:500;
     min-width:180px;
-    opacity:0.55;
-    cursor:not-allowed;
+    opacity:1;
+    cursor:pointer;
   }
   .cta-os-btn .os-name { font-size:18px; letter-spacing:0.05em; }
   .cta-os-btn .os-status { font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:0.15em; opacity:0.8; }
@@ -398,10 +396,10 @@
     </div>
 
     <div class="download-bar">
-      <a class="dl-btn"><span class="os">macOS</span><span class="status">— SOON</span></a>
-      <a class="dl-btn"><span class="os">Windows</span><span class="status">— SOON</span></a>
-      <a class="dl-btn"><span class="os">Linux</span><span class="status">— SOON</span></a>
-      <span class="dl-info">v1.0 · COMING SOON</span>
+      <a class="dl-btn" href="https://github.com/toutoutoubun/stellar/releases" target="_blank" rel="noopener noreferrer"><span class="os">macOS</span><span class="status">— RELEASES</span></a>
+      <a class="dl-btn" href="https://github.com/toutoutoubun/stellar/releases" target="_blank" rel="noopener noreferrer"><span class="os">Windows</span><span class="status">— RELEASES</span></a>
+      <a class="dl-btn" href="https://github.com/toutoutoubun/stellar/releases" target="_blank" rel="noopener noreferrer"><span class="os">Linux</span><span class="status">— RELEASES</span></a>
+      <span class="dl-info">GitHub Releases</span>
     </div>
   </section>
 
@@ -589,21 +587,21 @@
     </svg>
 
     <div class="cta-tag">DOWNLOAD</div>
-    <h2 class="cta-heading">v1.0 は、<em>もうすぐ。</em></h2>
-    <div class="cta-body">準備が整い次第、3つのOS向けにビルドを公開します。<br>使い方の詳細は、ユーザーガイドへ。</div>
+    <h2 class="cta-heading">最新版は、<em>Releasesから。</em></h2>
+    <div class="cta-body">各OS向けのビルドは、準備が整い次第 GitHub Releases に追加します。<br>使い方の詳細は、ユーザーガイドへ。</div>
 
     <div class="cta-os-row">
-      <a class="cta-os-btn">
+      <a class="cta-os-btn" href="https://github.com/toutoutoubun/stellar/releases" target="_blank" rel="noopener noreferrer">
         <span class="os-name">macOS</span>
-        <span class="os-status">— UNIVERSAL · COMING SOON</span>
+        <span class="os-status">— GITHUB RELEASES</span>
       </a>
-      <a class="cta-os-btn">
+      <a class="cta-os-btn" href="https://github.com/toutoutoubun/stellar/releases" target="_blank" rel="noopener noreferrer">
         <span class="os-name">Windows</span>
-        <span class="os-status">— x64 · COMING SOON</span>
+        <span class="os-status">— GITHUB RELEASES</span>
       </a>
-      <a class="cta-os-btn">
+      <a class="cta-os-btn" href="https://github.com/toutoutoubun/stellar/releases" target="_blank" rel="noopener noreferrer">
         <span class="os-name">Linux</span>
-        <span class="os-status">— x64 / ARM · COMING SOON</span>
+        <span class="os-status">— GITHUB RELEASES</span>
       </a>
     </div>
 
