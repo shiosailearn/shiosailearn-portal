@@ -186,6 +186,44 @@
     color:var(--ink); margin-bottom:auto;
     word-break:auto-phrase; line-break:strict; overflow-wrap:break-word;
   }
+  .language-select-wrap {
+    position:relative;
+    width:100%;
+    max-width:220px;
+    margin-bottom:auto;
+  }
+  .language-select-wrap::after {
+    content:'';
+    position:absolute;
+    right:14px;
+    top:50%;
+    transform:translateY(-50%);
+    width:0;
+    height:0;
+    border-left:5px solid transparent;
+    border-right:5px solid transparent;
+    border-top:6px solid var(--navy);
+    pointer-events:none;
+  }
+  .language-select {
+    width:100%;
+    appearance:none;
+    -webkit-appearance:none;
+    padding:12px 38px 12px 14px;
+    border:1.5px solid var(--navy);
+    border-radius:999px;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:Inter,'Noto Sans JP',sans-serif;
+    font-size:13px;
+    font-weight:600;
+    line-height:1.2;
+    cursor:pointer;
+  }
+  .language-select:focus {
+    outline:2px solid var(--coral);
+    outline-offset:3px;
+  }
   .choice-card .marker {
     margin-top:24px;
     font-family:'JetBrains Mono', monospace;
@@ -438,7 +476,14 @@
       <div class="choice-card choice-4">
         <div class="num-badge">04</div>
         <div class="title">4言語<br>対応</div>
-        <div class="desc">日本語 / English /<br>Français / Afrikaans</div>
+        <div class="language-select-wrap">
+          <select class="language-select" aria-label="表示言語">
+            <option value="ja">日本語</option>
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="af">Afrikaans</option>
+          </select>
+        </div>
         <div class="marker">— MULTILINGUAL</div>
       </div>
 
