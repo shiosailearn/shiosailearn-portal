@@ -255,7 +255,7 @@
   }
   .features-heading em { font-style:normal; color:var(--mustard); font-weight:500; }
   .feature {
-    display:grid; grid-template-columns: 100px 1fr 380px;
+    display:grid; grid-template-columns: 100px 1fr;
     gap:50px; align-items:start;
     padding:60px 0;
     border-top:1px solid rgba(242,237,228,0.2);
@@ -273,18 +273,6 @@
     font-size:13px; line-height:1.7; color:var(--cream); opacity:0.85;
   }
   .feature .body .point::before { content:''; flex-shrink:0; width:8px; height:8px; border-radius:50%; background:var(--mustard); margin-top:8px; }
-  .feature .visual {
-    border:1px solid rgba(242,237,228,0.3);
-    background:rgba(242,237,228,0.04);
-    height:240px;
-    display:flex; align-items:center; justify-content:center;
-    position:relative;
-  }
-  .feature .visual .placeholder {
-    font-family:'JetBrains Mono', monospace;
-    font-size:10px; letter-spacing:0.18em;
-    color:rgba(242,237,228,0.4);
-  }
 
   .feature-orbit { position:absolute; top:60px; right:50px; opacity:0.4; }
   .feature-star { position:absolute; bottom:80px; left:200px; }
@@ -522,9 +510,6 @@
           <div class="point">ハイライトをそのままノートに変換</div>
         </div>
       </div>
-      <div class="visual">
-        <div class="placeholder">[ SCREENSHOT ]</div>
-      </div>
     </div>
 
     <div class="feature">
@@ -538,9 +523,6 @@
           <div class="point">PDF / DOCX / 静的HTML として出力</div>
         </div>
       </div>
-      <div class="visual">
-        <div class="placeholder">[ SCREENSHOT ]</div>
-      </div>
     </div>
 
     <div class="feature">
@@ -553,9 +535,6 @@
           <div class="point">タグ・種類でフィルタ可能</div>
           <div class="point">ミニマップで全体を俯瞰</div>
         </div>
-      </div>
-      <div class="visual">
-        <div class="placeholder">[ SCREENSHOT ]</div>
       </div>
     </div>
   </section>
