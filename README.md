@@ -25,10 +25,15 @@
 ├── support.html            # Support / 5 つの距離感
 ├── projects/
 │   ├── konin.html          # 高認パス紹介
-│   └── stellar.html        # Stellar 紹介
+│   ├── stellar.html        # Stellar 紹介（日本語）
+│   ├── stellar-en.html     # Stellar introduction (English)
+│   ├── stellar-fr.html     # Présentation de Stellar (Français)
+│   └── stellar-af.html     # Stellar-bekendstelling (Afrikaans)
 ├── assets/
-│   └── logo/
-│       └── mark.svg        # シンボルマーク (3 本の波)
+│   ├── logo/
+│   │   └── mark.svg        # シンボルマーク (3 本の波)
+│   └── styles/
+│       └── responsive.css  # モバイル対応の共通CSS
 ├── LICENSE                 # MIT
 ├── README.md
 └── .gitignore

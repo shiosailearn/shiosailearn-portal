@@ -1,0 +1,548 @@
+html {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+svg {
+  max-width: 100%;
+}
+
+code,
+.header-coords,
+.section-count,
+.promises-count,
+.layers-count,
+.choices-count,
+.more-count,
+.doc-card .doc-meta,
+.cta-info,
+.cta-system,
+.h-cta-info {
+  overflow-wrap: anywhere;
+}
+
+.project-card .name-jp,
+.h-tag,
+.author-tag,
+.language-tag,
+.roadmap-tag,
+.cta-tag,
+.features-tag,
+.note-block .tag {
+  max-width: 100%;
+}
+
+@media (max-width: 900px) {
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+    padding: 22px 32px;
+  }
+
+  .header-meta {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .nav a {
+    padding: 8px 14px;
+  }
+
+  .breadcrumb {
+    padding: 16px 32px 0;
+  }
+
+  .hero,
+  .about,
+  .promises-section,
+  .author-section,
+  .layers-section,
+  .note-block,
+  .problems-section,
+  .language-section,
+  .formula-section,
+  .subjects-section,
+  .roadmap-section,
+  .doc-section,
+  .cta-section,
+  .choices-section,
+  .features-section,
+  .more-section {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .section-tag-row,
+  .promises-tag-row,
+  .layers-tag-row,
+  .choices-tag-row,
+  .more-tag-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .projects-grid,
+  .promises-grid,
+  .layers-grid,
+  .choices-grid,
+  .problems-grid,
+  .about .list,
+  .lang-table,
+  .formula-grid,
+  .phase-list,
+  .doc-grid,
+  .author-grid,
+  .more-list {
+    grid-template-columns: 1fr;
+  }
+
+  .subjects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .feature {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .footer .f-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+
+  .footer .f-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .h-headline {
+    font-size: 58px;
+    line-height: 1.12;
+    letter-spacing: 0;
+  }
+
+  .language-heading,
+  .roadmap-heading,
+  .doc-left .heading,
+  .features-heading,
+  .cta-heading,
+  .about .heading {
+    font-size: 48px;
+    line-height: 1.2;
+    letter-spacing: 0;
+  }
+
+  .about .list {
+    gap: 36px;
+  }
+
+  .about .item-desc {
+    max-width: none;
+  }
+
+  .project-card {
+    min-height: auto;
+    padding: 64px 40px;
+  }
+
+  .project-card .num {
+    font-size: 110px;
+  }
+
+  .project-card .name {
+    font-size: 42px;
+    letter-spacing: 0;
+  }
+
+  .project-card .name-jp {
+    line-height: 1.6;
+    white-space: normal;
+  }
+
+  .promise-card,
+  .layer-card,
+  .choice-card,
+  .problem-card,
+  .phase,
+  .layer {
+    min-height: auto;
+  }
+
+  .layer-card,
+  .choice-card,
+  .problem-card,
+  .phase,
+  .layer,
+  .lang-col {
+    border-right: 0;
+  }
+
+  .subject:nth-child(4n) {
+    border-right: 1px solid rgba(45,81,110,0.2);
+  }
+
+  .subject:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .formula-grid,
+  .doc-grid,
+  .author-grid {
+    gap: 42px;
+  }
+
+  .h-circle-area {
+    height: 520px;
+    width: 520px;
+  }
+
+  .h-circle-area svg {
+    height: 100%;
+    width: 100%;
+  }
+
+  .h-readout-tl,
+  .h-readout-bl,
+  .h-stamp {
+    max-width: 42%;
+  }
+}
+
+@media (max-width: 640px) {
+  .header {
+    gap: 16px;
+    padding: 18px 20px;
+    width: 100%;
+  }
+
+  .logo-lockup {
+    gap: 10px;
+  }
+
+  .logo-lockup .wordmark {
+    font-size: 15px;
+    letter-spacing: 0.12em;
+  }
+
+  .header-coords {
+    font-size: 9px;
+  }
+
+  .header-meta {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    max-width: 100%;
+  }
+
+  .nav a {
+    align-items: center;
+    display: inline-flex;
+    font-size: 10px;
+    justify-content: center;
+    letter-spacing: 0.08em;
+    min-height: 36px;
+    padding: 8px 6px;
+    text-align: center;
+    width: auto;
+  }
+
+  .breadcrumb {
+    padding: 12px 20px 0;
+  }
+
+  .hero,
+  .about,
+  .promises-section,
+  .author-section,
+  .layers-section,
+  .note-block,
+  .problems-section,
+  .language-section,
+  .formula-section,
+  .subjects-section,
+  .roadmap-section,
+  .doc-section,
+  .cta-section,
+  .choices-section,
+  .features-section,
+  .more-section,
+  .footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .hero {
+    padding-top: 48px;
+    padding-bottom: 70px;
+  }
+
+  .h-tag,
+  .author-tag,
+  .language-tag,
+  .roadmap-tag,
+  .cta-tag,
+  .features-tag,
+  .note-block .tag {
+    border-radius: 18px;
+    flex-wrap: wrap;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    line-height: 1.4;
+  }
+
+  .h-headline {
+    font-size: 40px;
+    letter-spacing: 0;
+    line-height: 1.18;
+  }
+
+  .language-heading,
+  .roadmap-heading,
+  .doc-left .heading,
+  .features-heading,
+  .cta-heading,
+  .about .heading {
+    font-size: 34px;
+    letter-spacing: 0;
+    line-height: 1.24;
+  }
+
+  .about .heading .underline,
+  .h-headline .underline {
+    text-decoration-thickness: 4px;
+    text-underline-offset: 6px;
+  }
+
+  .section-intro,
+  .promises-intro,
+  .layers-intro,
+  .choices-intro {
+    font-size: 15px;
+    margin: 42px 0;
+  }
+
+  .projects-grid,
+  .promises-grid,
+  .layers-grid,
+  .choices-grid,
+  .problems-grid,
+  .about .list,
+  .subjects-grid,
+  .lang-table,
+  .formula-grid,
+  .phase-list,
+  .doc-grid,
+  .author-grid,
+  .more-list {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    padding: 52px 24px;
+  }
+
+  .project-card .num {
+    font-size: 82px;
+    margin-bottom: 0;
+  }
+
+  .project-card .name {
+    font-size: 32px;
+  }
+
+  .project-card .desc,
+  .h-body,
+  .cta-body,
+  .doc-left p {
+    font-size: 14px;
+  }
+
+  .project-card .button,
+  .h-cta-primary,
+  .h-cta-secondary,
+  .cta-primary,
+  .cta-secondary,
+  .doc-card .doc-button,
+  .dl-btn,
+  .cta-os-btn {
+    justify-content: center;
+    max-width: 100%;
+    text-align: center;
+    white-space: normal;
+    width: 100%;
+  }
+
+  .download-bar,
+  .h-cta-row,
+  .cta-row,
+  .cta-os-row {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .promise-card,
+  .layer-card,
+  .choice-card,
+  .problem-card,
+  .phase,
+  .layer,
+  .lang-col,
+  .formula-block,
+  .doc-card {
+    padding: 32px 24px;
+  }
+
+  .layer-card .desc .nb {
+    white-space: normal;
+  }
+
+  .layer .price {
+    font-size: 44px;
+    letter-spacing: 0;
+  }
+
+  .layer .name,
+  .feature .body .name,
+  .about .item-title,
+  .phase .pname {
+    font-size: 24px;
+    letter-spacing: 0;
+  }
+
+  .formula-text h3,
+  .note-block .quote {
+    font-size: 26px;
+    letter-spacing: 0;
+  }
+
+  .feature .num {
+    font-size: 54px;
+  }
+
+  .feature {
+    padding: 42px 0;
+  }
+
+  .more-item {
+    grid-template-columns: 44px 1fr;
+    gap: 14px;
+  }
+
+  .lang-word {
+    font-size: 20px;
+    letter-spacing: 0;
+  }
+
+  .subjects-grid .subject {
+    border-right: 0;
+  }
+
+  .footer .f-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer {
+    padding-top: 64px;
+    padding-bottom: 36px;
+  }
+
+  .h-deco-1,
+  .h-deco-2,
+  .h-deco-3,
+  .h-deco-7,
+  .h-deco-8,
+  .h-star,
+  .star,
+  .orbit,
+  .comet,
+  .about-deco-1,
+  .about-deco-2,
+  .about-deco-3,
+  .about-orbit,
+  .about-star-1,
+  .about-star-2,
+  .author-orbit,
+  .author-star,
+  .note-orbit,
+  .note-star,
+  .language-orbit,
+  .feature-orbit,
+  .feature-star,
+  .cta-orbit,
+  .cta-star,
+  .dot-deco,
+  .card-star,
+  .project-card .deco {
+    display: none;
+  }
+
+  .h-readout-tl,
+  .h-readout-bl,
+  .h-stamp {
+    display: none;
+  }
+
+  body:has(.h-circle-area) .hero {
+    min-height: 470px;
+  }
+
+  .h-circle-area {
+    height: 340px;
+    top: 54%;
+    width: 340px;
+  }
+}
+
+@media (max-width: 360px) {
+  .nav {
+    flex-direction: column;
+  }
+
+  .nav a {
+    width: 100%;
+  }
+
+  .h-headline {
+    font-size: 34px;
+  }
+
+  .language-heading,
+  .roadmap-heading,
+  .doc-left .heading,
+  .features-heading,
+  .cta-heading,
+  .about .heading {
+    font-size: 30px;
+  }
+
+  .project-card .name {
+    font-size: 28px;
+  }
+
+  .h-circle-area {
+    height: 300px;
+    width: 300px;
+  }
+}
