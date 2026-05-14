@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="af">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -70,26 +70,20 @@
     z-index:2;
   }
 
-  /* Atomic + space-age scattered shapes */
   .h-deco-1 { position:absolute; top:120px; right:120px; width:60px; height:60px; border-radius:50%; background:var(--mustard); z-index:1; }
   .h-deco-2 { position:absolute; bottom:160px; left:140px; width:34px; height:34px; border-radius:50%; background:var(--burnt); z-index:1; }
   .h-deco-3 { position:absolute; top:300px; left:80px; width:18px; height:18px; border-radius:50%; background:var(--coral); z-index:1; }
   .h-deco-7 { position:absolute; bottom:120px; right:300px; width:50px; height:14px; background:var(--mizu); border-radius:7px; z-index:1; }
   .h-deco-8 { position:absolute; top:550px; left:200px; width:10px; height:10px; border-radius:50%; background:var(--mustard); z-index:1; }
 
-  /* SPACE AGE: stars (4-point bursts) */
   .star { position:absolute; z-index:1; }
   .star-1 { top:80px; left:300px; }
   .star-2 { bottom:240px; left:80px; }
   .star-3 { top:340px; right:80px; }
 
-  /* SPACE AGE: orbit ellipse */
   .orbit { position:absolute; top:90px; left:240px; z-index:0; opacity:0.6; }
-
-  /* SPACE AGE: comet line */
   .comet { position:absolute; bottom:80px; left:240px; z-index:1; }
 
-  /* coords / readouts */
   .h-readout-tl {
     position:absolute; top:60px; right:50px;
     font-family:'JetBrains Mono', monospace;
@@ -179,7 +173,6 @@
 
   .project-card .deco { position:absolute; bottom:-30px; right:-30px; width:240px; height:240px; opacity:0.5; }
 
-  /* small dots scattered in cards */
   .project-card .dot-deco { position:absolute; border-radius:50%; }
   .project-card-1 .dot1 { top:80px; right:80px; width:18px; height:18px; background:var(--coral); }
   .project-card-1 .dot2 { top:120px; right:50px; width:10px; height:10px; background:var(--mustard); }
@@ -188,7 +181,6 @@
   .project-card-2 .dot2 { top:120px; right:50px; width:10px; height:10px; background:var(--navy); }
   .project-card-2 .dot3 { top:160px; right:100px; width:6px; height:6px; background:var(--olive); }
 
-  /* SPACE AGE: stars in cards */
   .card-star { position:absolute; }
   .project-card-1 .card-star-1 { top:200px; right:140px; }
   .project-card-2 .card-star-1 { top:200px; right:140px; }
@@ -236,7 +228,6 @@
   .about .item-title { font-size:30px; font-weight:500; margin-bottom:16px; color:var(--cream); line-height:1.3; }
   .about .item-desc { font-size:13px; line-height:1.75; opacity:0.9; max-width:280px; word-break:auto-phrase; line-break:strict; overflow-wrap:break-word; }
 
-  /* SPACE AGE about decorations */
   .about-deco-1 { position:absolute; top:80px; right:120px; width:90px; height:90px; border-radius:50%; border:4px solid var(--mustard); }
   .about-deco-2 { position:absolute; bottom:180px; right:60px; width:30px; height:30px; border-radius:50%; background:var(--mizu); }
   .about-deco-3 { position:absolute; top:200px; right:300px; width:14px; height:14px; border-radius:50%; background:var(--cream); }
@@ -387,7 +378,7 @@
   .lang-sw-menu a:hover { background:var(--navy); color:var(--cream); }
   .lang-sw-menu a.active { font-weight:700; pointer-events:none; opacity:0.5; }
 </style>
-<link rel="stylesheet" href="assets/styles/responsive.css">
+<link rel="stylesheet" href="../assets/styles/responsive.css">
 </head>
 <body>
 
@@ -404,19 +395,19 @@
       <div class="wordmark">SHIOSAILEARN</div>
     </a>
     <div class="header-meta">
-      <div class="header-coords">N 35°41' · E 139°41'</div>
+      <div class="header-coords">N 35&deg;41' &middot; E 139&deg;41'</div>
       <nav class="nav">
-        <a href="#projects">Projects</a>
-        <a href="about.html">About</a>
-        <a href="support.html">Support</a>
+        <a href="#projects">Projekte</a>
+        <a href="about.html">Oor ons</a>
+        <a href="support.html">Ondersteun</a>
       </nav>
       <div class="lang-sw">
-        <button class="lang-sw-btn" type="button" aria-label="Language">JA<span class="lang-sw-arrow"></span></button>
+        <button class="lang-sw-btn" type="button" aria-label="Language">AF<span class="lang-sw-arrow"></span></button>
         <div class="lang-sw-menu">
-          <a href="index.html" class="active">JA — 日本語</a>
-          <a href="en/index.html">EN — English</a>
-          <a href="fr/index.html">FR — Français</a>
-          <a href="af/index.html">AF — Afrikaans</a>
+          <a href="../index.html">JA — 日本語</a>
+          <a href="../en/index.html">EN — English</a>
+          <a href="../fr/index.html">FR — Français</a>
+          <a href="index.html" class="active">AF — Afrikaans</a>
         </div>
       </div>
     </div>
@@ -426,13 +417,11 @@
   <section class="hero">
     <div class="h-tag">VOL. 01 / 2026 / TRANSMISSION</div>
 
-    <!-- Atomic / orbit ellipse -->
     <svg class="orbit" width="180" height="80" viewBox="0 0 180 80">
       <ellipse cx="90" cy="40" rx="86" ry="20" fill="none" stroke="#7AA5B8" stroke-width="1.5" stroke-dasharray="3 4"/>
       <circle cx="176" cy="40" r="6" fill="#C9532E"/>
     </svg>
 
-    <!-- Space age stars -->
     <svg class="star star-1" width="32" height="32" viewBox="0 0 32 32">
       <path d="M16 0 L18 14 L32 16 L18 18 L16 32 L14 18 L0 16 L14 14 Z" fill="#D4A535"/>
     </svg>
@@ -443,7 +432,6 @@
       <path d="M16 0 L18 14 L32 16 L18 18 L16 32 L14 18 L0 16 L14 14 Z" fill="#C9532E"/>
     </svg>
 
-    <!-- Comet line -->
     <svg class="comet" width="200" height="40" viewBox="0 0 200 40">
       <line x1="0" y1="20" x2="170" y2="20" stroke="#6B7F4A" stroke-width="3" stroke-linecap="round"/>
       <line x1="170" y1="20" x2="190" y2="20" stroke="#6B7F4A" stroke-width="6" stroke-linecap="round"/>
@@ -456,20 +444,17 @@
     <div class="h-deco-7"></div>
     <div class="h-deco-8"></div>
 
-    <!-- Top-right readout -->
     <div class="h-readout-tl">
       EST. 2026<br>
-      LAT N35°41' · LON E139°41'<br>
+      LAT N35&deg;41' &middot; LON E139&deg;41'<br>
       TRANSMISSION 01 / OK
     </div>
 
-    <!-- Bottom-left readout -->
     <div class="h-readout-bl">
-      ◯ ALL SYSTEMS QUIET<br>
-      ◯ NO PUSH · NO HURRY
+      &#9711; ALL SYSTEMS QUIET<br>
+      &#9711; NO PUSH &middot; NO HURRY
     </div>
 
-    <!-- Main circle -->
     <div class="h-circle-area">
       <svg viewBox="0 0 660 660" width="660" height="660">
         <defs>
@@ -477,41 +462,36 @@
           <path id="ring-text" d="M 330 60 a 270 270 0 1 1 -0.001 0" fill="none"/>
         </defs>
 
-        <!-- 0.6 turn arc only (main circle outline removed to avoid overlap with text) -->
         <path d="M 330 90 A 240 240 0 1 1 138.5 522.4" fill="none" stroke="#D4A535" stroke-width="4"/>
 
-        <!-- Text along arc -->
-        <text font-family="'Noto Sans JP', Inter" font-size="40" font-weight="500" letter-spacing="12" fill="#2D516E">
-          <textPath href="#arc-final" startOffset="2%">道具をつくっています</textPath>
+        <text font-family="Inter, 'Noto Sans JP'" font-size="36" font-weight="500" letter-spacing="10" fill="#2D516E">
+          <textPath href="#arc-final" startOffset="0%">Ons bou stil gereedskap</textPath>
         </text>
 
-        <!-- 3 wave signature -->
         <g fill="none" stroke="#7AA5B8" stroke-width="7" stroke-linecap="round" transform="translate(330,330)">
           <path d="M -70 -28 Q -32 -42, 8 -28 T 70 -28"/>
           <path d="M -90 4 Q -36 -16, 8 4 T 90 4"/>
           <path d="M -70 32 Q -32 18, 8 32 T 70 32"/>
         </g>
 
-        <!-- Stars / dots inside circle -->
         <circle cx="220" cy="200" r="5" fill="#C9532E"/>
         <circle cx="450" cy="220" r="4" fill="#D4A535"/>
         <circle cx="430" cy="450" r="6" fill="#E08775"/>
         <circle cx="200" cy="430" r="3" fill="#6B7F4A"/>
 
-        <!-- Tiny atomic burst -->
         <g transform="translate(440,150)">
           <path d="M 0 -10 L 2 -2 L 10 0 L 2 2 L 0 10 L -2 2 L -10 0 L -2 -2 Z" fill="#D4A535"/>
         </g>
       </svg>
     </div>
 
-    <div class="h-stamp">SHIOSAI · LEARN<br>VOL. 01 — 2026</div>
+    <div class="h-stamp">SHIOSAI &middot; LEARN<br>VOL. 01 &mdash; 2026</div>
   </section>
 
   <!-- ============= PROJECTS ============= -->
   <div class="section-tag-row">
-    <div class="section-tag"><span class="dot"></span>Projects</div>
-    <div class="section-count">[ 02 / 02 — ALL ACTIVE ]</div>
+    <div class="section-tag"><span class="dot"></span>Projekte</div>
+    <div class="section-count">[ 02 / 02 &mdash; ALLES AKTIEF ]</div>
   </div>
   <section class="projects-grid" id="projects">
     <div class="project-card project-card-1">
@@ -521,14 +501,14 @@
       <svg class="card-star card-star-1" width="22" height="22" viewBox="0 0 32 32">
         <path d="M16 0 L18 14 L32 16 L18 18 L16 32 L14 18 L0 16 L14 14 Z" fill="#D4A535"/>
       </svg>
-      <div class="card-meta">PROJECT_01 · WEB · BETA</div>
+      <div class="card-meta">PROJECT_01 &middot; WEB &middot; BETA</div>
       <div class="num">01</div>
       <div class="name">Konin-Pass</div>
-      <div class="name-jp">高認パス</div>
-      <div class="desc">ユーザーが正当に取得した公式PDFを端末内で解析し、出題傾向データを淡々と可視化します。過去問そのものは提供しません。</div>
+      <div class="name-jp">Voorbereiding vir die ekwivalensie-eksamen</div>
+      <div class="desc">Ontleed amptelike PDF&rsquo;s plaaslik op jou toestel en visualiseer eksamen-frekwensiedata stilletjies. Ons voorsien nie die eksamenpapers self nie.</div>
       <div class="button-row">
-        <a class="button" href="https://konin-2026.shiosaisazanami.workers.dev" target="_blank" rel="noopener noreferrer"><span>Open Tool</span><span>→</span></a>
-        <a class="button button-details" href="https://shiosailearn.com/projects/konin" target="_blank" rel="noopener noreferrer"><span>Details</span><span>›</span></a>
+        <a class="button" href="https://konin-2026.shiosaisazanami.workers.dev" target="_blank" rel="noopener noreferrer"><span>Maak oop</span><span>&rarr;</span></a>
+        <a class="button button-details" href="https://shiosailearn.com/projects/konin" target="_blank" rel="noopener noreferrer"><span>Besonderhede</span><span>&rsaquo;</span></a>
       </div>
       <svg class="deco" viewBox="0 0 240 240">
         <circle cx="120" cy="120" r="90" fill="none" stroke="#D4A535" stroke-width="2"/>
@@ -543,14 +523,14 @@
       <svg class="card-star card-star-1" width="22" height="22" viewBox="0 0 32 32">
         <path d="M16 0 L18 14 L32 16 L18 18 L16 32 L14 18 L0 16 L14 14 Z" fill="#C9532E"/>
       </svg>
-      <div class="card-meta">PROJECT_02 · DESKTOP · v1.0</div>
+      <div class="card-meta">PROJECT_02 &middot; DESKTOP &middot; v1.0</div>
       <div class="num">02</div>
       <div class="name">Stellar</div>
-      <div class="name-jp">文系研究のためのリサーチ環境</div>
-      <div class="desc">論文・ノート・グラフ・分析を一つのアプリで。完全ローカル、AI機能なし。あなたの思考は、あなたのもの。</div>
+      <div class="name-jp">&rsquo;n Navorsingsomgewing vir die geesteswetenskappe</div>
+      <div class="desc">Artikels, notas, grafieke en ontleding in een toepassing. Heeltemal plaaslik, sonder KI-funksies. Jou denke bly joune.</div>
       <div class="button-row">
-        <a class="button" href="https://github.com/toutoutoubun/stellar/releases" target="_blank" rel="noopener noreferrer"><span>Download</span><span>↓</span></a>
-        <a class="button button-details" href="https://shiosailearn.com/projects/stellar" target="_blank" rel="noopener noreferrer"><span>Details</span><span>›</span></a>
+        <a class="button" href="https://github.com/toutoutoubun/stellar/releases" target="_blank" rel="noopener noreferrer"><span>Aflaai</span><span>&darr;</span></a>
+        <a class="button button-details" href="https://shiosailearn.com/projects/stellar" target="_blank" rel="noopener noreferrer"><span>Besonderhede</span><span>&rsaquo;</span></a>
       </div>
       <svg class="deco" viewBox="0 0 240 240">
         <g fill="none" stroke="#2D516E" stroke-width="4" stroke-linecap="round">
@@ -568,7 +548,6 @@
     <div class="about-deco-2"></div>
     <div class="about-deco-3"></div>
 
-    <!-- Orbit decoration -->
     <svg class="about-orbit" width="240" height="100" viewBox="0 0 240 100">
       <ellipse cx="120" cy="50" rx="116" ry="30" fill="none" stroke="#D4A535" stroke-width="1.5" stroke-dasharray="3 4"/>
       <circle cx="6" cy="50" r="6" fill="#D4A535"/>
@@ -582,50 +561,50 @@
       <path d="M16 0 L18 14 L32 16 L18 18 L16 32 L14 18 L0 16 L14 14 Z" fill="#7AA5B8"/>
     </svg>
 
-    <div class="tag">WHAT WE REFUSE</div>
+    <div class="tag">WAT ONS WEIER</div>
     <div class="heading">
-      善意は、ときに <span class="underline">重い。</span>
+      Goeie bedoelings kan <span class="underline">swaar</span> wees.
     </div>
     <div class="list">
       <div>
         <div class="item-num">01</div>
-        <div class="item-title">伴走しない。</div>
-        <div class="item-desc">「一緒に伴走する」と言われると、<br>応えられない自分を責めてしまう。<br>だから、あえて伴走しない。</div>
+        <div class="item-title">Ons stap nie saam nie.</div>
+        <div class="item-desc">As iemand s&ecirc; &ldquo;ons sal saam met jou loop,&rdquo; kan dit jou laat voel dis jou skuld as jy nie byhou nie.<br>Daarom doen ons dit doelbewus nie.</div>
       </div>
       <div>
         <div class="item-num">02</div>
-        <div class="item-title">支援しない。</div>
-        <div class="item-desc">「あなたのために」は、<br>「助けが必要な人」と定義することでもある。<br>その定義を、使いません。</div>
+        <div class="item-title">Ons &ldquo;ondersteun&rdquo; jou nie.</div>
+        <div class="item-desc">&ldquo;Vir jou beswil&rdquo; beteken ook om jou te definieer as iemand wat hulp nodig het.<br>Ons gebruik nie daardie definisie nie.</div>
       </div>
       <div>
         <div class="item-num">03</div>
-        <div class="item-title">連携しない。</div>
-        <div class="item-desc">他のツールやSNSとの統合に、<br>時間を奪われる。<br>情報を渡したら、あとはあなたの仕事。</div>
+        <div class="item-title">Ons integreer nie.</div>
+        <div class="item-desc">Koppeling met ander gereedskap en sosiale media steel jou tyd.<br>Sodra ons die inligting oorhandig, is die res joune.</div>
       </div>
     </div>
   </section>
 
   <!-- ============= CONTACT FORM ============= -->
   <section class="contact-section">
-    <div class="contact-tag">CONTACT</div>
-    <h2 class="contact-heading">お問い合わせ</h2>
-    <p class="contact-desc">バグ報告、開発参加、機能要望など。メールアドレスとトピックを選んで送信してください。</p>
+    <div class="contact-tag">KONTAK</div>
+    <h2 class="contact-heading">Kontak <em>ons.</em></h2>
+    <p class="contact-desc">Foutverslae, ontwikkelingsdeelname, funksie-versoeke en meer. Voer jou e-posadres in, kies 'n onderwerp en stuur.</p>
     <form class="contact-form" id="contact-form" onsubmit="var e=document.getElementById('contact-email').value;var t=document.getElementById('contact-topic');var s=t.options[t.selectedIndex].text;window.location.href='mailto:shiosaisazanami@gmail.com?subject='+encodeURIComponent('[ShiosaiLearn] '+s)+'&body='+encodeURIComponent('From: '+e+'\nTopic: '+s+'\n\n');return false;">
       <label>
-        メールアドレス
-        <input type="email" id="contact-email" placeholder="your@email.com" required>
+        E-POSADRES
+        <input type="email" id="contact-email" placeholder="jou@epos.com" required>
       </label>
       <label>
-        トピック
+        ONDERWERP
         <select id="contact-topic" required>
-          <option value="" disabled selected>選択してください</option>
-          <option value="bug">バグ報告</option>
-          <option value="dev">開発参加</option>
-          <option value="feature">要望</option>
-          <option value="other">その他</option>
+          <option value="" disabled selected>Kies 'n onderwerp</option>
+          <option value="bug">Foutverslag</option>
+          <option value="dev">Ontwikkelingsdeelname</option>
+          <option value="feature">Versoek</option>
+          <option value="other">Ander</option>
         </select>
       </label>
-      <button type="submit" class="contact-submit"><span>送信</span><span>&rarr;</span></button>
+      <button type="submit" class="contact-submit"><span>STUUR</span><span>&rarr;</span></button>
     </form>
   </section>
 
@@ -641,29 +620,29 @@
           </g>
         </svg>
         <div class="wm">SHIOSAILEARN</div>
-        <p class="f-tagline">自律した個人のための、静かな道具群。</p>
+        <p class="f-tagline">Stil gereedskap vir outonome individue.</p>
       </div>
       <div class="f-col">
-        <h4>Projects</h4>
-        <a href="projects/konin.html">高認パス</a>
+        <h4>Projekte</h4>
+        <a href="projects/konin.html">Konin-Pass</a>
         <a href="projects/stellar.html">Stellar</a>
       </div>
       <div class="f-col">
-        <h4>About</h4>
-        <a href="about.html">Manifesto</a>
-        <a href="about.html">Author</a>
-        <a href="about.html">Press</a>
+        <h4>Oor ons</h4>
+        <a href="about.html">Manifes</a>
+        <a href="about.html">Skrywer</a>
+        <a href="about.html">Pers</a>
       </div>
       <div class="f-col">
-        <h4>Connect</h4>
+        <h4>Kontak</h4>
         <a href="https://github.com/toutoutoubun">GitHub</a>
-        <a href="mailto:shiosaisazanami@gmail.com">Email</a>
-        <a href="support.html">Support</a>
+        <a href="mailto:shiosaisazanami@gmail.com">E-pos</a>
+        <a href="support.html">Ondersteun</a>
       </div>
     </div>
     <div class="f-divider"></div>
     <div class="f-bottom">
-      <div>© 2026 SHIOSAILEARN — BY TAMI_TOU</div>
+      <div>&copy; 2026 SHIOSAILEARN &mdash; BY TAMI_TOU</div>
       <div>END_OF_TRANSMISSION_2026.05.08</div>
     </div>
   </footer>

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ShiosaiLearn — 高認パス</title>
+<title>ShiosaiLearn — Konin-Pass</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Noto+Sans+JP:wght@200;300;400;500;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -70,7 +70,7 @@
 
   .h-headline {
     font-family:Inter,'Noto Sans JP'; font-weight:500;
-    font-size:120px; line-height:1.0;
+    font-size:96px; line-height:1.05;
     margin:30px 0 30px 0;
     letter-spacing:-0.04em;
     max-width:1100px;
@@ -80,7 +80,6 @@
 
   .h-body {
     font-size:16px; line-height:1.85; color:var(--ink); max-width:560px;
-    word-break:auto-phrase; line-break:strict; overflow-wrap:break-word;
     margin-top:30px;
   }
 
@@ -139,7 +138,6 @@
   .section-intro {
     font-size:18px; line-height:1.85; max-width:680px; margin:60px 0;
     color:var(--ink);
-    word-break:auto-phrase; line-break:strict; overflow-wrap:break-word;
   }
   .section-intro em { font-style:normal; color:var(--burnt); font-weight:500; }
 
@@ -180,7 +178,6 @@
   .problem-card .desc {
     font-size:14px; line-height:1.8;
     color:var(--ink); margin-bottom:auto;
-    word-break:auto-phrase; line-break:strict; overflow-wrap:break-word;
   }
   .problem-card .marker {
     margin-top:24px;
@@ -231,7 +228,7 @@
   .lang-col-head.yes { color:var(--mustard); }
   .lang-list { display:flex; flex-direction:column; gap:18px; }
   .lang-word {
-    font-family:'Noto Sans JP', Inter; font-weight:300;
+    font-family:Inter; font-weight:300;
     font-size:24px; letter-spacing:-0.01em;
     line-height:1.4;
   }
@@ -267,7 +264,7 @@
     font-family:Inter,'Noto Sans JP'; font-weight:500;
     font-size:32px; letter-spacing:-0.01em; margin-bottom:14px;
   }
-  .layer .desc { font-size:14px; line-height:1.85; margin-bottom:24px; max-width:380px; word-break:auto-phrase; line-break:strict; }
+  .layer .desc { font-size:14px; line-height:1.85; margin-bottom:24px; max-width:380px; }
   .layer .points { display:flex; flex-direction:column; gap:8px; margin-top:auto; }
   .layer .point { display:flex; align-items:flex-start; gap:10px; font-size:13px; line-height:1.7; }
   .layer .point::before { content:''; flex-shrink:0; width:8px; height:8px; border-radius:50%; background:currentColor; margin-top:8px; opacity:0.7; }
@@ -280,7 +277,7 @@
     font-size:42px; line-height:1.25; color:var(--navy);
     margin:0 0 24px 0; letter-spacing:-0.01em;
   }
-  .formula-text p { font-size:14px; line-height:1.85; color:var(--ink); max-width:480px; word-break:auto-phrase; line-break:strict; margin:0 0 14px 0; }
+  .formula-text p { font-size:14px; line-height:1.85; color:var(--ink); max-width:480px; margin:0 0 14px 0; }
   .formula-block {
     background:var(--navy); color:var(--cream);
     padding:50px 40px;
@@ -347,7 +344,7 @@
     margin-bottom:14px;
   }
   .phase .pname { font-family:Inter,'Noto Sans JP'; font-weight:500; font-size:28px; color:var(--cream); margin-bottom:18px; letter-spacing:-0.01em; }
-  .phase .pdesc { font-size:13px; line-height:1.85; opacity:0.85; max-width:280px; word-break:auto-phrase; line-break:strict; margin-bottom:24px; }
+  .phase .pdesc { font-size:13px; line-height:1.85; opacity:0.85; max-width:280px; margin-bottom:24px; }
   .phase .pstatus {
     margin-top:auto;
     font-family:'JetBrains Mono', monospace;
@@ -366,7 +363,7 @@
     color:var(--cream); letter-spacing:-0.02em; margin:0 0 24px 0;
   }
   .doc-left .heading em { font-style:normal; color:var(--mustard); font-weight:500; }
-  .doc-left p { font-size:15px; line-height:1.85; max-width:440px; word-break:auto-phrase; line-break:strict; margin:0 0 14px 0; }
+  .doc-left p { font-size:15px; line-height:1.85; max-width:440px; margin:0 0 14px 0; }
   .doc-card {
     background:rgba(242,237,228,0.1);
     border:1px solid rgba(242,237,228,0.25);
@@ -397,7 +394,7 @@
   .cta-tag::before { content:''; width:8px; height:8px; border-radius:50%; background:var(--mustard); }
   .cta-heading { font-family:Inter,'Noto Sans JP'; font-weight:500; font-size:96px; line-height:1.0; margin:30px 0 40px 0; letter-spacing:-0.04em; max-width:900px; color:var(--ink); }
   .cta-heading em { font-style:normal; color:var(--burnt); }
-  .cta-body { font-size:16px; line-height:1.85; max-width:560px; margin-bottom:40px; word-break:auto-phrase; line-break:strict; }
+  .cta-body { font-size:16px; line-height:1.85; max-width:560px; margin-bottom:40px; }
   .cta-row { display:flex; gap:14px; flex-wrap:wrap; align-items:center; }
   .cta-primary {
     display:inline-flex; align-items:center; gap:10px;
@@ -478,7 +475,7 @@
   .lang-sw-menu a:hover { background:var(--navy); color:var(--cream); }
   .lang-sw-menu a.active { font-weight:700; pointer-events:none; opacity:0.5; }
 </style>
-<link rel="stylesheet" href="../assets/styles/responsive.css">
+<link rel="stylesheet" href="../../assets/styles/responsive.css">
 </head>
 <body>
 
@@ -497,17 +494,17 @@
     <div class="header-meta">
       <div class="header-coords">N 35°41' · E 139°41'</div>
       <nav class="nav">
-        <a class="current" href="../index.html#projects">Projects</a>
-        <a href="../about.html">About</a>
-        <a href="../support.html">Support</a>
+        <a class="current" href="../index.html#projects">Projets</a>
+        <a href="../about.html">À propos</a>
+        <a href="../support.html">Soutenir</a>
       </nav>
       <div class="lang-sw">
-        <button class="lang-sw-btn" type="button" aria-label="Language">JA<span class="lang-sw-arrow"></span></button>
+        <button class="lang-sw-btn" type="button" aria-label="Language">FR<span class="lang-sw-arrow"></span></button>
         <div class="lang-sw-menu">
-          <a href="konin.html" class="active">JA — 日本語</a>
-          <a href="../en/projects/konin.html">EN — English</a>
-          <a href="../fr/projects/konin.html">FR — Français</a>
-          <a href="../af/projects/konin.html">AF — Afrikaans</a>
+          <a href="../../projects/konin.html">JA — 日本語</a>
+          <a href="../../en/projects/konin.html">EN — English</a>
+          <a href="konin.html" class="active">FR — Français</a>
+          <a href="../../af/projects/konin.html">AF — Afrikaans</a>
         </div>
       </div>
     </div>
@@ -515,12 +512,12 @@
 
   <!-- BREADCRUMB -->
   <div class="breadcrumb">
-    <a href="../index.html">HOME</a><span class="sep">/</span><a href="../index.html#projects">PROJECTS</a><span class="sep">/</span><span class="current">高認パス</span>
+    <a href="../index.html">ACCUEIL</a><span class="sep">/</span><a href="../index.html#projects">PROJETS</a><span class="sep">/</span><span class="current">KONIN-PASS</span>
   </div>
 
   <!-- HERO -->
   <section class="hero">
-    <div class="h-tag">PROJECT 01 — 高認パス</div>
+    <div class="h-tag">PROJET 01 — KONIN-PASS</div>
 
     <div class="h-deco-1"></div>
     <div class="h-deco-2"></div>
@@ -529,46 +526,46 @@
       <path d="M16 0 L18 14 L32 16 L18 18 L16 32 L14 18 L0 16 L14 14 Z" fill="#D4A535"/>
     </svg>
 
-    <h1 class="h-headline">高認取るなら、<br><em>楽したい。</em></h1>
+    <h1 class="h-headline">Réussir l'examen.<br><em>Par la voie simple.</em></h1>
 
     <div class="h-body">
-      ユーザーが正当に取得した公式PDFを端末内で解析し、出題傾向データを淡々と可視化するWebツール。過去問そのものは提供しません。励ましません。判定しません。
+      Un outil web qui analyse les PDF officiels légalement obtenus par l'utilisateur, sur l'appareil, et visualise discrètement les données de fréquence d'examen. Il ne fournit pas les sujets d'examen passés. Il n'encourage pas. Il ne juge pas.
     </div>
 
     <div class="h-cta-row">
-      <a class="h-cta-primary" href="https://konin-2026.shiosaisazanami.workers.dev" target="_blank" rel="noopener noreferrer"><span>OPEN TOOL</span><span>→</span></a>
-      <a class="h-cta-secondary" href="https://github.com/toutoutoubun/konin-2026" target="_blank" rel="noopener noreferrer"><span>GitHubで見る</span></a>
-      <span class="h-cta-info">FREE · WEB · BETA</span>
+      <a class="h-cta-primary" href="https://konin-2026.shiosaisazanami.workers.dev" target="_blank" rel="noopener noreferrer"><span>OUVRIR L'OUTIL</span><span>→</span></a>
+      <a class="h-cta-secondary" href="https://github.com/toutoutoubun/konin-2026" target="_blank" rel="noopener noreferrer"><span>Voir sur GitHub</span></a>
+      <span class="h-cta-info">GRATUIT · WEB · BETA</span>
     </div>
   </section>
 
   <!-- 3 PROBLEMS -->
   <section class="problems-section">
     <div class="section-tag-row">
-      <div class="section-tag"><span class="dot" style="background:var(--burnt);"></span>The Problems</div>
-      <div class="section-count">[ 03 ISSUES ADDRESSED ]</div>
+      <div class="section-tag"><span class="dot" style="background:var(--burnt);"></span>Les problèmes</div>
+      <div class="section-count">[ 03 PROBLÈMES TRAITÉS ]</div>
     </div>
 
-    <p class="section-intro">既存の高認関連サービスには、<em>3つの問題</em>がありました。</p>
+    <p class="section-intro">Les services existants pour l'examen d'équivalence avaient <em>trois problèmes.</em></p>
 
     <div class="problems-grid">
       <div class="problem-card problem-1">
         <div class="num-badge">01</div>
-        <div class="title">情報が、<br>散らばっている</div>
-        <div class="desc">文科省のページ、塾のサイト、参考書。何の科目をどう勉強すればいいか把握するだけで時間がかかる。</div>
-        <div class="marker">— SCATTERED</div>
+        <div class="title">L'information est<br>dispersée</div>
+        <div class="desc">Pages du MEXT, sites de cours préparatoires, manuels scolaires. Simplement comprendre quelles matières étudier et comment prend beaucoup de temps.</div>
+        <div class="marker">— DISPERSÉE</div>
       </div>
       <div class="problem-card problem-2">
         <div class="num-badge">02</div>
-        <div class="title">頻出分析が、<br>有料の壁の向こう</div>
-        <div class="desc">どの単元が出やすいかという情報は、ペイウォールの向こうにあるか、そもそも公開されていない。</div>
-        <div class="marker">— PAYWALLED</div>
+        <div class="title">L'analyse de fréquence<br>est payante</div>
+        <div class="desc">Les données sur les sujets les plus fréquemment testés sont soit derrière un paywall, soit pas disponibles publiquement.</div>
+        <div class="marker">— PAYWALL</div>
       </div>
       <div class="problem-card problem-3">
         <div class="num-badge">03</div>
-        <div class="title">演習が、<br>塾を前提にしている</div>
-        <div class="desc">演習問題の選択肢はほぼ塾や家庭教師ありき。自宅で自律的に取り組めるサービスがない。</div>
-        <div class="marker">— TUTOR-DEPENDENT</div>
+        <div class="title">La pratique suppose<br>un tuteur</div>
+        <div class="desc">Les options pour les exercices pratiques sont presque entièrement conçues autour de cours préparatoires ou de tuteurs privés. Il n'existe pas de service pour l'étude autonome à domicile.</div>
+        <div class="marker">— DÉPENDANT D'UN TUTEUR</div>
       </div>
     </div>
   </section>
@@ -581,30 +578,30 @@
       <circle cx="234" cy="50" r="4" fill="#7AA5B8"/>
     </svg>
 
-    <div class="language-tag">VOCABULARY</div>
-    <h2 class="language-heading">使う言葉、<em>使わない言葉。</em></h2>
+    <div class="language-tag">VOCABULAIRE</div>
+    <h2 class="language-heading">Les mots que nous utilisons, <em>ceux que nous n'utilisons pas.</em></h2>
 
     <div class="lang-table">
       <div class="lang-col">
-        <div class="lang-col-head no">— DON'T USE</div>
+        <div class="lang-col-head no">— NE PAS UTILISER</div>
         <div class="lang-list">
-          <div class="lang-word no">合格を勝ち取ろう</div>
-          <div class="lang-word no">差をつけよう</div>
-          <div class="lang-word no">最短で逆転</div>
-          <div class="lang-word no">今すぐ始めないと危険</div>
-          <div class="lang-word no">遅れている</div>
-          <div class="lang-word no">あなたはまだ</div>
+          <div class="lang-word no">Décrochez votre diplôme</div>
+          <div class="lang-word no">Prenez de l'avance</div>
+          <div class="lang-word no">Le moyen le plus rapide de rattraper</div>
+          <div class="lang-word no">Commencez maintenant ou prenez du retard</div>
+          <div class="lang-word no">Vous êtes en retard</div>
+          <div class="lang-word no">Vous n'avez toujours pas...</div>
         </div>
       </div>
       <div class="lang-col">
-        <div class="lang-col-head yes">— USE</div>
+        <div class="lang-col-head yes">— UTILISER</div>
         <div class="lang-list">
-          <div class="lang-word yes">よく出る単元</div>
-          <div class="lang-word yes">集計対象</div>
-          <div class="lang-word yes">出現回数 / 出現率</div>
-          <div class="lang-word yes">表示条件を変える</div>
-          <div class="lang-word yes">公式PDFを端末内で解析する</div>
-          <div class="lang-word yes">直近の出現</div>
+          <div class="lang-word yes">Sujets fréquemment testés</div>
+          <div class="lang-word yes">Cible d'agrégation</div>
+          <div class="lang-word yes">Nombre / taux d'apparition</div>
+          <div class="lang-word yes">Modifier les filtres d'affichage</div>
+          <div class="lang-word yes">Analyser les PDF officiels sur l'appareil</div>
+          <div class="lang-word yes">Apparitions récentes</div>
         </div>
       </div>
     </div>
@@ -613,35 +610,35 @@
   <!-- TWO LAYERS -->
   <section class="layers-section">
     <div class="section-tag-row">
-      <div class="section-tag"><span class="dot" style="background:var(--mizu);"></span>Two Layers</div>
-      <div class="section-count">[ FREE + PAID ]</div>
+      <div class="section-tag"><span class="dot" style="background:var(--mizu);"></span>Deux niveaux</div>
+      <div class="section-count">[ GRATUIT + PAYANT ]</div>
     </div>
 
-    <p class="section-intro"><em>無料層</em>と、<em>有料層。</em>導線は自然に。</p>
+    <p class="section-intro">Un <em>niveau gratuit</em> et un <em>niveau payant.</em> La transition est naturelle.</p>
 
     <div class="layers-grid">
       <div class="layer layer-1">
-        <div class="label">FREE LAYER</div>
-        <div class="price">¥0</div>
-        <div class="name">頻出分析 + 情報整理</div>
-        <div class="desc">ユーザーが正当に取得した公式PDFをブラウザ内で解析。科目別・単元別・出題形式別の出題傾向を、著作物の表現ではない集計データとして可視化します。集計式とタグ定義は公開しています。</div>
+        <div class="label">NIVEAU GRATUIT</div>
+        <div class="price">0 €</div>
+        <div class="name">Analyse de fréquence + Hub d'info</div>
+        <div class="desc">Analyse les PDF officiels légalement obtenus par l'utilisateur, dans le navigateur. Visualise la fréquence d'examen par matière, sujet et format de question sous forme de données agrégées, pas de contenu protégé. Les formules d'agrégation et définitions de tags sont publiques.</div>
         <div class="points">
-          <div class="point">公式PDF読み込み（ブラウザ内処理）</div>
-          <div class="point">よく出る単元ランキング</div>
-          <div class="point">出題形式・年度推移の可視化</div>
-          <div class="point">出願Todoリスト・ルート比較・免除確認</div>
+          <div class="point">Analyse de PDF officiels (traitement dans le navigateur)</div>
+          <div class="point">Classement des sujets fréquemment testés</div>
+          <div class="point">Visualisation du format de question et des tendances annuelles</div>
+          <div class="point">Todo list d'inscription, comparaison de parcours, vérification d'exemptions</div>
         </div>
       </div>
       <div class="layer layer-2">
-        <div class="label">PAID LAYER · COMING</div>
-        <div class="price">¥500-980<span style="font-size:14px;letter-spacing:0.05em;"> / mo</span></div>
-        <div class="name">オリジナル問題演習</div>
-        <div class="desc">頻出単元に対応した独自制作の演習問題。問題本文の再配布はせず、完全オリジナル。数学・歴史地理・英語から順次。</div>
+        <div class="label">NIVEAU PAYANT · BIENTÔT</div>
+        <div class="price">4-8 €<span style="font-size:14px;letter-spacing:0.05em;"> / mois</span></div>
+        <div class="name">Exercices pratiques originaux</div>
+        <div class="desc">Des exercices entièrement originaux couvrant les sujets fréquemment testés. Aucune redistribution de contenu d'examen. En commençant par les mathématiques, l'histoire-géographie et l'anglais.</div>
         <div class="points">
-          <div class="point">頻出単元と直接対応した問題セット</div>
-          <div class="point">苦手分野チェック</div>
-          <div class="point">月額500-980円（個人）</div>
-          <div class="point">法人・通信制高校向けライセンスあり</div>
+          <div class="point">Séries d'exercices directement liées aux sujets fréquents</div>
+          <div class="point">Diagnostic des points faibles</div>
+          <div class="point">4-8 €/mois (individuel)</div>
+          <div class="point">Licence institutionnelle disponible</div>
         </div>
       </div>
     </div>
@@ -650,25 +647,25 @@
   <!-- SCORE FORMULA -->
   <section class="formula-section">
     <div class="section-tag-row">
-      <div class="section-tag"><span class="dot" style="background:var(--olive);"></span>How It Works</div>
-      <div class="section-count">[ TRANSPARENT FORMULA ]</div>
+      <div class="section-tag"><span class="dot" style="background:var(--olive);"></span>Comment ça marche</div>
+      <div class="section-count">[ FORMULE TRANSPARENTE ]</div>
     </div>
 
     <div class="formula-grid">
       <div class="formula-text">
-        <h3>頻出度の計算式は、<br>公開しています。</h3>
-        <p>近年の出題ほど重みを大きくした、重み付き合計で算出します。重みは固定値です。最新回が1.0、それ以前は段階的に減衰します。</p>
-        <p>集計対象とタグ定義もすべて公開。検証可能であることが、透明性です。</p>
+        <h3>La formule de fréquence<br>est publique.</h3>
+        <p>Calculée comme une somme pondérée qui donne plus de poids aux examens récents. Les poids sont des valeurs fixes. La session la plus récente vaut 1.0, avec une décroissance progressive pour les sessions précédentes.</p>
+        <p>Les cibles d'agrégation et les définitions de tags sont toutes publiques. La vérifiabilité, c'est la transparence.</p>
       </div>
       <div class="formula-block">
-        <div class="label">— RECENT WEIGHTED SCORE</div>
-        <div class="eq">∑(出現回数 × session_weight)</div>
+        <div class="label">— SCORE PONDÉRÉ RÉCENT</div>
+        <div class="eq">&#8721;(apparitions &times; poids_session)</div>
         <div class="weights">
-          <div class="weight-row"><span class="when">最新回</span><span class="val">× 1.0</span></div>
-          <div class="weight-row"><span class="when">1回前</span><span class="val">× 0.8</span></div>
-          <div class="weight-row"><span class="when">2回前</span><span class="val">× 0.6</span></div>
-          <div class="weight-row"><span class="when">3回前</span><span class="val">× 0.4</span></div>
-          <div class="weight-row"><span class="when">それ以前</span><span class="val">× 0.2</span></div>
+          <div class="weight-row"><span class="when">Dernière session</span><span class="val">&times; 1.0</span></div>
+          <div class="weight-row"><span class="when">1 session avant</span><span class="val">&times; 0.8</span></div>
+          <div class="weight-row"><span class="when">2 sessions avant</span><span class="val">&times; 0.6</span></div>
+          <div class="weight-row"><span class="when">3 sessions avant</span><span class="val">&times; 0.4</span></div>
+          <div class="weight-row"><span class="when">Plus ancien</span><span class="val">&times; 0.2</span></div>
         </div>
       </div>
     </div>
@@ -677,69 +674,69 @@
   <!-- SUBJECTS GRID -->
   <section class="subjects-section">
     <div class="section-tag-row">
-      <div class="section-tag"><span class="dot" style="background:var(--coral);"></span>Subjects</div>
-      <div class="section-count">[ 12 SUBJECTS · 11 LIVE + 1 SOON ]</div>
+      <div class="section-tag"><span class="dot" style="background:var(--coral);"></span>Matières</div>
+      <div class="section-count">[ 12 MATIÈRES · 11 EN LIGNE + 1 BIENTÔT ]</div>
     </div>
 
-    <p class="section-intro">対象科目は<em>12科目。</em>制度区分（新課程/旧課程）も明示します。</p>
+    <p class="section-intro">Couvrant <em>12 matières.</em> La classification du programme (nouveau/ancien) est clairement indiquée.</p>
 
     <div class="subjects-grid">
-      <div class="subject"><div class="num">01</div><div class="name">国語</div><div class="status ready">— ANALYSIS LIVE</div></div>
-      <div class="subject"><div class="num">02</div><div class="name">数学</div><div class="status ready">— ANALYSIS LIVE</div></div>
-      <div class="subject"><div class="num">03</div><div class="name">英語</div><div class="status ready">— ANALYSIS LIVE</div></div>
-      <div class="subject"><div class="num">04</div><div class="name">歴史</div><div class="status ready">— ANALYSIS LIVE</div></div>
-      <div class="subject"><div class="num">05</div><div class="name">地理</div><div class="status ready">— ANALYSIS LIVE</div></div>
-      <div class="subject"><div class="num">06</div><div class="name">公民</div><div class="status ready">— ANALYSIS LIVE</div></div>
-      <div class="subject"><div class="num">07</div><div class="name">科学と人間生活</div><div class="status ready">— ANALYSIS LIVE</div></div>
-      <div class="subject"><div class="num">08</div><div class="name">物理基礎</div><div class="status ready">— ANALYSIS LIVE</div></div>
-      <div class="subject"><div class="num">09</div><div class="name">化学基礎</div><div class="status ready">— ANALYSIS LIVE</div></div>
-      <div class="subject"><div class="num">10</div><div class="name">生物基礎</div><div class="status ready">— ANALYSIS LIVE</div></div>
-      <div class="subject"><div class="num">11</div><div class="name">地学基礎</div><div class="status ready">— ANALYSIS LIVE</div></div>
-      <div class="subject"><div class="num">12</div><div class="name">情報</div><div class="status soon">— FROM 2026 R8</div></div>
+      <div class="subject"><div class="num">01</div><div class="name">Japonais</div><div class="status ready">— ANALYSE ACTIVE</div></div>
+      <div class="subject"><div class="num">02</div><div class="name">Mathématiques</div><div class="status ready">— ANALYSE ACTIVE</div></div>
+      <div class="subject"><div class="num">03</div><div class="name">Anglais</div><div class="status ready">— ANALYSE ACTIVE</div></div>
+      <div class="subject"><div class="num">04</div><div class="name">Histoire</div><div class="status ready">— ANALYSE ACTIVE</div></div>
+      <div class="subject"><div class="num">05</div><div class="name">Géographie</div><div class="status ready">— ANALYSE ACTIVE</div></div>
+      <div class="subject"><div class="num">06</div><div class="name">Éducation civique</div><div class="status ready">— ANALYSE ACTIVE</div></div>
+      <div class="subject"><div class="num">07</div><div class="name">Sciences &amp; vie quotidienne</div><div class="status ready">— ANALYSE ACTIVE</div></div>
+      <div class="subject"><div class="num">08</div><div class="name">Physique de base</div><div class="status ready">— ANALYSE ACTIVE</div></div>
+      <div class="subject"><div class="num">09</div><div class="name">Chimie de base</div><div class="status ready">— ANALYSE ACTIVE</div></div>
+      <div class="subject"><div class="num">10</div><div class="name">Biologie de base</div><div class="status ready">— ANALYSE ACTIVE</div></div>
+      <div class="subject"><div class="num">11</div><div class="name">Sciences de la Terre</div><div class="status ready">— ANALYSE ACTIVE</div></div>
+      <div class="subject"><div class="num">12</div><div class="name">Informatique</div><div class="status soon">— À PARTIR DE 2026 R8</div></div>
     </div>
   </section>
 
   <!-- ROADMAP -->
   <section class="roadmap-section">
-    <div class="roadmap-tag">ROADMAP</div>
-    <h2 class="roadmap-heading">3つの<em>Phase。</em></h2>
+    <div class="roadmap-tag">FEUILLE DE ROUTE</div>
+    <h2 class="roadmap-heading">Trois <em>phases.</em></h2>
 
     <div class="phase-list">
       <div class="phase">
         <div class="pnum">— PHASE 01</div>
-        <div class="pname">無料層を公開</div>
-        <div class="pdesc">情報整理ページ、科目別頻出分析、年度推移、タグ定義、更新履歴。</div>
-        <div class="pstatus now">[ NOW ]</div>
+        <div class="pname">Lancer le niveau gratuit</div>
+        <div class="pdesc">Pages du hub d'info, analyse de fréquence par matière, tendances annuelles, définitions des tags et historique des mises à jour.</div>
+        <div class="pstatus now">[ MAINTENANT ]</div>
       </div>
       <div class="phase">
         <div class="pnum">— PHASE 02</div>
-        <div class="pname">数学の演習を先行</div>
-        <div class="pdesc">フィルタ保存、表示密度切替、印刷向けレイアウト。数学のオリジナル問題演習を先行リリース。</div>
-        <div class="pstatus next">[ NEXT ]</div>
+        <div class="pname">Exercices de maths d'abord</div>
+        <div class="pdesc">Sauvegarde des filtres, bascule de densité d'affichage, mise en page imprimable. Publication anticipée des exercices de mathématiques originaux.</div>
+        <div class="pstatus next">[ SUIVANT ]</div>
       </div>
       <div class="phase">
         <div class="pnum">— PHASE 03</div>
-        <div class="pname">残り科目と法人向け</div>
-        <div class="pdesc">歴史地理・英語の演習を追加。法人ビュー、科目横断比較、データライセンス。</div>
-        <div class="pstatus future">[ FUTURE ]</div>
+        <div class="pname">Plus de matières + institutionnel</div>
+        <div class="pdesc">Ajout d'exercices d'histoire-géographie et d'anglais. Vue institutionnelle, comparaison inter-matières, licence de données.</div>
+        <div class="pstatus future">[ FUTUR ]</div>
       </div>
     </div>
   </section>
 
   <!-- DESIGN DOC -->
   <section class="doc-section">
-    <div class="language-tag" style="background:var(--mustard);">DESIGN DOC</div>
+    <div class="language-tag" style="background:var(--mustard);">DOCUMENT DE CONCEPTION</div>
     <div class="doc-grid">
       <div class="doc-left">
-        <h2 class="heading">設計の根拠を、<br><em>言語化しました。</em></h2>
-        <p>判断のときに迷ったら、ここに戻ります。仕様が変わっても、この文書の内容は変わりません。</p>
-        <p>設計思想書 v1.0 は11セクション、約3,700字。</p>
+        <h2 class="heading">Nous avons écrit les<br><em>raisons de conception.</em></h2>
+        <p>Quand nous ne sommes pas sûrs d'une décision, nous revenons ici. Même si les spécifications changent, ce document ne changera pas.</p>
+        <p>La Philosophie de conception v1.0 contient 11 sections, environ 3 700 caractères.</p>
       </div>
       <div class="doc-card">
-        <div class="doc-tag">— DESIGN DOC v1.0</div>
-        <div class="doc-title">高認パス 設計思想書</div>
-        <div class="doc-desc">なぜ作るのか、誰のために作るのか、何を提供しないか。プロダクトの判断基準を記録しています。</div>
-        <a class="doc-button" href="../assets/docs/konin-pass-design-doc.pdf" download>DOWNLOAD PDF ↓</a>
+        <div class="doc-tag">— DOCUMENT DE CONCEPTION v1.0</div>
+        <div class="doc-title">Philosophie de conception de Konin-Pass</div>
+        <div class="doc-desc">Pourquoi nous le construisons, pour qui, et ce que nous choisissons de ne pas fournir. Un enregistrement des critères de décision du produit.</div>
+        <a class="doc-button" href="../../assets/docs/konin-pass-design-doc.pdf" download>TÉLÉCHARGER PDF &#8595;</a>
         <div class="doc-meta">v1.0 · 2026.05.06 · 11 sections</div>
       </div>
     </div>
@@ -756,15 +753,15 @@
       <path d="M16 0 L18 14 L32 16 L18 18 L16 32 L14 18 L0 16 L14 14 Z" fill="#2D516E"/>
     </svg>
 
-    <div class="cta-tag">START</div>
-    <h2 class="cta-heading">さあ、<br><em>楽しよう。</em></h2>
-    <div class="cta-body">登録不要。アカウントなし。広告なし。あなたが正当に取得した公式PDFを読み込めば、その場で傾向を分析します。サーバーには送りません。</div>
+    <div class="cta-tag">COMMENCER</div>
+    <h2 class="cta-heading">Prenons<br><em>la voie simple.</em></h2>
+    <div class="cta-body">Pas d'inscription. Pas de compte. Pas de publicité. Chargez le PDF officiel que vous avez légalement obtenu, et l'outil analyse les tendances sur place. Rien n'est envoyé à un serveur.</div>
     <div class="cta-row">
-      <a class="cta-primary" href="https://konin-2026.shiosaisazanami.workers.dev" target="_blank" rel="noopener noreferrer"><span>OPEN TOOL</span><span>→</span></a>
-      <a class="cta-secondary" href="https://github.com/toutoutoubun/konin-2026" target="_blank" rel="noopener noreferrer"><span>GitHubで見る</span></a>
+      <a class="cta-primary" href="https://konin-2026.shiosaisazanami.workers.dev" target="_blank" rel="noopener noreferrer"><span>OUVRIR L'OUTIL</span><span>→</span></a>
+      <a class="cta-secondary" href="https://github.com/toutoutoubun/konin-2026" target="_blank" rel="noopener noreferrer"><span>Voir sur GitHub</span></a>
     </div>
     <div class="cta-info">
-      [ ALL PROCESSING IS LOCAL · WORKS OFFLINE AFTER LOAD ]
+      [ TOUT LE TRAITEMENT EST LOCAL · FONCTIONNE HORS LIGNE APRÈS CHARGEMENT ]
     </div>
   </section>
 
@@ -780,24 +777,24 @@
           </g>
         </svg>
         <div class="wm">SHIOSAILEARN</div>
-        <p class="f-tagline">自律した個人のための、静かな道具群。</p>
+        <p class="f-tagline">Des outils discrets pour des personnes autonomes.</p>
       </div>
       <div class="f-col">
-        <h4>Projects</h4>
-        <a href="../projects/konin.html">高認パス</a>
-        <a href="../projects/stellar.html">Stellar</a>
+        <h4>Projets</h4>
+        <a href="konin.html">Konin-Pass</a>
+        <a href="stellar.html">Stellar</a>
       </div>
       <div class="f-col">
-        <h4>About</h4>
-        <a href="../about.html">Manifesto</a>
-        <a href="../about.html">Author</a>
-        <a href="../about.html">Press</a>
+        <h4>À propos</h4>
+        <a href="../about.html">Manifeste</a>
+        <a href="../about.html">Auteur</a>
+        <a href="../about.html">Presse</a>
       </div>
       <div class="f-col">
-        <h4>Connect</h4>
+        <h4>Contact</h4>
         <a href="https://github.com/toutoutoubun">GitHub</a>
-        <a href="mailto:hello@shiosailearn.com">Email</a>
-        <a href="../support.html">Support</a>
+        <a href="mailto:shiosaisazanami@gmail.com">Email</a>
+        <a href="../support.html">Soutenir</a>
       </div>
     </div>
     <div class="f-divider"></div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="af">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,10 +7,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Noto+Sans+JP:wght@200;300;400;500;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="alternate" hreflang="ja" href="stellar.html">
-<link rel="alternate" hreflang="en" href="stellar-en.html">
-<link rel="alternate" hreflang="fr" href="stellar-fr.html">
-<link rel="alternate" hreflang="af" href="stellar-af.html">
+<link rel="alternate" hreflang="ja" href="../../projects/stellar.html">
+<link rel="alternate" hreflang="en" href="../../en/projects/stellar.html">
+<link rel="alternate" hreflang="fr" href="../../fr/projects/stellar.html">
+<link rel="alternate" hreflang="af" href="stellar.html">
 <style>
   :root {
     --cream: #F2EDE4;
@@ -96,6 +96,44 @@
   .h-deco-2 { position:absolute; top:200px; right:60px; width:24px; height:24px; background:var(--olive); transform:rotate(45deg); }
   .h-deco-3 { position:absolute; bottom:80px; right:200px; width:90px; height:90px; border-radius:50%; border:3px solid var(--mizu); }
   .h-star { position:absolute; top:380px; right:140px; }
+
+  /* ============= PORTAL BANNER ============= */
+  .portal-banner {
+    margin:40px 0 0 0;
+    display:inline-flex; align-items:center; gap:14px;
+    padding:14px 24px;
+    background:var(--navy);
+    border-radius:14px;
+    color:var(--cream);
+    font-size:13px;
+    line-height:1.5;
+    max-width:560px;
+  }
+  .portal-banner .portal-icon {
+    flex-shrink:0;
+    width:36px; height:36px;
+    border-radius:50%;
+    background:var(--mustard);
+    display:flex; align-items:center; justify-content:center;
+    font-size:16px; font-weight:700; color:var(--navy);
+  }
+  .portal-banner .portal-text {
+    display:flex; flex-direction:column; gap:2px;
+  }
+  .portal-banner .portal-label {
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px; letter-spacing:0.15em; text-transform:uppercase;
+    opacity:0.7;
+  }
+  .portal-banner .portal-link {
+    font-weight:600; letter-spacing:0.02em;
+    color:var(--mustard);
+  }
+  .portal-banner .portal-link:hover { text-decoration:underline; text-underline-offset:3px; }
+  .portal-banner .portal-arrow {
+    margin-left:auto; flex-shrink:0;
+    font-size:18px; opacity:0.6;
+  }
 
   /* ============= DOWNLOAD BAR (top) ============= */
   .download-bar {
@@ -370,8 +408,57 @@
   .footer .f-col a { font-size:12px; line-height:2; opacity:0.85; display:block; }
   .footer .f-divider { height:1px; background:var(--cream); opacity:0.15; margin:30px 0 24px 0; }
   .footer .f-bottom { display:flex; justify-content:space-between; align-items:flex-end; font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:0.05em; opacity:0.6; }
+
+  /* ============= HEADER LANG SELECTOR ============= */
+  .lang-sw { position:relative; }
+  .lang-sw-btn {
+    display:flex; align-items:center; gap:6px;
+    padding:7px 14px;
+    border:1.5px solid var(--navy);
+    border-radius:999px;
+    background:var(--cream);
+    color:var(--navy);
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px; font-weight:600; letter-spacing:0.08em;
+    cursor:pointer;
+    transition:background 0.15s;
+  }
+  .lang-sw-btn:hover { background:var(--navy); color:var(--cream); }
+  .lang-sw-btn:hover .lang-sw-arrow { border-top-color:var(--cream); }
+  .lang-sw-arrow {
+    width:0; height:0;
+    border-left:4px solid transparent;
+    border-right:4px solid transparent;
+    border-top:5px solid var(--navy);
+    transition:transform 0.2s, border-top-color 0.15s;
+  }
+  .lang-sw.open .lang-sw-arrow { transform:rotate(180deg); }
+  .lang-sw-menu {
+    display:none;
+    position:absolute;
+    top:calc(100% + 6px);
+    right:0;
+    min-width:140px;
+    background:var(--cream);
+    border:1.5px solid var(--navy);
+    border-radius:14px;
+    padding:6px 0;
+    z-index:100;
+    box-shadow:0 4px 16px rgba(0,0,0,0.10);
+  }
+  .lang-sw.open .lang-sw-menu { display:block; }
+  .lang-sw-menu a {
+    display:block;
+    padding:8px 18px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px; font-weight:500; letter-spacing:0.06em;
+    color:var(--navy);
+    transition:background 0.12s;
+  }
+  .lang-sw-menu a:hover { background:var(--navy); color:var(--cream); }
+  .lang-sw-menu a.active { font-weight:700; pointer-events:none; opacity:0.5; }
 </style>
-<link rel="stylesheet" href="../assets/styles/responsive.css">
+<link rel="stylesheet" href="../../assets/styles/responsive.css">
 </head>
 <body>
 
@@ -388,27 +475,36 @@
       <div class="wordmark">SHIOSAILEARN</div>
     </a>
     <div class="header-meta">
-      <div class="header-coords">N 35°41' · E 139°41'</div>
+      <div class="header-coords">N 35&deg;41' &middot; E 139&deg;41'</div>
       <nav class="nav">
-        <a class="current" href="../index.html#projects">Projects</a>
-        <a href="../about.html">About</a>
-        <a href="../support.html">Support</a>
+        <a class="current" href="../index.html#projects">Projekte</a>
+        <a href="../about.html">Oor ons</a>
+        <a href="../support.html">Ondersteun</a>
       </nav>
+      <div class="lang-sw">
+        <button class="lang-sw-btn" type="button" aria-label="Language">AF<span class="lang-sw-arrow"></span></button>
+        <div class="lang-sw-menu">
+          <a href="../../projects/stellar.html">JA — 日本語</a>
+          <a href="../../en/projects/stellar.html">EN — English</a>
+          <a href="../../fr/projects/stellar.html">FR — Français</a>
+          <a href="stellar.html" class="active">AF — Afrikaans</a>
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- ============= BREADCRUMB ============= -->
   <div class="breadcrumb">
-    <a href="../index.html">HOME</a>
+    <a href="../index.html">TUIS</a>
     <span class="sep">/</span>
-    <a href="../index.html#projects">PROJECTS</a>
+    <a href="../index.html#projects">PROJEKTE</a>
     <span class="sep">/</span>
     <span class="current">STELLAR</span>
   </div>
 
   <!-- ============= HERO ============= -->
   <section class="hero">
-    <div class="h-tag">PROJECT 02 — STELLAR</div>
+    <div class="h-tag">PROJEK 02 &mdash; STELLAR</div>
 
     <div class="h-deco-1"></div>
     <div class="h-deco-2"></div>
@@ -418,18 +514,27 @@
     </svg>
 
     <h1 class="h-headline">
-      <span class="a">Lire</span>. <span class="b">Penser</span>.<br>
-      <span class="c">Écrire</span>. <span class="d">Relier</span>.
+      <span class="a">Lees</span>. <span class="b">Dink</span>.<br>
+      <span class="c">Skryf</span>. <span class="d">Verbind</span>.
     </h1>
 
     <div class="h-body">
-      Une application de bureau pour la recherche en sciences humaines. Articles, notes, graphes et analyses au même endroit. Entièrement locale, sans IA. Votre pensée vous appartient.
+      &rsquo;n Rekenaartoepassing vir geesteswetenskaplike navorsing. Artikels, notas, grafieke en ontleding op een plek. Heeltemal plaaslik, sonder KI-funksies. Jou denke bly joune.
     </div>
 
+    <a class="portal-banner" href="https://stellar-portal.shiosaisazanami.workers.dev/af" target="_blank" rel="noopener noreferrer">
+      <span class="portal-icon">&#9734;</span>
+      <span class="portal-text">
+        <span class="portal-label">Webmetgesel</span>
+        <span class="portal-link">Maak Stellar Portal oop</span>
+      </span>
+      <span class="portal-arrow">&rarr;</span>
+    </a>
+
     <div class="download-bar">
-      <a class="dl-btn" href="https://github.com/toutoutoubun/stellar/releases" target="_blank" rel="noopener noreferrer"><span class="os">macOS</span><span class="status">— RELEASES</span></a>
-      <a class="dl-btn" href="https://github.com/toutoutoubun/stellar/releases" target="_blank" rel="noopener noreferrer"><span class="os">Windows</span><span class="status">— RELEASES</span></a>
-      <a class="dl-btn" href="https://github.com/toutoutoubun/stellar/releases" target="_blank" rel="noopener noreferrer"><span class="os">Linux</span><span class="status">— RELEASES</span></a>
+      <a class="dl-btn" href="https://github.com/toutoutoubun/stellar/releases" target="_blank" rel="noopener noreferrer"><span class="os">macOS</span><span class="status">&mdash; RELEASES</span></a>
+      <a class="dl-btn" href="https://github.com/toutoutoubun/stellar/releases" target="_blank" rel="noopener noreferrer"><span class="os">Windows</span><span class="status">&mdash; RELEASES</span></a>
+      <a class="dl-btn" href="https://github.com/toutoutoubun/stellar/releases" target="_blank" rel="noopener noreferrer"><span class="os">Linux</span><span class="status">&mdash; RELEASES</span></a>
       <span class="dl-info">GitHub Releases</span>
     </div>
   </section>
@@ -437,54 +542,54 @@
   <!-- ============= 5 DESIGN CHOICES ============= -->
   <section class="choices-section">
     <div class="choices-tag-row">
-      <div class="choices-tag"><span class="dot"></span>Design Choices</div>
+      <div class="choices-tag"><span class="dot"></span>Ontwerpkeuses</div>
       <div class="choices-count">[ 05 / 05 ]</div>
     </div>
 
-    <p class="choices-intro">Avant les fonctionnalités, <em>les choix.</em></p>
+    <p class="choices-intro">Voor die funksies: <em>die keuses.</em></p>
 
     <div class="choices-grid">
 
       <div class="choice-card choice-1">
         <div class="num-badge">01</div>
-        <div class="title">Local<br>d'abord</div>
-        <div class="desc">SQLite reste sur votre ordinateur.<br>Rien n'est envoyé au cloud.</div>
-        <div class="marker">— LOCAL</div>
+        <div class="title">Plaaslik<br>eerste</div>
+        <div class="desc">SQLite bly op jou rekenaar.<br>Niks word wolk toe gestuur nie.</div>
+        <div class="marker">&mdash; PLAASLIK</div>
       </div>
 
       <div class="choice-card choice-2">
         <div class="num-badge">02</div>
-        <div class="title">Gratuit<br>MIT</div>
-        <div class="desc">Le code source est public.<br>Aucun abonnement.</div>
-        <div class="marker">— OPEN SOURCE</div>
+        <div class="title">Gratis<br>MIT</div>
+        <div class="desc">Die bronkode is publiek.<br>Geen intekening nie.</div>
+        <div class="marker">&mdash; OOPBRON</div>
       </div>
 
       <div class="choice-card choice-3">
         <div class="num-badge">03</div>
-        <div class="title">Aucune<br>fonction IA</div>
-        <div class="desc">L'application ne remplace pas<br>la pensée du chercheur.</div>
-        <div class="marker">— NO AI</div>
+        <div class="title">Geen KI<br>funksies</div>
+        <div class="desc">Dit vervang nie<br>die navorser se eie denke nie.</div>
+        <div class="marker">&mdash; GEEN KI</div>
       </div>
 
       <div class="choice-card choice-4">
         <div class="num-badge">04</div>
-        <div class="title">4 langues<br>prises en charge</div>
+        <div class="title">4 tale<br>ondersteun</div>
         <div class="language-select-wrap">
-          <select class="language-select" aria-label="Page de langue" onchange="if (this.value) window.location.href = this.value;">
-            <option value="stellar.html">日本語</option>
-            <option value="stellar-en.html">English</option>
-            <option value="stellar-fr.html" selected>Français</option>
-            <option value="stellar-af.html">Afrikaans</option>
+          <select class="language-select" aria-label="Taalbladsy" onchange="if (this.value) window.location.href = this.value;">
+            <option value="../../projects/stellar.html">&#26085;&#26412;&#35486;</option>
+            <option value="../../en/projects/stellar.html">English</option>
+            <option value="../../fr/projects/stellar.html">Fran&ccedil;ais</option>
+            <option value="stellar.html" selected>Afrikaans</option>
           </select>
         </div>
-        <div class="marker">— MULTILINGUAL</div>
+        <div class="marker">&mdash; MEERTALIG</div>
       </div>
 
       <div class="choice-card choice-5">
         <div class="num-badge">05</div>
-        <div class="title">3 systèmes</div>
-        <div class="desc">Fonctionne sur macOS / Windows /<br>Linux.</div>
-        <div class="marker">— CROSS-PLATFORM</div>
+        <div class="title">3 bedryfstelsels</div>
+        <div class="desc">Werk op macOS / Windows /<br>Linux.</div>
+        <div class="marker">&mdash; KRUISPLATFORM</div>
       </div>
 
     </div>
@@ -501,18 +606,18 @@
       <path d="M16 0 L18 14 L32 16 L18 18 L16 32 L14 18 L0 16 L14 14 Z" fill="#D4A535"/>
     </svg>
 
-    <div class="features-tag">CORE FEATURES</div>
-    <h2 class="features-heading"><em>Au même endroit.</em></h2>
+    <div class="features-tag">KERNFUNKSIES</div>
+    <h2 class="features-heading"><em>Op een plek.</em></h2>
 
     <div class="feature">
       <div class="num">01</div>
       <div class="body">
-        <div class="name">Bibliothèque + lecteur PDF</div>
-        <div class="lead">Rassembler, lire et surligner des articles. Une bibliothèque et des notes de lecture ensemble.</div>
+        <div class="name">Literatuurbiblioteek + PDF-leser</div>
+        <div class="lead">Versamel artikels, lees hulle en merk hulle. &rsquo;n Biblioteek en leesnotas saam.</div>
         <div class="points">
-          <div class="point">Récupération automatique des métadonnées depuis DOI, URL ou PDF</div>
-          <div class="point">Surlignage avec quatre couleurs</div>
-          <div class="point">Transformation directe des surlignages en notes</div>
+          <div class="point">Haal bibliografiese metadata uit DOI, URL of PDF</div>
+          <div class="point">Merk met vier kleure</div>
+          <div class="point">Verander merkers direk in notas</div>
         </div>
       </div>
     </div>
@@ -520,12 +625,12 @@
     <div class="feature">
       <div class="num">02</div>
       <div class="body">
-        <div class="name">Notes + WikiLink</div>
-        <div class="lead">Écrire en Markdown. Relier les notes avec <code style="font-family:'JetBrains Mono',monospace;color:#D4A535;">[[Titre de note]]</code>. Insérer des citations avec <code style="font-family:'JetBrains Mono',monospace;color:#D4A535;">@cite{idArticle}</code>.</div>
+        <div class="name">Notas + WikiLink</div>
+        <div class="lead">Skryf in Markdown. Gebruik <code style="font-family:'JetBrains Mono',monospace;color:#D4A535;">[[Notatitel]]</code> om notas te koppel. Voeg verwysings in met <code style="font-family:'JetBrains Mono',monospace;color:#D4A535;">@cite{artikelID}</code>.</div>
         <div class="points">
-          <div class="point">Markdown, liens réciproques et sauvegarde automatique</div>
-          <div class="point">Mode focus pour écrire sans interruption</div>
-          <div class="point">Export en PDF / DOCX / HTML statique</div>
+          <div class="point">Markdown, terugskakels en outostoor</div>
+          <div class="point">Fokusmodus vir ononderbroke skryfwerk</div>
+          <div class="point">Voer uit as PDF / DOCX / statiese HTML</div>
         </div>
       </div>
     </div>
@@ -533,12 +638,12 @@
     <div class="feature">
       <div class="num">03</div>
       <div class="body">
-        <div class="name">Graphe de connaissances</div>
-        <div class="lead">Visualiser les liens entre articles et notes sous forme de réseau. Le graphe reste fluide au-delà de 300 nœuds.</div>
+        <div class="name">Kennisgrafiek</div>
+        <div class="lead">Visualiseer verbindings tussen artikels en notas as &rsquo;n netwerkgrafiek. Dit bly beweeg selfs bo 300 nodusse.</div>
         <div class="points">
-          <div class="point">Graphe dynamique à forces dirigées</div>
-          <div class="point">Filtrage par tags et types</div>
-          <div class="point">Minicarte pour voir l'ensemble</div>
+          <div class="point">Kraggerigte dinamiese grafiek</div>
+          <div class="point">Filtreer volgens merker en tipe</div>
+          <div class="point">Gebruik die minikaart om die geheel te sien</div>
         </div>
       </div>
     </div>
@@ -547,8 +652,8 @@
   <!-- ============= MORE FEATURES (LIST) ============= -->
   <section class="more-section">
     <div class="more-tag-row">
-      <div class="more-tag"><span class="dot"></span>And More</div>
-      <div class="more-count">[ 06 ADDITIONAL FEATURES ]</div>
+      <div class="more-tag"><span class="dot"></span>En Meer</div>
+      <div class="more-count">[ 06 BYKOMENDE FUNKSIES ]</div>
     </div>
 
     <div class="more-list">
@@ -556,48 +661,48 @@
       <div class="more-item">
         <div class="mnum">04</div>
         <div>
-          <div class="mname">Mode brouillon</div>
-          <div class="mdesc">Disposition en trois colonnes : plan, éditeur et panneau de citations. Pour rédiger rapports et articles.</div>
+          <div class="mname">Konsepmodus</div>
+          <div class="mdesc">Driekolom-uitleg: buitelyn, redigeerder en verwysingspaneel. Vir verslae en artikels.</div>
         </div>
       </div>
 
       <div class="more-item">
         <div class="mnum">05</div>
         <div>
-          <div class="mname">Styles bibliographiques</div>
-          <div class="mdesc">APA 7 / MLA 9 / Chicago 17 / style Hitotsubashi. Export Word pris en charge.</div>
+          <div class="mname">Verwysingstyle</div>
+          <div class="mdesc">APA 7 / MLA 9 / Chicago 17 / Hitotsubashi-styl. Word-uitvoer word ondersteun.</div>
         </div>
       </div>
 
       <div class="more-item">
         <div class="mnum">06</div>
         <div>
-          <div class="mname">Recherche globale</div>
-          <div class="mdesc">Recherche dans les articles, notes et surlignages avec SQLite FTS5. Ouvrir avec <code style="font-family:'JetBrains Mono',monospace;color:#C9532E;">Ctrl+K</code>.</div>
+          <div class="mname">Globale soek</div>
+          <div class="mdesc">Soek deur artikels, notas en merkers met SQLite FTS5. Maak oop met <code style="font-family:'JetBrains Mono',monospace;color:#C9532E;">Ctrl+K</code>.</div>
         </div>
       </div>
 
       <div class="more-item">
         <div class="mnum">07</div>
         <div>
-          <div class="mname">Analyse qualitative (QDA)</div>
-          <div class="mdesc">Onze outils dont codebook, matrice, ICR, timeline, carte des acteurs et analyse de cadrage.</div>
+          <div class="mname">Kwalitatiewe analise (QDA)</div>
+          <div class="mdesc">Elf gereedskap, insluitend kodeboek, matriks, ICR, tydlyn, akteurkaart en raamontleding.</div>
         </div>
       </div>
 
       <div class="more-item">
         <div class="mnum">08</div>
         <div>
-          <div class="mname">Analyse quantitative (Data Studio)</div>
-          <div class="mdesc">Import CSV, statistiques descriptives, corrélation, test t, régression, réseau de cooccurrence et export de graphes.</div>
+          <div class="mname">Kwantitatiewe analise (Data Studio)</div>
+          <div class="mdesc">CSV-invoer, beskrywende statistiek, korrelasie, t-toets, regressie, teks-ko-voorkomsnetwerk en grafiekuitvoer.</div>
         </div>
       </div>
 
       <div class="more-item">
         <div class="mnum">09</div>
         <div>
-          <div class="mname">Paquet de recherche</div>
-          <div class="mdesc">Export et import en fichiers <code style="font-family:'JetBrains Mono',monospace;color:#C9532E;">.stellar</code> pour partager avec des groupes de recherche.</div>
+          <div class="mname">Navorsingspakket</div>
+          <div class="mdesc">Voer uit en lees in as <code style="font-family:'JetBrains Mono',monospace;color:#C9532E;">.stellar</code>-l&ecirc;ers vir deel met navorsingsgroepe.</div>
         </div>
       </div>
 
@@ -615,28 +720,28 @@
       <path d="M16 0 L18 14 L32 16 L18 18 L16 32 L14 18 L0 16 L14 14 Z" fill="#D4A535"/>
     </svg>
 
-    <div class="cta-tag">DOWNLOAD</div>
-    <h2 class="cta-heading">La dernière version est dans <em>Releases.</em></h2>
-    <div class="cta-body">Les builds pour chaque système seront ajoutés aux GitHub Releases dès qu'ils seront prêts.<br>Consultez le guide utilisateur pour les détails.</div>
+    <div class="cta-tag">AFLAAI</div>
+    <h2 class="cta-heading">Die nuutste weergawe is by <em>Releases.</em></h2>
+    <div class="cta-body">Bouweergawes vir elke bedryfstelsel word by GitHub Releases gevoeg sodra hulle gereed is.<br>Sien die gebruikersgids vir besonderhede.</div>
 
     <div class="cta-os-row">
       <a class="cta-os-btn" href="https://github.com/toutoutoubun/stellar/releases" target="_blank" rel="noopener noreferrer">
         <span class="os-name">macOS</span>
-        <span class="os-status">— GITHUB RELEASES</span>
+        <span class="os-status">&mdash; GITHUB RELEASES</span>
       </a>
       <a class="cta-os-btn" href="https://github.com/toutoutoubun/stellar/releases" target="_blank" rel="noopener noreferrer">
         <span class="os-name">Windows</span>
-        <span class="os-status">— GITHUB RELEASES</span>
+        <span class="os-status">&mdash; GITHUB RELEASES</span>
       </a>
       <a class="cta-os-btn" href="https://github.com/toutoutoubun/stellar/releases" target="_blank" rel="noopener noreferrer">
         <span class="os-name">Linux</span>
-        <span class="os-status">— GITHUB RELEASES</span>
+        <span class="os-status">&mdash; GITHUB RELEASES</span>
       </a>
     </div>
 
     <div class="cta-system">
-      [ SYSTEM REQUIREMENTS ]<br>
-      MACOS 11+ · WINDOWS 10+ · UBUNTU 20.04+ · 4GB RAM · 200MB DISK
+      [ STELSELVEREISTES ]<br>
+      MACOS 11+ &middot; WINDOWS 10+ &middot; UBUNTU 20.04+ &middot; 4GB RAM &middot; 200MB SKYF
     </div>
   </section>
 
@@ -652,32 +757,41 @@
           </g>
         </svg>
         <div class="wm">SHIOSAILEARN</div>
-        <p class="f-tagline">Des outils discrets pour des personnes autonomes.</p>
+        <p class="f-tagline">Stil gereedskap vir outonome individue.</p>
       </div>
       <div class="f-col">
-        <h4>Projects</h4>
-        <a href="../projects/konin.html">Konin-Pass</a>
-        <a href="../projects/stellar.html">Stellar</a>
+        <h4>Projekte</h4>
+        <a href="konin.html">Konin-Pass</a>
+        <a href="stellar.html">Stellar</a>
       </div>
       <div class="f-col">
-        <h4>About</h4>
-        <a href="../about.html">Manifesto</a>
-        <a href="../about.html">Author</a>
-        <a href="../about.html">Press</a>
+        <h4>Oor ons</h4>
+        <a href="../about.html">Manifes</a>
+        <a href="../about.html">Skrywer</a>
+        <a href="../about.html">Pers</a>
       </div>
       <div class="f-col">
-        <h4>Connect</h4>
-        <a href="https://github.com/shiosailearn">GitHub</a>
-        <a href="mailto:hello@shiosailearn.com">Email</a>
-        <a href="../support.html">Support</a>
+        <h4>Kontak</h4>
+        <a href="https://github.com/toutoutoubun">GitHub</a>
+        <a href="mailto:shiosaisazanami@gmail.com">E-pos</a>
+        <a href="../support.html">Ondersteun</a>
       </div>
     </div>
     <div class="f-divider"></div>
     <div class="f-bottom">
-      <div>© 2026 SHIOSAILEARN — BY TAMI_TOU</div>
+      <div>&copy; 2026 SHIOSAILEARN &mdash; BY TAMI_TOU</div>
       <div>END_OF_TRANSMISSION_2026.05.08</div>
     </div>
   </footer>
 
+<script>
+document.addEventListener('click',function(e){
+  var sw=document.querySelector('.lang-sw');
+  if(!sw)return;
+  if(sw.contains(e.target)){
+    if(e.target.closest('.lang-sw-btn')){sw.classList.toggle('open');e.preventDefault();}
+  }else{sw.classList.remove('open');}
+});
+</script>
 </body>
 </html>

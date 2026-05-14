@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="af">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ShiosaiLearn — Ondersteun</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Noto+Sans+JP:wght@200;300;400;500;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F2EDE4;
+    --navy: #2D516E;
+    --mizu: #7AA5B8;
+    --ink: #1A1A1A;
+    --mustard: #D4A535;
+    --burnt: #C9532E;
+    --olive: #6B7F4A;
+    --coral: #E08775;
+    --grey: #666;
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; padding:0; background:var(--cream); font-family:Inter,'Noto Sans JP',sans-serif; color:var(--ink); }
+  a { text-decoration:none; color:inherit; }
+
+  .header { padding:24px 50px; display:flex; align-items:center; justify-content:space-between; background:var(--cream); position:relative; z-index:5; }
+  .logo-lockup { display:flex; align-items:center; gap:14px; }
+  .logo-lockup .wordmark { color:var(--navy); font-family:Inter; font-weight:400; letter-spacing:0.18em; font-size:18px; }
+  .header-meta { display:flex; align-items:center; gap:24px; }
+  .header-coords { font-family:'JetBrains Mono', monospace; font-size:10px; color:var(--grey); letter-spacing:0.05em; }
+  .nav { display:flex; gap:8px; }
+  .nav a { color:var(--navy); font-size:11px; letter-spacing:0.15em; text-transform:uppercase; font-weight:600; padding:8px 18px; border:1.5px solid transparent; border-radius:999px; }
+  .nav a.current { border-color:var(--navy); }
+  .nav a:hover { border-color:var(--navy); }
+
+  .hero { padding:80px 60px 100px; background:var(--cream); position:relative; overflow:hidden; }
+  .h-tag { display:inline-flex; align-items:center; gap:10px; padding:8px 16px; background:var(--mustard); color:var(--ink); font-size:11px; letter-spacing:0.2em; text-transform:uppercase; font-weight:700; border-radius:999px; }
+  .h-tag::before { content:''; width:8px; height:8px; border-radius:50%; background:var(--burnt); }
+  .h-headline { font-family:Inter,'Noto Sans JP'; font-weight:400; font-size:80px; line-height:1.15; margin:30px 0 30px 0; letter-spacing:-0.02em; max-width:900px; color:var(--navy); }
+  .h-headline em { font-style:normal; color:var(--burnt); font-weight:500; }
+  .h-headline .underline { text-decoration:underline; text-decoration-thickness:6px; text-underline-offset:10px; text-decoration-color:var(--mustard); }
+  .h-body { font-size:15px; line-height:1.85; color:var(--ink); max-width:560px; word-break:auto-phrase; line-break:strict; overflow-wrap:break-word; }
+  .h-body p { margin:0 0 14px 0; }
+  .h-deco-1 { position:absolute; top:120px; right:120px; width:60px; height:60px; border-radius:50%; background:var(--mustard); }
+  .h-deco-2 { position:absolute; top:200px; right:60px; width:24px; height:24px; background:var(--olive); transform:rotate(45deg); }
+  .h-deco-3 { position:absolute; bottom:80px; right:200px; width:90px; height:90px; border-radius:50%; border:3px solid var(--mizu); }
+  .h-star { position:absolute; top:380px; right:140px; }
+
+  .layers-section { padding:80px 60px 120px; background:var(--cream); position:relative; }
+  .layers-tag-row { display:flex; align-items:center; justify-content:space-between; margin-bottom:60px; position:relative; }
+  .layers-tag-row::after { content:''; position:absolute; bottom:-30px; left:0; right:0; height:1px; background:repeating-linear-gradient(to right, var(--navy) 0 6px, transparent 6px 14px); opacity:0.3; }
+  .layers-tag { font-size:13px; letter-spacing:0.2em; text-transform:uppercase; color:var(--navy); font-weight:700; display:flex; align-items:center; gap:12px; }
+  .layers-tag .dot { display:inline-block; width:14px; height:14px; border-radius:50%; background:var(--burnt); }
+  .layers-count { font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:0.1em; color:var(--grey); }
+  .layers-intro { font-size:17px; line-height:1.85; max-width:620px; margin:60px 0; color:var(--ink); word-break:auto-phrase; line-break:strict; overflow-wrap:break-word; }
+
+  .layers-grid { display:grid; grid-template-columns: repeat(5, 1fr); gap:0; margin-top:60px; border-top:2px solid var(--navy); }
+  .layer-card { padding:50px 28px; border-right:1px solid rgba(45,81,110,0.2); border-bottom:2px solid var(--navy); background:var(--cream); position:relative; min-height:380px; display:flex; flex-direction:column; }
+  .layer-card:last-child { border-right:none; }
+  .layer-card .num-badge { display:inline-flex; align-items:center; justify-content:center; width:54px; height:54px; border-radius:50%; color:var(--cream); font-family:Inter; font-weight:700; font-size:18px; margin-bottom:24px; }
+  .layer-1 .num-badge { background:var(--mizu); }
+  .layer-2 .num-badge { background:var(--olive); }
+  .layer-3 .num-badge { background:var(--mustard); color:var(--ink); }
+  .layer-4 .num-badge { background:var(--coral); color:var(--ink); }
+  .layer-5 .num-badge { background:var(--burnt); }
+  .layer-card .title { font-family:Inter,'Noto Sans JP'; font-weight:500; font-size:24px; color:var(--navy); line-height:1.3; margin-bottom:16px; letter-spacing:-0.005em; }
+  .layer-card .desc { font-size:13px; line-height:1.75; color:var(--ink); margin-bottom:auto; word-break:auto-phrase; line-break:strict; overflow-wrap:break-word; }
+  .layer-card .desc .nb { white-space:nowrap; }
+  .layer-card .action { margin-top:24px; font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:0.15em; color:var(--navy); text-transform:uppercase; }
+  .layer-card .action.muted { color:var(--grey); }
+  .layer-card .action a { color:inherit; border-bottom:1px solid currentColor; padding-bottom:2px; }
+
+  .note-block { padding:80px 60px; background:var(--navy); color:var(--cream); position:relative; overflow:hidden; }
+  .note-block .tag { display:inline-flex; align-items:center; gap:8px; padding:8px 16px; background:var(--mustard); color:var(--ink); font-size:11px; letter-spacing:0.2em; text-transform:uppercase; font-weight:700; border-radius:999px; }
+  .note-block .tag::before { content:''; width:8px; height:8px; border-radius:50%; background:var(--burnt); }
+  .note-block .quote { font-family:Inter,'Noto Sans JP'; font-weight:300; font-size:36px; line-height:1.5; color:var(--cream); letter-spacing:-0.005em; max-width:800px; margin:30px 0 0 0; word-break:auto-phrase; line-break:strict; overflow-wrap:break-word; }
+  .note-block .quote em { font-style:normal; color:var(--mustard); }
+  .note-block .signature { margin-top:30px; font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:0.15em; opacity:0.7; }
+  .note-orbit { position:absolute; top:60px; right:50px; opacity:0.4; }
+  .note-star { position:absolute; bottom:80px; right:120px; }
+
+  .footer { padding:80px 60px 40px; background:var(--navy); color:var(--cream); position:relative; border-top:1px solid rgba(242,237,228,0.15); }
+  .footer .f-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:60px; padding-bottom:60px; }
+  .footer .f-logo svg { display:block; margin-bottom:20px; }
+  .footer .f-logo .wm { font-family:Inter; font-weight:500; font-size:18px; letter-spacing:0.18em; color:var(--cream); }
+  .footer .f-tagline { font-size:12px; line-height:1.7; max-width:280px; opacity:0.7; margin-top:20px; }
+  .footer .f-col h4 { font-size:10px; letter-spacing:0.25em; text-transform:uppercase; font-weight:700; margin:0 0 18px 0; color:var(--mustard); }
+  .footer .f-col a { font-size:12px; line-height:2; opacity:0.85; display:block; }
+  .footer .f-divider { height:1px; background:var(--cream); opacity:0.15; margin:30px 0 24px 0; }
+  .footer .f-bottom { display:flex; justify-content:space-between; align-items:flex-end; font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:0.05em; opacity:0.6; }
+
+  /* ============= HEADER LANG SELECTOR ============= */
+  .lang-sw { position:relative; }
+  .lang-sw-btn {
+    display:flex; align-items:center; gap:6px;
+    padding:7px 14px;
+    border:1.5px solid var(--navy);
+    border-radius:999px;
+    background:var(--cream);
+    color:var(--navy);
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px; font-weight:600; letter-spacing:0.08em;
+    cursor:pointer;
+    transition:background 0.15s;
+  }
+  .lang-sw-btn:hover { background:var(--navy); color:var(--cream); }
+  .lang-sw-btn:hover .lang-sw-arrow { border-top-color:var(--cream); }
+  .lang-sw-arrow {
+    width:0; height:0;
+    border-left:4px solid transparent;
+    border-right:4px solid transparent;
+    border-top:5px solid var(--navy);
+    transition:transform 0.2s, border-top-color 0.15s;
+  }
+  .lang-sw.open .lang-sw-arrow { transform:rotate(180deg); }
+  .lang-sw-menu {
+    display:none;
+    position:absolute;
+    top:calc(100% + 6px);
+    right:0;
+    min-width:140px;
+    background:var(--cream);
+    border:1.5px solid var(--navy);
+    border-radius:14px;
+    padding:6px 0;
+    z-index:100;
+    box-shadow:0 4px 16px rgba(0,0,0,0.10);
+  }
+  .lang-sw.open .lang-sw-menu { display:block; }
+  .lang-sw-menu a {
+    display:block;
+    padding:8px 18px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px; font-weight:500; letter-spacing:0.06em;
+    color:var(--navy);
+    transition:background 0.12s;
+  }
+  .lang-sw-menu a:hover { background:var(--navy); color:var(--cream); }
+  .lang-sw-menu a.active { font-weight:700; pointer-events:none; opacity:0.5; }
+</style>
+<link rel="stylesheet" href="../assets/styles/responsive.css">
+</head>
+<body>
+
+  <div class="header">
+    <a class="logo-lockup" href="index.html">
+      <svg viewBox="0 0 100 80" width="36" height="29"><g fill="none" stroke="#2D516E" stroke-width="4" stroke-linecap="round"><path d="M 25 25 Q 40 17, 55 25 T 75 25"/><path d="M 18 40 Q 36 32, 53 40 T 82 40"/><path d="M 10 55 Q 30 47, 50 55 T 80 55 T 90 55"/></g></svg>
+      <div class="wordmark">SHIOSAILEARN</div>
+    </a>
+    <div class="header-meta">
+      <div class="header-coords">N 35&deg;41' &middot; E 139&deg;41'</div>
+      <nav class="nav">
+        <a href="index.html#projects">Projekte</a>
+        <a href="about.html">Oor ons</a>
+        <a class="current" href="support.html">Ondersteun</a>
+      </nav>
+      <div class="lang-sw">
+        <button class="lang-sw-btn" type="button" aria-label="Language">AF<span class="lang-sw-arrow"></span></button>
+        <div class="lang-sw-menu">
+          <a href="../support.html">JA — 日本語</a>
+          <a href="../en/support.html">EN — English</a>
+          <a href="../fr/support.html">FR — Français</a>
+          <a href="support.html" class="active">AF — Afrikaans</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="h-tag">ONDERSTEUN — 5 AFSTANDE</div>
+    <div class="h-deco-1"></div>
+    <div class="h-deco-2"></div>
+    <div class="h-deco-3"></div>
+    <svg class="h-star" width="32" height="32" viewBox="0 0 32 32"><path d="M16 0 L18 14 L32 16 L18 18 L16 32 L14 18 L0 16 L14 14 Z" fill="#D4A535"/></svg>
+
+    <h1 class="h-headline">Jy hoef <em>niks</em> te<br><span class="underline">dra</span> nie.</h1>
+    <div class="h-body">
+      <p>Hierdie projek kan sonder geld voortgaan.</p>
+      <p>Maar as jy iets wil gee, hier is vyf afstande waaruit jy kan kies. Hulle is gelyk gelys. Daar is geen rangorde nie.</p>
+    </div>
+  </section>
+
+  <section class="layers-section">
+    <div class="layers-tag-row">
+      <div class="layers-tag"><span class="dot"></span>Vyf Afstande</div>
+      <div class="layers-count">[ 05 / 05 &mdash; GELYKE GEWIG ]</div>
+    </div>
+
+    <p class="layers-intro">Of jy een, almal of geen kies nie, elkeen dra gelyke betekenis. Ons onderskei nie tussen diegene wat die gereedskap net gebruik en diegene wat finansieel bydra nie.</p>
+
+    <div class="layers-grid">
+      <div class="layer-card layer-1">
+        <div class="num-badge">01</div>
+        <div class="title">Gebruik dit</div>
+        <div class="desc">Maak &rsquo;n gereedskap oop en gebruik dit.<br>Dit alleen is genoeg.<br>Jy hoef ons niks te vertel nie.</div>
+        <div class="action muted">&mdash; MAAK GEREEDSKAP OOP</div>
+      </div>
+
+      <div class="layer-card layer-2">
+        <div class="num-badge">02</div>
+        <div class="title">Stuur terugvoer</div>
+        <div class="desc">Wat gewerk het en wat nie.<br>Dit kan kort wees.</div>
+        <div class="action"><a href="mailto:shiosaisazanami@gmail.com">HELLO@SHIOSAILEARN &nearr;</a></div>
+      </div>
+
+      <div class="layer-card layer-3">
+        <div class="num-badge">03</div>
+        <div class="title">Dra kode by</div>
+        <div class="desc"><span class="nb">GitHub Issues</span> en<br><span class="nb">Pull Requests</span> is welkom.<br>As jy kode kan skryf, doen dit asseblief.</div>
+        <div class="action"><a href="https://github.com/toutoutoubun" target="_blank" rel="noopener noreferrer">GITHUB &nearr;</a></div>
+      </div>
+
+      <div class="layer-card layer-4">
+        <div class="num-badge">04</div>
+        <div class="title">Vertel iemand</div>
+        <div class="desc">Vertel een persoon &ldquo;so iets bestaan.&rdquo; Op sosiale media, of persoonlik.</div>
+        <div class="action muted">&mdash; DIS AAN JOU</div>
+      </div>
+
+      <div class="layer-card layer-5">
+        <div class="num-badge">05</div>
+        <div class="title">Ondersteun finansieel</div>
+        <div class="desc">Gebruik vir werklike uitgawes soos domeine en verspreidingsertifikate.<br>Die kanaal word tans voorberei.</div>
+        <div class="action muted">&mdash; BINNEKORT BESKIKBAAR</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="note-block">
+    <svg class="note-orbit" width="240" height="100" viewBox="0 0 240 100"><ellipse cx="120" cy="50" rx="116" ry="30" fill="none" stroke="#D4A535" stroke-width="1.5" stroke-dasharray="3 4"/><circle cx="6" cy="50" r="6" fill="#D4A535"/><circle cx="234" cy="50" r="4" fill="#7AA5B8"/></svg>
+    <svg class="note-star" width="28" height="28" viewBox="0 0 32 32"><path d="M16 0 L18 14 L32 16 L18 18 L16 32 L14 18 L0 16 L14 14 Z" fill="#D4A535"/></svg>
+
+    <div class="tag">&rsquo;N NOTA</div>
+    <p class="quote">
+      Ondersteuners en die ondersteundes.<br>
+      Ons <em>soek &rsquo;n manier</em> om mense nie in daardie twee te verdeel nie.
+    </p>
+    <div class="signature">&mdash; TAMI_TOU &middot; 2026</div>
+  </section>
+
+  <footer class="footer">
+    <div class="f-grid">
+      <div class="f-logo">
+        <svg viewBox="0 0 100 80" width="40" height="32"><g fill="none" stroke="#D4A535" stroke-width="4" stroke-linecap="round"><path d="M 25 25 Q 40 17, 55 25 T 75 25"/><path d="M 18 40 Q 36 32, 53 40 T 82 40"/><path d="M 10 55 Q 30 47, 50 55 T 80 55 T 90 55"/></g></svg>
+        <div class="wm">SHIOSAILEARN</div>
+        <p class="f-tagline">Stil gereedskap vir outonome individue.</p>
+      </div>
+      <div class="f-col"><h4>Projekte</h4><a href="projects/konin.html">Konin-Pass</a><a href="projects/stellar.html">Stellar</a></div>
+      <div class="f-col"><h4>Oor ons</h4><a href="about.html">Manifes</a><a href="about.html">Skrywer</a><a href="about.html">Pers</a></div>
+      <div class="f-col"><h4>Kontak</h4><a href="https://github.com/toutoutoubun">GitHub</a><a href="mailto:shiosaisazanami@gmail.com">E-pos</a><a href="support.html">Ondersteun</a></div>
+    </div>
+    <div class="f-divider"></div>
+    <div class="f-bottom">
+      <div>&copy; 2026 SHIOSAILEARN &mdash; BY TAMI_TOU</div>
+      <div>END_OF_TRANSMISSION_2026.05.08</div>
+    </div>
+  </footer>
+
+<script>
+document.addEventListener('click',function(e){
+  var sw=document.querySelector('.lang-sw');
+  if(!sw)return;
+  if(sw.contains(e.target)){
+    if(e.target.closest('.lang-sw-btn')){sw.classList.toggle('open');e.preventDefault();}
+  }else{sw.classList.remove('open');}
+});
+</script>
+</body>
+</html>

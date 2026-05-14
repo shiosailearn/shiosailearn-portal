@@ -62,6 +62,11 @@ code,
     padding: 8px 14px;
   }
 
+  .lang-sw-btn {
+    font-size: 10px;
+    padding: 6px 12px;
+  }
+
   .breadcrumb {
     padding: 16px 32px 0;
   }
@@ -81,9 +86,18 @@ code,
   .cta-section,
   .choices-section,
   .features-section,
-  .more-section {
+  .more-section,
+  .contact-section {
     padding-left: 32px;
     padding-right: 32px;
+  }
+
+  .contact-heading {
+    font-size: 38px;
+  }
+
+  .contact-form {
+    max-width: 100%;
   }
 
   .section-tag-row,
@@ -268,6 +282,21 @@ code,
     width: auto;
   }
 
+  .lang-sw-btn {
+    font-size: 10px;
+    padding: 6px 10px;
+    gap: 5px;
+  }
+
+  .lang-sw-menu {
+    min-width: 130px;
+  }
+
+  .lang-sw-menu a {
+    font-size: 10px;
+    padding: 7px 14px;
+  }
+
   .breadcrumb {
     padding: 12px 20px 0;
   }
@@ -288,6 +317,7 @@ code,
   .choices-section,
   .features-section,
   .more-section,
+  .contact-section,
   .footer {
     padding-left: 20px;
     padding-right: 20px;
@@ -379,6 +409,11 @@ code,
     font-size: 14px;
   }
 
+  .project-card .button-row {
+    align-self: stretch;
+    flex-direction: column;
+  }
+
   .project-card .button,
   .h-cta-primary,
   .h-cta-secondary,
@@ -386,12 +421,17 @@ code,
   .cta-secondary,
   .doc-card .doc-button,
   .dl-btn,
-  .cta-os-btn {
+  .cta-os-btn,
+  .contact-submit {
     justify-content: center;
     max-width: 100%;
     text-align: center;
     white-space: normal;
     width: 100%;
+  }
+
+  .portal-banner {
+    max-width: 100%;
   }
 
   .download-bar,
@@ -435,6 +475,15 @@ code,
   .note-block .quote {
     font-size: 26px;
     letter-spacing: 0;
+  }
+
+  .contact-heading {
+    font-size: 30px;
+  }
+
+  .contact-form input[type="email"],
+  .contact-form select {
+    font-size: 16px;
   }
 
   .feature .num {
@@ -522,6 +571,10 @@ code,
 
   .nav a {
     width: 100%;
+  }
+
+  .lang-sw {
+    align-self: flex-start;
   }
 
   .h-headline {
