@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ShiosaiLearn — Support</title>
+<title>ShiosaiLearn — About</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Noto+Sans+JP:wght@200;300;400;500;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -23,7 +23,7 @@
   body { margin:0; padding:0; background:var(--cream); font-family:Inter,'Noto Sans JP',sans-serif; color:var(--ink); }
   a { text-decoration:none; color:inherit; }
 
-  /* ============= HEADER (same as index) ============= */
+  /* ============= HEADER ============= */
   .header {
     padding:24px 50px;
     display:flex; align-items:center; justify-content:space-between;
@@ -70,45 +70,47 @@
     word-break:auto-phrase; line-break:strict; overflow-wrap:break-word;
   }
   .h-body p { margin:0 0 14px 0; }
+
   .h-deco-1 { position:absolute; top:120px; right:120px; width:60px; height:60px; border-radius:50%; background:var(--mustard); }
   .h-deco-2 { position:absolute; top:200px; right:60px; width:24px; height:24px; background:var(--olive); transform:rotate(45deg); }
   .h-deco-3 { position:absolute; bottom:80px; right:200px; width:90px; height:90px; border-radius:50%; border:3px solid var(--mizu); }
   .h-star { position:absolute; top:380px; right:140px; }
 
-  /* ============= 5 LAYERS GRID ============= */
-  .layers-section {
+  /* ============= 5 PROMISES ============= */
+  .promises-section {
     padding:80px 60px 120px;
     background:var(--cream);
     position:relative;
   }
-  .layers-tag-row {
+  .promises-tag-row {
     display:flex; align-items:center; justify-content:space-between;
-    margin-bottom:60px;
+    margin-bottom:30px;
     position:relative;
   }
-  .layers-tag-row::after {
+  .promises-tag-row::after {
     content:''; position:absolute; bottom:-30px; left:0; right:0; height:1px;
     background:repeating-linear-gradient(to right, var(--navy) 0 6px, transparent 6px 14px);
     opacity:0.3;
   }
-  .layers-tag { font-size:13px; letter-spacing:0.2em; text-transform:uppercase; color:var(--navy); font-weight:700; display:flex; align-items:center; gap:12px; }
-  .layers-tag .dot { display:inline-block; width:14px; height:14px; border-radius:50%; background:var(--burnt); }
-  .layers-count { font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:0.1em; color:var(--grey); }
+  .promises-tag { font-size:13px; letter-spacing:0.2em; text-transform:uppercase; color:var(--navy); font-weight:700; display:flex; align-items:center; gap:12px; }
+  .promises-tag .dot { display:inline-block; width:14px; height:14px; border-radius:50%; background:var(--mustard); }
+  .promises-count { font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:0.1em; color:var(--grey); }
 
-  .layers-intro {
+  .promises-intro {
     font-size:17px; line-height:1.85; max-width:620px; margin:60px 0;
     color:var(--ink);
     word-break:auto-phrase; line-break:strict; overflow-wrap:break-word;
   }
+  .promises-intro em { font-style:normal; color:var(--burnt); font-weight:500; }
 
-  .layers-grid {
+  .promises-grid {
     display:grid;
     grid-template-columns: repeat(5, 1fr);
     gap:0;
     margin-top:60px;
     border-top:2px solid var(--navy);
   }
-  .layer-card {
+  .promise-card {
     padding:50px 28px;
     border-right:1px solid rgba(45,81,110,0.2);
     border-bottom:2px solid var(--navy);
@@ -117,54 +119,48 @@
     min-height:380px;
     display:flex; flex-direction:column;
   }
-  .layer-card:last-child { border-right:none; }
+  .promise-card:last-child { border-right:none; }
 
-  /* Each card with a different colored accent */
-  .layer-card .num-badge {
+  .promise-card .num-badge {
     display:inline-flex; align-items:center; justify-content:center;
     width:54px; height:54px; border-radius:50%;
     color:var(--cream);
     font-family:Inter; font-weight:700; font-size:18px;
     margin-bottom:24px;
   }
-  .layer-1 .num-badge { background:var(--mizu); }
-  .layer-2 .num-badge { background:var(--olive); }
-  .layer-3 .num-badge { background:var(--mustard); color:var(--ink); }
-  .layer-4 .num-badge { background:var(--coral); color:var(--ink); }
-  .layer-5 .num-badge { background:var(--burnt); }
+  .promise-1 .num-badge { background:var(--mizu); }
+  .promise-2 .num-badge { background:var(--olive); }
+  .promise-3 .num-badge { background:var(--mustard); color:var(--ink); }
+  .promise-4 .num-badge { background:var(--coral); color:var(--ink); }
+  .promise-5 .num-badge { background:var(--burnt); }
 
-  .layer-card .title {
+  .promise-card .title {
     font-family:Inter,'Noto Sans JP'; font-weight:500;
-    font-size:24px; color:var(--navy);
-    line-height:1.3; margin-bottom:16px;
+    font-size:21px; color:var(--navy);
+    line-height:1.4; margin-bottom:16px;
     letter-spacing:-0.005em;
+    word-break:auto-phrase;
+    overflow-wrap:break-word;
   }
-  .layer-card .desc {
+  .promise-card .desc {
     font-size:13px; line-height:1.75;
     color:var(--ink); margin-bottom:auto;
     word-break:auto-phrase; line-break:strict; overflow-wrap:break-word;
   }
-  .layer-card .desc .nb { white-space:nowrap; }
-  .layer-card .action {
+  .promise-card .marker {
     margin-top:24px;
     font-family:'JetBrains Mono', monospace;
     font-size:10px; letter-spacing:0.15em;
-    color:var(--navy); text-transform:uppercase;
-  }
-  .layer-card .action.muted { color:var(--grey); }
-  .layer-card .action a {
-    color:inherit;
-    border-bottom:1px solid currentColor;
-    padding-bottom:2px;
+    color:var(--grey); text-transform:uppercase;
   }
 
-  /* ============= NOTE BLOCK ============= */
-  .note-block {
-    padding:80px 60px;
+  /* ============= AUTHOR / DOC ============= */
+  .author-section {
+    padding:120px 60px;
     background:var(--navy); color:var(--cream);
     position:relative; overflow:hidden;
   }
-  .note-block .tag {
+  .author-tag {
     display:inline-flex; align-items:center; gap:8px;
     padding:8px 16px;
     background:var(--mustard);
@@ -172,25 +168,82 @@
     font-size:11px; letter-spacing:0.2em; text-transform:uppercase; font-weight:700;
     border-radius:999px;
   }
-  .note-block .tag::before { content:''; width:8px; height:8px; border-radius:50%; background:var(--burnt); }
-  .note-block .quote {
-    font-family:Inter,'Noto Sans JP'; font-weight:300;
-    font-size:36px; line-height:1.5;
-    color:var(--cream); letter-spacing:-0.005em;
-    max-width:800px;
-    margin:30px 0 0 0;
+  .author-tag::before { content:''; width:8px; height:8px; border-radius:50%; background:var(--burnt); }
+  .author-grid {
+    display:grid; grid-template-columns: 1.4fr 1fr; gap:80px;
+    margin-top:50px; align-items:start;
+  }
+  .author-block .name {
+    font-family:Inter,'Noto Sans JP'; font-weight:400;
+    font-size:64px; letter-spacing:-0.02em;
+    color:var(--cream); margin:0 0 12px 0;
+  }
+  .author-block .roles {
+    display:flex; gap:8px; margin-bottom:30px; flex-wrap:wrap;
+  }
+  .author-block .role {
+    display:inline-block;
+    padding:6px 14px;
+    background:rgba(242,237,228,0.12);
+    border:1px solid rgba(242,237,228,0.25);
+    color:var(--cream);
+    font-size:11px; letter-spacing:0.1em;
+    border-radius:999px;
+  }
+  .author-block .links {
+    margin-top:30px;
+    display:flex; flex-direction:column; gap:14px;
+  }
+  .author-block .link {
+    display:inline-flex; align-items:center; gap:10px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px; letter-spacing:0.1em;
+    color:var(--mustard);
+    border-bottom:1px solid var(--mustard);
+    padding-bottom:4px; align-self:flex-start;
+  }
+  .author-block .link::after { content:'↗'; }
+
+  .doc-card {
+    background:rgba(242,237,228,0.08);
+    border:1px solid rgba(242,237,228,0.2);
+    padding:40px 36px;
+    position:relative;
+  }
+  .doc-card .doc-tag {
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px; letter-spacing:0.15em;
+    color:var(--mustard); text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  .doc-card .doc-title {
+    font-family:Inter,'Noto Sans JP'; font-weight:500;
+    font-size:24px; color:var(--cream);
+    margin-bottom:14px; letter-spacing:-0.005em;
+  }
+  .doc-card .doc-desc {
+    font-size:13px; line-height:1.75;
+    color:var(--cream); opacity:0.85;
+    margin-bottom:28px;
     word-break:auto-phrase; line-break:strict; overflow-wrap:break-word;
   }
-  .note-block .quote em { font-style:normal; color:var(--mustard); }
-  .note-block .signature {
-    margin-top:30px;
-    font-family:'JetBrains Mono', monospace;
-    font-size:11px; letter-spacing:0.15em; opacity:0.7;
+  .doc-card .doc-button {
+    display:inline-flex; align-items:center; gap:10px;
+    padding:14px 24px;
+    background:var(--mustard); color:var(--ink);
+    font-size:11px; letter-spacing:0.2em; text-transform:uppercase; font-weight:700;
+    border-radius:999px;
   }
-  .note-orbit { position:absolute; top:60px; right:50px; opacity:0.4; }
-  .note-star { position:absolute; bottom:80px; right:120px; }
+  .doc-card .doc-meta {
+    margin-top:18px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px; letter-spacing:0.1em;
+    color:rgba(242,237,228,0.5);
+  }
+  .author-orbit { position:absolute; top:80px; right:60px; opacity:0.4; }
+  .author-star { position:absolute; bottom:80px; left:200px; }
 
-  /* ============= FOOTER (same as index) ============= */
+  /* ============= FOOTER ============= */
   .footer {
     padding:80px 60px 40px;
     background:var(--navy); color:var(--cream);
@@ -206,7 +259,7 @@
   .footer .f-divider { height:1px; background:var(--cream); opacity:0.15; margin:30px 0 24px 0; }
   .footer .f-bottom { display:flex; justify-content:space-between; align-items:flex-end; font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:0.05em; opacity:0.6; }
 </style>
-<link rel="stylesheet" href="assets/styles/responsive.css">
+<link rel="stylesheet" href="../assets/styles/responsive.css">
 </head>
 <body>
 
@@ -223,18 +276,18 @@
       <div class="wordmark">SHIOSAILEARN</div>
     </a>
     <div class="header-meta">
-      <div class="header-coords">N 35°41' · E 139°41'</div>
+      <div class="header-coords">N 35&deg;41' &middot; E 139&deg;41'</div>
       <nav class="nav">
         <a href="index.html#projects">Projects</a>
-        <a href="about.html">About</a>
-        <a class="current" href="support.html">Support</a>
+        <a class="current" href="about.html">About</a>
+        <a href="support.html">Support</a>
       </nav>
     </div>
   </div>
 
   <!-- ============= HERO ============= -->
   <section class="hero">
-    <div class="h-tag">SUPPORT — 5 DISTANCES</div>
+    <div class="h-tag">ABOUT — 5 PROMISES</div>
 
     <div class="h-deco-1"></div>
     <div class="h-deco-2"></div>
@@ -243,80 +296,97 @@
       <path d="M16 0 L18 14 L32 16 L18 18 L16 32 L14 18 L0 16 L14 14 Z" fill="#D4A535"/>
     </svg>
 
-    <h1 class="h-headline">あなたが何かを<br><em>背負う必要</em>は、<br><span class="underline">ありません。</span></h1>
+    <h1 class="h-headline">It started with what<br>we <span class="underline">wouldn't do.</span></h1>
 
     <div class="h-body">
-      <p>このプロジェクトは、お金がなくても続きます。</p>
-      <p>でも、何か手元から渡したいものがある場合のために、5つの距離感を並べておきます。等しく並んでいます。順位はありません。</p>
+      <p>This project began with three refusals: "We won't walk beside you," "We won't support you," and "We won't integrate."</p>
+      <p>So what will we do? Here are five promises.</p>
     </div>
   </section>
 
-  <!-- ============= 5 LAYERS ============= -->
-  <section class="layers-section">
-    <div class="layers-tag-row">
-      <div class="layers-tag"><span class="dot"></span>Five Distances</div>
-      <div class="layers-count">[ 05 / 05 — EQUAL WEIGHT ]</div>
+  <!-- ============= 5 PROMISES ============= -->
+  <section class="promises-section">
+    <div class="promises-tag-row">
+      <div class="promises-tag"><span class="dot"></span>Five Promises</div>
+      <div class="promises-count">[ 05 / 05 ]</div>
     </div>
 
-    <p class="layers-intro">どれを選んでも、選ばなくても、同じだけ意味があります。何もしないで使ってくれる人と、お金で支えてくれる人を、私たちは区別しません。</p>
+    <p class="promises-intro">Three refusals and five promises. The promises <em>outnumber the refusals.</em></p>
 
-    <div class="layers-grid">
+    <div class="promises-grid">
 
-      <div class="layer-card layer-1">
+      <div class="promise-card promise-1">
         <div class="num-badge">01</div>
-        <div class="title">使う</div>
-        <div class="desc">ツールを開いて、使う。<br>それだけで充分です。<br>何も伝えなくていい。</div>
-        <div class="action muted">— OPEN TOOLS</div>
+        <div class="title">Understand the needs</div>
+        <div class="desc">What is needed and what is not. As someone who has been there, we research and verify. We don't add features based on guesswork.</div>
+        <div class="marker">— LISTEN</div>
       </div>
 
-      <div class="layer-card layer-2">
+      <div class="promise-card promise-2">
         <div class="num-badge">02</div>
-        <div class="title">感想を送る</div>
-        <div class="desc">良かったことも、<br>ダメだったことも。<br>短くて構いません。</div>
-        <div class="action"><a>HELLO@SHIOSAILEARN ↗</a></div>
+        <div class="title">Protect user autonomy</div>
+        <div class="desc">Decisions belong to the user. We only hand over information. We won't take your pace, your choices, or your self-assessment.</div>
+        <div class="marker">— RESPECT</div>
       </div>
 
-      <div class="layer-card layer-3">
+      <div class="promise-card promise-3">
         <div class="num-badge">03</div>
-        <div class="title">開発で関わる</div>
-        <div class="desc"><span class="nb">GitHub Issue</span> や<br><span class="nb">Pull Request</span> を歓迎。<br>コードを書ける人、どうぞ。</div>
-        <div class="action"><a>GITHUB ↗</a></div>
+        <div class="title">Design for everyone</div>
+        <div class="desc">Neurodiversity is the norm, not the exception. Readability and usability come first.</div>
+        <div class="marker">— ACCESSIBILITY</div>
       </div>
 
-      <div class="layer-card layer-4">
+      <div class="promise-card promise-4">
         <div class="num-badge">04</div>
-        <div class="title">誰かに伝える</div>
-        <div class="desc">「こういうのがあるよ」と一人に伝える。SNSでも、口頭でも。</div>
-        <div class="action muted">— UP TO YOU</div>
+        <div class="title">Make it public</div>
+        <div class="desc">Aggregation formulas, tag definitions, design philosophy, source code. We show the reasoning behind every decision. Verifiability is transparency.</div>
+        <div class="marker">— OPEN</div>
       </div>
 
-      <div class="layer-card layer-5">
+      <div class="promise-card promise-5">
         <div class="num-badge">05</div>
-        <div class="title">金銭的に支える</div>
-        <div class="desc">ドメイン・配布証明書などの実費に使われます。<br>窓口は現在準備中です。</div>
-        <div class="action muted">— OPENING SOON</div>
+        <div class="title">Stay independent</div>
+        <div class="desc">Local first. No cloud dependency. Your data stays on your device. No subscription fatigue.</div>
+        <div class="marker">— LOCAL FIRST</div>
       </div>
 
     </div>
   </section>
 
-  <!-- ============= NOTE BLOCK ============= -->
-  <section class="note-block">
-    <svg class="note-orbit" width="240" height="100" viewBox="0 0 240 100">
+  <!-- ============= AUTHOR / DESIGN DOC ============= -->
+  <section class="author-section">
+    <svg class="author-orbit" width="240" height="100" viewBox="0 0 240 100">
       <ellipse cx="120" cy="50" rx="116" ry="30" fill="none" stroke="#D4A535" stroke-width="1.5" stroke-dasharray="3 4"/>
       <circle cx="6" cy="50" r="6" fill="#D4A535"/>
       <circle cx="234" cy="50" r="4" fill="#7AA5B8"/>
     </svg>
-    <svg class="note-star" width="28" height="28" viewBox="0 0 32 32">
+    <svg class="author-star" width="28" height="28" viewBox="0 0 32 32">
       <path d="M16 0 L18 14 L32 16 L18 18 L16 32 L14 18 L0 16 L14 14 Z" fill="#D4A535"/>
     </svg>
 
-    <div class="tag">A NOTE</div>
-    <p class="quote">
-      支援する人と、される人。<br>
-      その二つに分けない方法を、<em>探しています。</em>
-    </p>
-    <div class="signature">— TAMI_TOU · 2026</div>
+    <div class="author-tag">AUTHOR &amp; DOCUMENT</div>
+
+    <div class="author-grid">
+      <div class="author-block">
+        <h2 class="name">Tami_tou</h2>
+        <div class="roles">
+          <span class="role">DEVELOPER</span>
+          <span class="role">RESEARCHER (SOUTH AFRICAN POLITICS)</span>
+        </div>
+        <div class="links">
+          <a class="link" href="https://github.com/toutoutoubun" target="_blank" rel="noopener noreferrer">GITHUB / TOUTOUTOUBUN</a>
+          <a class="link" href="mailto:shiosaisazanami@gmail.com">EMAIL</a>
+        </div>
+      </div>
+
+      <div class="doc-card">
+        <div class="doc-tag">— DESIGN DOC</div>
+        <div class="doc-title">Konin-Pass Design Philosophy</div>
+        <div class="doc-desc">A document that articulates what the product values. It records the reasoning behind decisions, not feature specifications.</div>
+        <a class="doc-button" href="../assets/docs/konin-pass-design-doc.pdf" download>DOWNLOAD PDF &darr;</a>
+        <div class="doc-meta">v1.0 &middot; 2026.05.06 &middot; 11 sections</div>
+      </div>
+    </div>
   </section>
 
   <!-- ============= FOOTER ============= -->
@@ -331,11 +401,11 @@
           </g>
         </svg>
         <div class="wm">SHIOSAILEARN</div>
-        <p class="f-tagline">自律した個人のための、静かな道具群。</p>
+        <p class="f-tagline">Quiet tools for autonomous individuals.</p>
       </div>
       <div class="f-col">
         <h4>Projects</h4>
-        <a href="projects/konin.html">高認パス</a>
+        <a href="projects/konin.html">Konin-Pass</a>
         <a href="projects/stellar.html">Stellar</a>
       </div>
       <div class="f-col">
@@ -347,13 +417,13 @@
       <div class="f-col">
         <h4>Connect</h4>
         <a href="https://github.com/toutoutoubun">GitHub</a>
-        <a href="mailto:hello@shiosailearn.com">Email</a>
+        <a href="mailto:shiosaisazanami@gmail.com">Email</a>
         <a href="support.html">Support</a>
       </div>
     </div>
     <div class="f-divider"></div>
     <div class="f-bottom">
-      <div>© 2026 SHIOSAILEARN — BY TAMI_TOU</div>
+      <div>&copy; 2026 SHIOSAILEARN — BY TAMI_TOU</div>
       <div>END_OF_TRANSMISSION_2026.05.08</div>
     </div>
   </footer>
