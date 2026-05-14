@@ -4,6 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ShiosaiLearn</title>
+<link rel="icon" href="assets/images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-16x16.png" sizes="16x16">
+<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ShiosaiLearn">
+<meta property="og:title" content="ShiosaiLearn">
+<meta property="og:description" content="合格する。簡単なやり方で。ShiosaiLearnは高認試験とePubリーダーのプロジェクトです。">
+<meta property="og:url" content="https://shiosailearn.com/">
+<meta property="og:image" content="https://shiosailearn.com/assets/images/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ShiosaiLearn">
+<meta name="twitter:description" content="合格する。簡単なやり方で。ShiosaiLearnは高認試験とePubリーダーのプロジェクトです。">
+<meta name="twitter:image" content="https://shiosailearn.com/assets/images/og-default.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Noto+Sans+JP:wght@200;300;400;500;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -337,6 +354,55 @@
     margin-top:8px;
   }
   .contact-submit:hover { opacity:0.9; }
+
+  /* ============= HEADER LANG SELECTOR ============= */
+  .lang-sw { position:relative; }
+  .lang-sw-btn {
+    display:flex; align-items:center; gap:6px;
+    padding:7px 14px;
+    border:1.5px solid var(--navy);
+    border-radius:999px;
+    background:var(--cream);
+    color:var(--navy);
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px; font-weight:600; letter-spacing:0.08em;
+    cursor:pointer;
+    transition:background 0.15s;
+  }
+  .lang-sw-btn:hover { background:var(--navy); color:var(--cream); }
+  .lang-sw-btn:hover .lang-sw-arrow { border-top-color:var(--cream); }
+  .lang-sw-arrow {
+    width:0; height:0;
+    border-left:4px solid transparent;
+    border-right:4px solid transparent;
+    border-top:5px solid var(--navy);
+    transition:transform 0.2s, border-top-color 0.15s;
+  }
+  .lang-sw.open .lang-sw-arrow { transform:rotate(180deg); }
+  .lang-sw-menu {
+    display:none;
+    position:absolute;
+    top:calc(100% + 6px);
+    right:0;
+    min-width:140px;
+    background:var(--cream);
+    border:1.5px solid var(--navy);
+    border-radius:14px;
+    padding:6px 0;
+    z-index:100;
+    box-shadow:0 4px 16px rgba(0,0,0,0.10);
+  }
+  .lang-sw.open .lang-sw-menu { display:block; }
+  .lang-sw-menu a {
+    display:block;
+    padding:8px 18px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px; font-weight:500; letter-spacing:0.06em;
+    color:var(--navy);
+    transition:background 0.12s;
+  }
+  .lang-sw-menu a:hover { background:var(--navy); color:var(--cream); }
+  .lang-sw-menu a.active { font-weight:700; pointer-events:none; opacity:0.5; }
 </style>
 <link rel="stylesheet" href="assets/styles/responsive.css">
 </head>
@@ -361,6 +427,15 @@
         <a href="about.html">About</a>
         <a href="support.html">Support</a>
       </nav>
+      <div class="lang-sw">
+        <button class="lang-sw-btn" type="button" aria-label="Language">JA<span class="lang-sw-arrow"></span></button>
+        <div class="lang-sw-menu">
+          <a href="index.html" class="active">JA — 日本語</a>
+          <a href="en/index.html">EN — English</a>
+          <a href="fr/index.html">FR — Français</a>
+          <a href="af/index.html">AF — Afrikaans</a>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -610,5 +685,14 @@
     </div>
   </footer>
 
+<script>
+document.addEventListener('click',function(e){
+  var sw=document.querySelector('.lang-sw');
+  if(!sw)return;
+  if(sw.contains(e.target)){
+    if(e.target.closest('.lang-sw-btn')){sw.classList.toggle('open');e.preventDefault();}
+  }else{sw.classList.remove('open');}
+});
+</script>
 </body>
 </html>
