@@ -62,6 +62,11 @@ code,
     padding: 8px 14px;
   }
 
+  .lang-sw-btn {
+    font-size: 10px;
+    padding: 6px 12px;
+  }
+
   .breadcrumb {
     padding: 16px 32px 0;
   }
@@ -275,6 +280,21 @@ code,
     padding: 8px 6px;
     text-align: center;
     width: auto;
+  }
+
+  .lang-sw-btn {
+    font-size: 10px;
+    padding: 6px 10px;
+    gap: 5px;
+  }
+
+  .lang-sw-menu {
+    min-width: 130px;
+  }
+
+  .lang-sw-menu a {
+    font-size: 10px;
+    padding: 7px 14px;
   }
 
   .breadcrumb {
@@ -551,6 +571,10 @@ code,
 
   .nav a {
     width: 100%;
+  }
+
+  .lang-sw {
+    align-self: flex-start;
   }
 
   .h-headline {
