@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stellar & South Africa — Shiosailearn</title>
+  <meta name="description" content="Stellar is a free, offline-first research environment for humanities scholars. We are building South African language support and looking for terminology reviewers." />
+  <meta property="og:title" content="Stellar & South Africa" />
+  <meta property="og:description" content="A quiet research tool for humanities scholars. Offline-first. No AI. No subscription. South African language support in progress." />
+  <meta property="og:url" content="https://shiosailearn.com/za" />
+  <meta property="og:image" content="https://shiosailearn.com/og-stellar.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://shiosailearn.com/og-stellar.png" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #F2EDE4;
+      --navy: #2D516E;
+      --mizu: #7AA5B8;
+      --mustard: #D4A535;
+      --olive: #6B7F4A;
+      --coral: #E08775;
+      --burnt: #C9532E;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--navy);
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      padding: 0;
+    }
+
+    /* NAV */
+    nav {
+      border-bottom: 1px solid var(--navy);
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    nav a { color: var(--navy); text-decoration: none; }
+    nav a:hover { color: var(--mizu); }
+    .nav-logo { font-weight: 700; }
+
+    /* HERO */
+    .hero {
+      border-bottom: 1px solid var(--navy);
+      padding: 5rem 2rem 4rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .hero-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--mizu);
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: #4a6478;
+      max-width: 600px;
+    }
+
+    /* SECTIONS */
+    section {
+      border-bottom: 1px solid var(--navy);
+      padding: 4rem 2rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--mizu);
+      margin-bottom: 1.2rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+    }
+
+    p + p { margin-top: 1rem; }
+
+    /* WHY SA */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .why-card {
+      border: 1px solid var(--navy);
+      padding: 1.4rem;
+    }
+    .why-card .num {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: var(--mizu);
+      margin-bottom: 0.6rem;
+    }
+    .why-card p {
+      font-size: 0.95rem;
+    }
+
+    /* STELLAR FEATURES */
+    .feature-list {
+      margin-top: 1.5rem;
+      display: grid;
+      gap: 0.8rem;
+    }
+    .feature-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      font-size: 0.95rem;
+    }
+    .feature-item .tag {
+      background: var(--navy);
+      color: var(--cream);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      padding: 0.2rem 0.5rem;
+      white-space: nowrap;
+      margin-top: 0.15rem;
+    }
+    .feature-item .tag.future {
+      background: var(--olive);
+    }
+
+    /* NLP BLOCK */
+    .nlp-block {
+      margin-top: 2rem;
+      border-left: 3px solid var(--mustard);
+      padding-left: 1.4rem;
+    }
+    .nlp-block p { font-size: 0.97rem; }
+
+    /* CONTRIBUTE */
+    .lang-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin: 1.5rem 0;
+    }
+    .lang-tag {
+      border: 1px solid var(--navy);
+      padding: 0.3rem 0.8rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.05em;
+    }
+    .cta-block {
+      margin-top: 2rem;
+      background: var(--navy);
+      color: var(--cream);
+      padding: 2rem;
+    }
+    .cta-block p { font-size: 0.95rem; margin-bottom: 1rem; }
+    .cta-block a {
+      color: var(--mustard);
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+    .cta-block a:hover { text-decoration: underline; }
+
+    /* DOWNLOAD */
+    .dl-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .dl-btn {
+      display: inline-block;
+      border: 1px solid var(--navy);
+      padding: 0.7rem 1.4rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--navy);
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+    }
+    .dl-btn:hover {
+      background: var(--navy);
+      color: var(--cream);
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--navy);
+      padding: 2rem;
+      max-width: 860px;
+      margin: 0 auto;
+      font-size: 0.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-between;
+      color: #4a6478;
+    }
+    footer a { color: var(--navy); text-decoration: none; }
+    footer a:hover { color: var(--mizu); }
+
+    @media (max-width: 600px) {
+      .hero, section { padding: 3rem 1.2rem; }
+      nav { padding: 1rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Shiosailearn</a>
+  <div style="display:flex;gap:1.5rem;">
+    <a href="/projects/stellar.html">Stellar</a>
+    <a href="https://github.com/toutoutoubun/stellar" target="_blank">GitHub</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-label">Stellar · South Africa</div>
+  <h1>A research tool built for the languages you actually work in.</h1>
+  <p>Stellar is a free, offline-first desktop environment for humanities scholars. No cloud. No AI. No subscription. South African language support is in progress — and we need people who know the languages to help get it right.</p>
+</div>
+
+<!-- WHY SA -->
+<section>
+  <div class="section-label">Why South Africa</div>
+  <h2>One of the world's most linguistically complex research contexts.</h2>
+  <p>South Africa has 12 official languages, a long tradition of humanities and archival scholarship, and a research community that operates across multiple language contexts simultaneously. Within the Global South, it stands apart — not just for linguistic diversity, but for the depth of its academic infrastructure.</p>
+  <p>Most research tools are built for English. A few support one or two European languages. Stellar is designed to go further — and South Africa is a meaningful place to start.</p>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="num">01</div>
+      <p>12 official languages, including isiZulu, isiXhosa, Sesotho, and Afrikaans — each with its own academic and archival tradition.</p>
+    </div>
+    <div class="why-card">
+      <div class="num">02</div>
+      <p>Strong humanities research culture across political science, history, linguistics, and social science.</p>
+    </div>
+    <div class="why-card">
+      <div class="num">03</div>
+      <p>A growing digital humanities community with existing NLP resources and language infrastructure to build on.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STELLAR -->
+<section>
+  <div class="section-label">The Tool</div>
+  <h2>What Stellar does.</h2>
+  <p>Stellar is a single desktop app for humanities researchers. Everything in one place, on your own machine.</p>
+
+  <div class="feature-list">
+    <div class="feature-item">
+      <span class="tag">Now</span>
+      <span>Citation manager — store, tag, and search papers and books.</span>
+    </div>
+    <div class="feature-item">
+      <span class="tag">Now</span>
+      <span>Markdown editor with bidirectional WikiLinks — connect ideas as you write.</span>
+    </div>
+    <div class="feature-item">
+      <span class="tag">Now</span>
+      <span>Qualitative coding tool — code text data, build themes, without expensive commercial software.</span>
+    </div>
+    <div class="feature-item">
+      <span class="tag">Now</span>
+      <span>Citation network graph — visualize how your sources connect.</span>
+    </div>
+    <div class="feature-item">
+      <span class="tag future">Planned</span>
+      <span>NLP-assisted qualitative analysis — using language resources to process multilingual research material.</span>
+    </div>
+  </div>
+
+  <div class="nlp-block">
+    <p>That last item is where South African language resources matter most. If isiZulu or isiXhosa NLP data can be integrated into Stellar's analysis layer, the tool stops being a translated English app and starts being something that actually understands the material researchers work with. That's useful not just in South Africa, but across the African continent — for any researcher working in languages that current tools ignore.</p>
+    <p style="margin-top:0.8rem;">Localization here isn't cosmetic. It's infrastructure.</p>
+  </div>
+
+  <div class="dl-row">
+    <a href="https://github.com/toutoutoubun/stellar/releases" class="dl-btn" target="_blank">Download for macOS</a>
+    <a href="https://github.com/toutoutoubun/stellar/releases" class="dl-btn" target="_blank">Download for Windows</a>
+    <a href="https://github.com/toutoutoubun/stellar/releases" class="dl-btn" target="_blank">Download for Linux</a>
+  </div>
+</section>
+
+<!-- THEMES -->
+<section>
+  <div class="section-label">Support the Project</div>
+  <h2>Custom themes for Stellar.</h2>
+  <p>Three themes built for different research moods — Y2K Kawaii, Techno Tokyo Neon, and Zen Wabi-Sabi Grayscale. Buying a theme pack is a direct way to support Stellar's development.</p>
+  <div class="dl-row" style="margin-top:1.5rem;">
+    <a href="https://tami-tou.booth.pm/items/8367971" class="dl-btn" target="_blank" style="background:var(--mustard);color:var(--navy);border-color:var(--mustard);font-weight:700;">Get Theme Pack — ¥2,000 →</a>
+  </div>
+</section>
+
+<!-- CONTRIBUTE -->
+<section>
+  <div class="section-label">Get Involved</div>
+  <h2>We're looking for terminology reviewers.</h2>
+  <p>Stellar already supports Japanese, English, French, and Afrikaans. The next step is South African languages — starting with these five:</p>
+
+  <div class="lang-grid">
+    <span class="lang-tag">isiZulu</span>
+    <span class="lang-tag">isiXhosa</span>
+    <span class="lang-tag">Sepedi</span>
+    <span class="lang-tag">Setswana</span>
+    <span class="lang-tag">Sesotho</span>
+  </div>
+
+  <p>We're not asking for full translation. We need people who can review a small set of academic and research UI terms — around 100 to 200 words — and flag anything that doesn't sit right. Words like <em>citation</em>, <em>annotation</em>, <em>qualitative coding</em>, <em>archival source</em>.</p>
+  <p>All contributors are credited in the project. No prior software experience needed.</p>
+
+  <div class="cta-block">
+    <p>If you work with South African languages in an academic context — or know someone who does — we'd like to hear from you.</p>
+    <a href="https://script.google.com/macros/s/AKfycbxX2TEinMNtzz2J-Qnrlviqz8RrxqENT7cb3x4jwm7bWQ0VybeNemlNIjstDLeOUA/exec" target="_blank" style="display:inline-block;margin-bottom:0.8rem;background:var(--mustard);color:var(--navy);padding:0.6rem 1.2rem;font-weight:700;letter-spacing:0.05em;text-decoration:none;">Apply as a reviewer →</a>
+    <br />
+    <a href="/cdn-cgi/l/email-protection#73001b1a1c00121a001209121d121e1a33141e121a1f5d101c1e">or email <span class="__cf_email__" data-cfemail="8dfee5e4e2feece4feecf7ece3ece0e4cdeae0ece4e1a3eee2e0">[email&#160;protected]</span></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>Stellar is a <a href="/">Shiosailearn</a> project. MIT License · 2026.</span>
+  <span>
+    <a href="https://github.com/toutoutoubun/stellar" target="_blank">GitHub — Stellar</a> ·
+    <a href="https://github.com/shiosailearn" target="_blank">GitHub — Shiosailearn</a> ·
+    <a href="/cdn-cgi/l/email-protection#85f6edeceaf6e4ecf6e4ffe4ebe4e8ecc5e2e8e4ece9abe6eae8">Contact</a>
+  </span>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
