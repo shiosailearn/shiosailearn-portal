@@ -1,0 +1,43 @@
+[
+  {
+    "title": "JobmatchSA: 南アフリカのインフォーマル就労層のために",
+    "date": "2026-05-19T00:00:00.000Z",
+    "lang": "ja",
+    "tags": [
+      "jobmatchsa",
+      "south-africa",
+      "social"
+    ],
+    "excerpt": "LinkedInが捨てた350万人。ソウェトから考えたマッチングプラットフォームのコンセプト。",
+    "slug": "jobmatchsa-concept",
+    "filename": "jobmatchsa-concept.md",
+    "url": "https://shiosailearn.com/blog/jobmatchsa-concept.html"
+  },
+  {
+    "title": "FCO文書のPFP表象：Rubicon後に何が起きたか",
+    "date": "2026-05-18T00:00:00.000Z",
+    "lang": "ja",
+    "tags": [
+      "research",
+      "south-africa",
+      "pfp"
+    ],
+    "excerpt": "1985年8月のRubicon演説後、英国外務省の文書からPFPが消えた。数字で確認した。",
+    "slug": "pfp-research-notes",
+    "filename": "pfp-research-notes.md",
+    "url": "https://shiosailearn.com/blog/pfp-research-notes.html"
+  },
+  {
+    "title": "Stellar v1.0 をリリースした",
+    "date": "2026-05-13T00:00:00.000Z",
+    "lang": "ja",
+    "tags": [
+      "stellar",
+      "release"
+    ],
+    "excerpt": "文系院生向けのローカルファースト研究環境。1年かけて作った。",
+    "slug": "stellar-v1-launch",
+    "filename": "stellar-v1-launch.md",
+    "url": "https://shiosailearn.com/blog/stellar-v1-launch.html"
+  }
+]
