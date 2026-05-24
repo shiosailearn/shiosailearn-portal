@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-ZA">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stellar & South Africa — Shiosailearn</title>
-  <meta name="description" content="Stellar is a free, offline-first research environment for humanities scholars. We are building South African language support and looking for terminology reviewers." />
+  <meta name="description" content="Stellar is a free, offline-first research environment for humanities scholars. South African language support is in progress — we are looking for terminology reviewers in isiZulu, isiXhosa, Sesotho, Setswana, and Sepedi." />
   <meta property="og:title" content="Stellar & South Africa" />
   <meta property="og:description" content="A quiet research tool for humanities scholars. Offline-first. No AI. No subscription. South African language support in progress." />
-  <meta property="og:url" content="https://shiosailearn.com/za" />
+  <meta property="og:url" content="https://shiosailearn.com/za.html" />
   <meta property="og:image" content="https://shiosailearn.com/og-stellar.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_ZA" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://shiosailearn.com/og-stellar.png" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -46,10 +47,28 @@
       font-size: 0.8rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
     nav a { color: var(--navy); text-decoration: none; }
     nav a:hover { color: var(--mizu); }
     .nav-logo { font-weight: 700; }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .nav-langs {
+      display: flex;
+      gap: 0.8rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      color: var(--mizu);
+    }
+    .nav-langs a { color: var(--mizu); }
+    .nav-langs a.active { color: var(--navy); font-weight: 700; }
+    .nav-langs span.sep { color: var(--mizu); opacity: 0.5; }
 
     /* HERO */
     .hero {
@@ -100,6 +119,14 @@
     }
 
     p + p { margin-top: 1rem; }
+
+    .footnote {
+      display: block;
+      margin-top: 1.5rem;
+      font-size: 0.78rem;
+      color: var(--mizu);
+      line-height: 1.5;
+    }
 
     /* WHY SA */
     .why-grid {
@@ -250,14 +277,40 @@
       color: var(--cream);
       padding: 2rem;
     }
-    .cta-block p { font-size: 0.95rem; margin-bottom: 1rem; }
-    .cta-block a {
+    .cta-block p { font-size: 0.95rem; margin-bottom: 1.2rem; }
+    .cta-block .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.5rem;
+      align-items: center;
+    }
+    .cta-block .cta-primary {
+      display: inline-block;
+      background: var(--mustard);
+      color: var(--navy);
+      padding: 0.7rem 1.3rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      font-size: 0.88rem;
+    }
+    .cta-block .cta-primary:hover { background: #e0b54a; }
+    .cta-block .cta-secondary {
       color: var(--mustard);
       font-weight: 600;
       text-decoration: none;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.03em;
+      font-size: 0.9rem;
     }
-    .cta-block a:hover { text-decoration: underline; }
+    .cta-block .cta-secondary:hover { text-decoration: underline; }
+
+    /* PRICE NOTE */
+    .price-note {
+      font-size: 0.8rem;
+      color: var(--mizu);
+      margin-top: 0.6rem;
+      letter-spacing: 0.02em;
+    }
 
     /* DOWNLOAD */
     .dl-row {
@@ -281,6 +334,16 @@
       background: var(--navy);
       color: var(--cream);
     }
+    .dl-btn.primary {
+      background: var(--mustard);
+      color: var(--navy);
+      border-color: var(--mustard);
+      font-weight: 700;
+    }
+    .dl-btn.primary:hover {
+      background: #e0b54a;
+      color: var(--navy);
+    }
 
     /* FOOTER */
     footer {
@@ -297,57 +360,81 @@
     }
     footer a { color: var(--navy); text-decoration: none; }
     footer a:hover { color: var(--mizu); }
+    .footer-langs {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 0.6rem;
+      color: var(--mizu);
+    }
+    .footer-langs a { color: var(--mizu); }
+    .footer-langs a.active { color: var(--navy); font-weight: 700; }
 
     @media (max-width: 600px) {
       .hero, section { padding: 3rem 1.2rem; }
       nav { padding: 1rem 1.2rem; }
+      .nav-links { gap: 1rem; width: 100%; justify-content: flex-start; }
+      .cta-block { padding: 1.5rem; }
+      .cta-block .cta-actions { flex-direction: column; align-items: flex-start; gap: 1rem; }
     }
   </style>
 </head>
 <body>
 
-<nav>
+<nav aria-label="Primary">
   <a href="/" class="nav-logo">Shiosailearn</a>
-  <div style="display:flex;gap:1.5rem;">
+  <div class="nav-links">
     <a href="/projects/stellar.html">Stellar</a>
-    <a href="https://github.com/toutoutoubun/stellar" target="_blank">GitHub</a>
+    <a href="https://github.com/toutoutoubun/stellar" target="_blank" rel="noopener">GitHub</a>
+    <div class="nav-langs" aria-label="Language">
+      <a href="/index.html">JA</a><span class="sep">·</span>
+      <a href="/en/index.html">EN</a><span class="sep">·</span>
+      <a href="/fr/index.html">FR</a><span class="sep">·</span>
+      <a href="/af/index.html">AF</a><span class="sep">·</span>
+      <a href="/za.html" class="active" aria-current="page">ZA</a>
+    </div>
   </div>
 </nav>
 
 <!-- HERO -->
-<div class="hero">
+<header class="hero">
   <div class="hero-label">Stellar · South Africa</div>
   <h1>A research tool built for the languages you actually work in.</h1>
   <p>Stellar is a free, offline-first desktop environment for humanities scholars. No cloud. No AI. No subscription. South African language support is in progress — and we need people who know the languages to help get it right.</p>
-</div>
+</header>
 
 <!-- WHY SA -->
-<section>
+<section id="why-south-africa" aria-labelledby="why-heading">
   <div class="section-label">Why South Africa</div>
-  <h2>One of the world's most linguistically complex research contexts.</h2>
-  <p>South Africa has 12 official languages, a long tradition of humanities and archival scholarship, and a research community that operates across multiple language contexts simultaneously. Within the Global South, it stands apart — not just for linguistic diversity, but for the depth of its academic infrastructure.</p>
+  <h2 id="why-heading">One of the world's most linguistically complex research contexts.</h2>
+  <p>South Africa recognises 12 official languages, has a long tradition of humanities and archival scholarship, and a research community that operates across multiple language contexts simultaneously. Within the Global South, it stands apart — not just for linguistic diversity, but for the depth of its academic infrastructure.</p>
   <p>Most research tools are built for English. A few support one or two European languages. Stellar is designed to go further — and South Africa is a meaningful place to start.</p>
 
   <div class="why-grid">
-    <div class="why-card">
+    <article class="why-card">
       <div class="num">01</div>
       <p>12 official languages, including isiZulu, isiXhosa, Sesotho, and Afrikaans — each with its own academic and archival tradition.</p>
-    </div>
-    <div class="why-card">
+    </article>
+    <article class="why-card">
       <div class="num">02</div>
       <p>Strong humanities research culture across political science, history, linguistics, and social science.</p>
-    </div>
-    <div class="why-card">
+    </article>
+    <article class="why-card">
       <div class="num">03</div>
       <p>A growing digital humanities community with existing NLP resources and language infrastructure to build on.</p>
-    </div>
+    </article>
   </div>
+
+  <small class="footnote">South Africa long recognised 11 official languages. South African Sign Language (SASL) was added as the 12th in 2023.</small>
 </section>
 
 <!-- STELLAR -->
-<section>
+<section id="the-tool" aria-labelledby="tool-heading">
   <div class="section-label">The Tool</div>
-  <h2>What Stellar does.</h2>
+  <h2 id="tool-heading">What Stellar does.</h2>
   <p>Stellar is a single desktop app for humanities researchers. Everything in one place, on your own machine.</p>
 
   <div class="feature-list">
@@ -373,20 +460,20 @@
     </div>
   </div>
 
-  <div class="nlp-block">
+  <aside class="nlp-block">
     <p>That last item is where South African language resources matter most. If isiZulu or isiXhosa NLP data can be integrated into Stellar's analysis layer, the tool stops being a translated English app and starts being something that actually understands the material researchers work with. That's useful not just in South Africa, but across the African continent — for any researcher working in languages that current tools ignore.</p>
     <p style="margin-top:0.8rem;">Localization here isn't cosmetic. It's infrastructure.</p>
-  </div>
+  </aside>
 
 </section>
 
 <!-- USE CASES -->
-<section>
+<section id="use-cases" aria-labelledby="usecases-heading">
   <div class="section-label">What you can do with Stellar</div>
-  <h2>Concretely, for a South African humanities researcher.</h2>
+  <h2 id="usecases-heading">Concretely, for a South African humanities researcher.</h2>
   <p class="usecases-intro">Stellar is a desktop research workbench. Everything below runs on your machine, without internet, and without an account. Below are some of the ways the tool fits into research workflows common in South African humanities and social science departments.</p>
 
-  <div class="usecase-card">
+  <article class="usecase-card">
     <div class="role">Postgraduate · Thesis writing</div>
     <h3>From a pile of PDFs to a finished chapter.</h3>
     <p>Import the papers you have downloaded — by PDF, DOI, URL, or manual entry. Highlight key passages in four colours (importance, methodology, your argument, questions). Turn highlights into notes. Connect notes with [[WikiLinks]]. Switch to Draft Mode to write your chapter with inline citations in APA, MLA, or Chicago.</p>
@@ -396,9 +483,9 @@
       <span class="feature-tag">Draft Mode</span>
       <span class="feature-tag">Citation styles</span>
     </div>
-  </div>
+  </article>
 
-  <div class="usecase-card">
+  <article class="usecase-card">
     <div class="role">Historian · Archival research</div>
     <h3>Tracking primary sources alongside secondary literature.</h3>
     <p>Add archival documents — photographed letters, oral history transcripts, government records — the same way you add published papers. Use the Source Criticism tab to evaluate author, date, authenticity, bias, and reliability. Use the Timeline tab to organise events chronologically. Use the Actor Map to visualise relationships between people, institutions, and organisations.</p>
@@ -408,21 +495,21 @@
       <span class="feature-tag">Actor Map</span>
       <span class="feature-tag">Process Tracing</span>
     </div>
-  </div>
+  </article>
 
-  <div class="usecase-card">
+  <article class="usecase-card">
     <div class="role">Sociologist · Qualitative coding</div>
     <h3>Coding interview transcripts and policy documents.</h3>
-    <p>Build a hierarchical codebook. Apply codes to text passages across multiple documents. Use the Coding Matrix to see code-by-document distributions. Run ICR (Cohen's Kappa) when you work with co-coders. Use Framing Analysis for media or policy corpora. Generate an analysis report at the end — no separate $1,000-per-year commercial tool needed.</p>
+    <p>Build a hierarchical codebook. Apply codes to text passages across multiple documents. Use the Coding Matrix to see code-by-document distributions. Run ICR (Cohen's Kappa) when you work with co-coders. Use Framing Analysis for media or policy corpora. Generate an analysis report at the end — no separate commercial coding tool needed.</p>
     <div class="features">
       <span class="feature-tag">Codebook</span>
       <span class="feature-tag">Coding Matrix</span>
       <span class="feature-tag">ICR</span>
       <span class="feature-tag">Framing Analysis</span>
     </div>
-  </div>
+  </article>
 
-  <div class="usecase-card">
+  <article class="usecase-card">
     <div class="role">Political scientist · Comparative work</div>
     <h3>Comparing cases across countries, parties, or periods.</h3>
     <p>Use Comparative Design (MSSD / MDSD) to lay out cases against variables. Use Process Tracing to test causal hypotheses against evidence. Build a citation network across your literature to find clusters and gaps. Import CSV data into Data Studio for descriptive statistics, frequency tables, correlations, and regression. Export your results as PDF, DOCX, or a static HTML site.</p>
@@ -432,9 +519,9 @@
       <span class="feature-tag">Data Studio</span>
       <span class="feature-tag">Export</span>
     </div>
-  </div>
+  </article>
 
-  <div class="usecase-card">
+  <article class="usecase-card">
     <div class="role">Linguist · Multilingual sources</div>
     <h3>Working with sources in more than one language.</h3>
     <p>Stellar's full-text search (FTS5) works across mixed-language libraries — English alongside Afrikaans, and once localization progresses, isiZulu, isiXhosa, Setswana, Sesotho, and Sepedi. Tag sources by language. Run token frequency and TF-IDF analyses in Data Studio. The interface itself adapts: switch the app language at any time from Settings.</p>
@@ -443,9 +530,9 @@
       <span class="feature-tag">Multilingual UI</span>
       <span class="feature-tag">Text analysis</span>
     </div>
-  </div>
+  </article>
 
-  <div class="workflow">
+  <aside class="workflow">
     <h3>A typical 30-minute first session</h3>
     <ol>
       <li>Open Stellar, choose your <strong>language</strong> and storage folder (default <code>~/Stellar</code> is fine).</li>
@@ -456,36 +543,37 @@
       <li>Open the <strong>Knowledge Graph</strong> from the sidebar. You should see your first node and link.</li>
       <li>That's the loop. The rest of Stellar — qualitative coding, citation network, Data Studio, export — builds on this same pattern.</li>
     </ol>
-  </div>
+  </aside>
 
   <div class="dl-row" style="margin-top: 2rem;">
-    <a href="https://github.com/toutoutoubun/stellar/releases" class="dl-btn" target="_blank">Download Stellar</a>
-    <a href="https://github.com/toutoutoubun/stellar/blob/main/Stellar_User_Guide_EN.md" class="dl-btn" target="_blank">Read the full User Guide</a>
+    <a href="https://github.com/toutoutoubun/stellar/releases" class="dl-btn" target="_blank" rel="noopener">Download Stellar</a>
+    <a href="https://github.com/toutoutoubun/stellar/blob/main/Stellar_User_Guide_EN.md" class="dl-btn" target="_blank" rel="noopener">Read the full User Guide</a>
   </div>
 </section>
 
 <!-- THEMES -->
-<section>
+<section id="themes" aria-labelledby="themes-heading">
   <div class="section-label">Support the Project</div>
-  <h2>Custom themes for Stellar.</h2>
+  <h2 id="themes-heading">Custom themes for Stellar.</h2>
   <p>Three themes built for different research moods — Y2K Kawaii, Techno Tokyo Neon, and Zen Wabi-Sabi Grayscale. Buying a theme pack is a direct way to support Stellar's development.</p>
   <div class="dl-row" style="margin-top:1.5rem;">
-    <a href="https://tami-tou.booth.pm/items/8367971" class="dl-btn" target="_blank" style="background:var(--mustard);color:var(--navy);border-color:var(--mustard);font-weight:700;">Get Theme Pack — ¥2,000 →</a>
+    <a href="https://tami-tou.booth.pm/items/8367971" class="dl-btn primary" target="_blank" rel="noopener">Get Theme Pack — ¥2,000 →</a>
   </div>
+  <p class="price-note">Approx. ZAR 235 / USD 13 — paid via BOOTH (Japan). Card and PayPal accepted.</p>
 </section>
 
 <!-- CONTRIBUTE -->
-<section>
+<section id="contribute" aria-labelledby="contribute-heading">
   <div class="section-label">Get Involved</div>
-  <h2>We're looking for terminology reviewers.</h2>
+  <h2 id="contribute-heading">We're looking for terminology reviewers.</h2>
   <p>Stellar already supports Japanese, English, French, and Afrikaans. The next step is South African languages — starting with these five:</p>
 
-  <div class="lang-grid">
-    <span class="lang-tag">isiZulu</span>
-    <span class="lang-tag">isiXhosa</span>
-    <span class="lang-tag">Sepedi</span>
-    <span class="lang-tag">Setswana</span>
-    <span class="lang-tag">Sesotho</span>
+  <div class="lang-grid" role="list">
+    <span class="lang-tag" role="listitem">isiZulu</span>
+    <span class="lang-tag" role="listitem">isiXhosa</span>
+    <span class="lang-tag" role="listitem">Sepedi</span>
+    <span class="lang-tag" role="listitem">Setswana</span>
+    <span class="lang-tag" role="listitem">Sesotho</span>
   </div>
 
   <p>We're not asking for full translation. We need people who can review a small set of academic and research UI terms — around 100 to 200 words — and flag anything that doesn't sit right. Words like <em>citation</em>, <em>annotation</em>, <em>qualitative coding</em>, <em>archival source</em>.</p>
@@ -493,22 +581,31 @@
 
   <div class="cta-block">
     <p>If you work with South African languages in an academic context — or know someone who does — we'd like to hear from you.</p>
-    <a href="https://script.google.com/macros/s/AKfycbxX2TEinMNtzz2J-Qnrlviqz8RrxqENT7cb3x4jwm7bWQ0VybeNemlNIjstDLeOUA/exec" target="_blank" style="display:inline-block;margin-bottom:0.8rem;background:var(--mustard);color:var(--navy);padding:0.6rem 1.2rem;font-weight:700;letter-spacing:0.05em;text-decoration:none;">Apply as a reviewer →</a>
-    <br />
-    <a href="/cdn-cgi/l/email-protection#73001b1a1c00121a001209121d121e1a33141e121a1f5d101c1e">or email <span class="__cf_email__" data-cfemail="8dfee5e4e2feece4feecf7ece3ece0e4cdeae0ece4e1a3eee2e0">[email&#160;protected]</span></a>
+    <div class="cta-actions">
+      <a href="https://script.google.com/macros/s/AKfycbxX2TEinMNtzz2J-Qnrlviqz8RrxqENT7cb3x4jwm7bWQ0VybeNemlNIjstDLeOUA/exec" target="_blank" rel="noopener" class="cta-primary">Apply as a reviewer →</a>
+      <a href="mailto:shiosaisazanami@gmail.com?subject=%5BStellar%5D%20South%20African%20language%20review" class="cta-secondary">or email shiosaisazanami@gmail.com</a>
+    </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <span>Stellar is a <a href="/">Shiosailearn</a> project. MIT License · 2026.</span>
+  <div>
+    <span>Stellar is a <a href="/">Shiosailearn</a> project. MIT License · 2026.</span>
+    <div class="footer-langs" aria-label="Language">
+      <a href="/index.html">JA</a> ·
+      <a href="/en/index.html">EN</a> ·
+      <a href="/fr/index.html">FR</a> ·
+      <a href="/af/index.html">AF</a> ·
+      <a href="/za.html" class="active" aria-current="page">ZA</a>
+    </div>
+  </div>
   <span>
-    <a href="https://github.com/toutoutoubun/stellar" target="_blank">GitHub — Stellar</a> ·
-    <a href="https://github.com/shiosailearn" target="_blank">GitHub — Shiosailearn</a> ·
-    <a href="/cdn-cgi/l/email-protection#85f6edeceaf6e4ecf6e4ffe4ebe4e8ecc5e2e8e4ece9abe6eae8">Contact</a>
+    <a href="https://github.com/toutoutoubun/stellar" target="_blank" rel="noopener">GitHub — Stellar</a> ·
+    <a href="https://github.com/shiosailearn" target="_blank" rel="noopener">GitHub — Shiosailearn</a> ·
+    <a href="mailto:shiosaisazanami@gmail.com">Contact</a>
   </span>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
