@@ -155,6 +155,82 @@
     }
     .nlp-block p { font-size: 0.97rem; }
 
+    /* USE CASES SECTION */
+    .usecases-intro {
+      margin-bottom: 2rem;
+      color: #4a6478;
+    }
+    .usecase-card {
+      border: 1px solid var(--navy);
+      padding: 1.6rem;
+      margin-bottom: 1rem;
+      background: var(--cream);
+    }
+    .usecase-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--navy);
+    }
+    .usecase-card .role {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mizu);
+      margin-bottom: 0.5rem;
+    }
+    .usecase-card p {
+      font-size: 0.93rem;
+      color: #4a6478;
+      margin-bottom: 0.6rem;
+    }
+    .usecase-card .features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.8rem;
+    }
+    .usecase-card .feature-tag {
+      font-size: 0.72rem;
+      padding: 0.2rem 0.6rem;
+      background: var(--navy);
+      color: var(--cream);
+      letter-spacing: 0.04em;
+    }
+
+    /* WORKFLOW STEPS */
+    .workflow {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      border-left: 3px solid var(--olive);
+      background: rgba(107, 127, 74, 0.05);
+    }
+    .workflow h3 {
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--olive);
+      margin-bottom: 1rem;
+    }
+    .workflow ol {
+      margin-left: 1.2rem;
+      font-size: 0.93rem;
+      color: #4a6478;
+    }
+    .workflow ol li {
+      margin-bottom: 0.5rem;
+    }
+    .workflow ol li strong {
+      color: var(--navy);
+    }
+    .workflow code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      background: var(--cream);
+      padding: 0.1rem 0.35rem;
+      border: 1px solid var(--navy);
+    }
+
     /* CONTRIBUTE */
     .lang-grid {
       display: flex;
@@ -302,10 +378,89 @@
     <p style="margin-top:0.8rem;">Localization here isn't cosmetic. It's infrastructure.</p>
   </div>
 
-  <div class="dl-row">
-    <a href="https://github.com/toutoutoubun/stellar/releases" class="dl-btn" target="_blank">Download for macOS</a>
-    <a href="https://github.com/toutoutoubun/stellar/releases" class="dl-btn" target="_blank">Download for Windows</a>
-    <a href="https://github.com/toutoutoubun/stellar/releases" class="dl-btn" target="_blank">Download for Linux</a>
+</section>
+
+<!-- USE CASES -->
+<section>
+  <div class="section-label">What you can do with Stellar</div>
+  <h2>Concretely, for a South African humanities researcher.</h2>
+  <p class="usecases-intro">Stellar is a desktop research workbench. Everything below runs on your machine, without internet, and without an account. Below are some of the ways the tool fits into research workflows common in South African humanities and social science departments.</p>
+
+  <div class="usecase-card">
+    <div class="role">Postgraduate · Thesis writing</div>
+    <h3>From a pile of PDFs to a finished chapter.</h3>
+    <p>Import the papers you have downloaded — by PDF, DOI, URL, or manual entry. Highlight key passages in four colours (importance, methodology, your argument, questions). Turn highlights into notes. Connect notes with [[WikiLinks]]. Switch to Draft Mode to write your chapter with inline citations in APA, MLA, or Chicago.</p>
+    <div class="features">
+      <span class="feature-tag">PDF Reader</span>
+      <span class="feature-tag">Notes + WikiLinks</span>
+      <span class="feature-tag">Draft Mode</span>
+      <span class="feature-tag">Citation styles</span>
+    </div>
+  </div>
+
+  <div class="usecase-card">
+    <div class="role">Historian · Archival research</div>
+    <h3>Tracking primary sources alongside secondary literature.</h3>
+    <p>Add archival documents — photographed letters, oral history transcripts, government records — the same way you add published papers. Use the Source Criticism tab to evaluate author, date, authenticity, bias, and reliability. Use the Timeline tab to organise events chronologically. Use the Actor Map to visualise relationships between people, institutions, and organisations.</p>
+    <div class="features">
+      <span class="feature-tag">Source Criticism</span>
+      <span class="feature-tag">Timeline</span>
+      <span class="feature-tag">Actor Map</span>
+      <span class="feature-tag">Process Tracing</span>
+    </div>
+  </div>
+
+  <div class="usecase-card">
+    <div class="role">Sociologist · Qualitative coding</div>
+    <h3>Coding interview transcripts and policy documents.</h3>
+    <p>Build a hierarchical codebook. Apply codes to text passages across multiple documents. Use the Coding Matrix to see code-by-document distributions. Run ICR (Cohen's Kappa) when you work with co-coders. Use Framing Analysis for media or policy corpora. Generate an analysis report at the end — no separate $1,000-per-year commercial tool needed.</p>
+    <div class="features">
+      <span class="feature-tag">Codebook</span>
+      <span class="feature-tag">Coding Matrix</span>
+      <span class="feature-tag">ICR</span>
+      <span class="feature-tag">Framing Analysis</span>
+    </div>
+  </div>
+
+  <div class="usecase-card">
+    <div class="role">Political scientist · Comparative work</div>
+    <h3>Comparing cases across countries, parties, or periods.</h3>
+    <p>Use Comparative Design (MSSD / MDSD) to lay out cases against variables. Use Process Tracing to test causal hypotheses against evidence. Build a citation network across your literature to find clusters and gaps. Import CSV data into Data Studio for descriptive statistics, frequency tables, correlations, and regression. Export your results as PDF, DOCX, or a static HTML site.</p>
+    <div class="features">
+      <span class="feature-tag">Comparative Design</span>
+      <span class="feature-tag">Citation Network</span>
+      <span class="feature-tag">Data Studio</span>
+      <span class="feature-tag">Export</span>
+    </div>
+  </div>
+
+  <div class="usecase-card">
+    <div class="role">Linguist · Multilingual sources</div>
+    <h3>Working with sources in more than one language.</h3>
+    <p>Stellar's full-text search (FTS5) works across mixed-language libraries — English alongside Afrikaans, and once localization progresses, isiZulu, isiXhosa, Setswana, Sesotho, and Sepedi. Tag sources by language. Run token frequency and TF-IDF analyses in Data Studio. The interface itself adapts: switch the app language at any time from Settings.</p>
+    <div class="features">
+      <span class="feature-tag">FTS5 search</span>
+      <span class="feature-tag">Multilingual UI</span>
+      <span class="feature-tag">Text analysis</span>
+    </div>
+  </div>
+
+  <div class="workflow">
+    <h3>A typical 30-minute first session</h3>
+    <ol>
+      <li>Open Stellar, choose your <strong>language</strong> and storage folder (default <code>~/Stellar</code> is fine).</li>
+      <li>Drag one PDF into the <strong>Library</strong>. Stellar reads the metadata automatically.</li>
+      <li>Open the PDF, highlight one passage in <strong>yellow</strong>, add a comment.</li>
+      <li>Create a <strong>note</strong> from that highlight. Write what you'd want to remember about it.</li>
+      <li>Type <code>[[</code> and link the note to another concept or paper.</li>
+      <li>Open the <strong>Knowledge Graph</strong> from the sidebar. You should see your first node and link.</li>
+      <li>That's the loop. The rest of Stellar — qualitative coding, citation network, Data Studio, export — builds on this same pattern.</li>
+    </ol>
+  </div>
+
+  <div class="dl-row" style="margin-top: 2rem;">
+    <a href="https://github.com/toutoutoubun/stellar/releases" class="dl-btn" target="_blank">Download Stellar</a>
+    <a href="https://github.com/toutoutoubun/stellar/blob/main/Stellar_User_Guide_EN.md" class="dl-btn" target="_blank">Read the full User Guide</a>
   </div>
 </section>
 
